@@ -19,26 +19,7 @@
         <children xmi:type="umlnotation:UMLShapeCompartment" xmi:id="_17WSECkwEeia7YOXFt1EGg" visible="false" type="StructureCompartment"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_17MhEikwEeia7YOXFt1EGg" x="4736" y="899" width="9868" height="6746"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_KougECkxEeia7YOXFt1EGg" type="Note" fontName="Segoe UI" fontHeight="8" description="&lt;p>¿Porque  idAministrador?&lt;/p>" fillColor="13956346" transparency="0" lineColor="12632258" lineWidth="1">
-        <children xmi:type="notation:BasicDecorationNode" xmi:id="_KougFCkxEeia7YOXFt1EGg" type="DiagramName">
-          <element xsi:nil="true"/>
-        </children>
-        <children xmi:type="notation:BasicDecorationNode" xmi:id="_KougFSkxEeia7YOXFt1EGg" type="Description">
-          <element xsi:nil="true"/>
-        </children>
-        <styles xmi:type="notation:TextStyle" xmi:id="_KougESkxEeia7YOXFt1EGg"/>
-        <styles xmi:type="notation:LineTypeStyle" xmi:id="_KougEikxEeia7YOXFt1EGg"/>
-        <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KougEykxEeia7YOXFt1EGg" x="16104" y="3828"/>
-      </children>
       <element xsi:nil="true"/>
-      <edges xmi:type="notation:Connector" xmi:id="_OOyn0CkxEeia7YOXFt1EGg" type="NoteAttachment" source="_KougECkxEeia7YOXFt1EGg" target="_17MhESkwEeia7YOXFt1EGg" lineColor="0" lineWidth="1">
-        <styles xmi:type="notation:ArrowStyle" xmi:id="_OOyn0SkxEeia7YOXFt1EGg"/>
-        <styles xmi:type="notation:LineTypeStyle" xmi:id="_OOyn0ikxEeia7YOXFt1EGg"/>
-        <element xsi:nil="true"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OOyn0ykxEeia7YOXFt1EGg" points="[-1173, 60, 6474, -331]$[-2752, 140, 4895, -251]"/>
-        <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OO7xwCkxEeia7YOXFt1EGg" id="(0.022645393721049924,0.6306549628629304)"/>
-      </edges>
     </contents>
   </eAnnotations>
   <packageImport xmi:id="_fqq6ptBiEeeTQrFq4jFQ4w">
@@ -366,10 +347,23 @@
     </edge>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_17MhECkwEeia7YOXFt1EGg" name="Trailers">
-    <ownedAttribute xmi:id="_GfuN4CkyEeia7YOXFt1EGg" name="idTrailer" visibility="private"/>
-    <ownedAttribute xmi:id="_l5iJYCkyEeia7YOXFt1EGg" name="titulo" visibility="private"/>
-    <ownedAttribute xmi:id="_nlulcCkyEeia7YOXFt1EGg" name="descripcion" visibility="private"/>
-    <ownedAttribute xmi:id="_ozQvkCkyEeia7YOXFt1EGg" name="duracion" visibility="private"/>
+    <ownedAttribute xmi:id="_GfuN4CkyEeia7YOXFt1EGg" name="idTrailer" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_Vt12gD8uEeiu7p7HcajITg" name="idPelicula" visibility="private">
+      <type xmi:type="uml:Class" href="Peliculas.emx#_aRd7EBMuEei3V9qetQ2l5A?Peliculas/Peliculas?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_l5iJYCkyEeia7YOXFt1EGg" name="titulo" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_nlulcCkyEeia7YOXFt1EGg" name="descripcion" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_Y-f5gD8vEeiu7p7HcajITg" name="peliculas" visibility="private" association="_Y-c2MD8vEeiu7p7HcajITg">
+      <type xmi:type="uml:Class" href="Peliculas.emx#_aRd7EBMuEei3V9qetQ2l5A?Peliculas/Peliculas?"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Y-iVwD8vEeiu7p7HcajITg" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y-husD8vEeiu7p7HcajITg" value="1"/>
+    </ownedAttribute>
     <ownedOperation xmi:id="_3fDggCkwEeia7YOXFt1EGg" name="crearTrailer">
       <ownedParameter xmi:id="_GU0a4CkxEeia7YOXFt1EGg" name="idAministrador">
         <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
@@ -414,6 +408,10 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
       </ownedParameter>
     </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Y-c2MD8vEeiu7p7HcajITg" name="tiene">
+    <memberEnd href="#_Y-f5gD8vEeiu7p7HcajITg?Trailers/Trailers/peliculas?"/>
+    <memberEnd href="Peliculas.emx#_Y-kyAD8vEeiu7p7HcajITg?Peliculas/Peliculas/trailers?"/>
   </packagedElement>
   <profileApplication xmi:id="_fqq6p9BiEeeTQrFq4jFQ4w">
     <eAnnotations xmi:id="_fqq6qNBiEeeTQrFq4jFQ4w" source="http://www.eclipse.org/uml2/2.0.0/UML">

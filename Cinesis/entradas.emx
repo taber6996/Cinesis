@@ -1734,12 +1734,27 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_y7Fw4COwEei0_rTXVtmU-w" name="Entrada">
-    <ownedAttribute xmi:id="_ZRdO0COxEei0_rTXVtmU-w" name="numeroAsiento" visibility="private"/>
-    <ownedAttribute xmi:id="_6bubUCOxEei0_rTXVtmU-w" name="sala" visibility="private"/>
-    <ownedAttribute xmi:id="_7WmvMCOxEei0_rTXVtmU-w" name="pelicula" visibility="private"/>
-    <ownedAttribute xmi:id="_9W9dYCOxEei0_rTXVtmU-w" name="codEntrada" visibility="private"/>
-    <ownedAttribute xmi:id="__1J-ICOxEei0_rTXVtmU-w" name="horario" visibility="private"/>
-    <ownedAttribute xmi:id="_MLr18COyEei0_rTXVtmU-w" name="codUsuario" visibility="private"/>
+    <ownedAttribute xmi:id="_9W9dYCOxEei0_rTXVtmU-w" name="idEntrada" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_6bubUCOxEei0_rTXVtmU-w" name="idSala" visibility="private">
+      <type xmi:type="uml:Class" href="Sala.emx#_Ky8lUCksEeia7YOXFt1EGg?Sala/Sala?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_7WmvMCOxEei0_rTXVtmU-w" name="idPelicula" visibility="private">
+      <type xmi:type="uml:Class" href="Peliculas.emx#_aRd7EBMuEei3V9qetQ2l5A?Peliculas/Peliculas?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MLr18COyEei0_rTXVtmU-w" name="idUsuario" visibility="private">
+      <type xmi:type="uml:Class" href="System.emx#_QGXfYCkvEeia7YOXFt1EGg?Usuario/Usuario?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_ZRdO0COxEei0_rTXVtmU-w" name="numeroAsiento" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="__1J-ICOxEei0_rTXVtmU-w" name="horario" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_ytyawEpwEdyPUYGz1ZB-lg?Data/simple/Date?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_LXdjMEStEeiaGNE693AvRA" name="precio" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
     <ownedOperation xmi:id="_9MV-QCOwEei0_rTXVtmU-w" name="compraEntrada">
       <ownedParameter xmi:id="_WxsyYCOyEei0_rTXVtmU-w" name="numAsientos">
         <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>

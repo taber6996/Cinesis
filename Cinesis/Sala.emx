@@ -340,27 +340,20 @@
         <children xmi:type="umlnotation:UMLShapeCompartment" xmi:id="_K0I4KiksEeia7YOXFt1EGg" visible="false" type="StructureCompartment"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K0I4ISksEeia7YOXFt1EGg" x="4841" y="926" width="7537" height="6981"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_FduiMCkuEeia7YOXFt1EGg" type="Note" fontName="Segoe UI" fontHeight="8" description="&lt;p>no se si incluir idAdministrador&lt;/p>" fillColor="13956346" transparency="0" lineColor="12632258" lineWidth="1">
-        <children xmi:type="notation:BasicDecorationNode" xmi:id="_FduiNCkuEeia7YOXFt1EGg" type="DiagramName">
-          <element xsi:nil="true"/>
+      <children xmi:type="umlnotation:UMLShape" xmi:id="_pBhfsESqEeiaGNE693AvRA" element="_o_4g8ESqEeiaGNE693AvRA" fontName="Segoe UI" fontHeight="8" transparency="0" lineColor="14263149" lineWidth="1" showStereotype="Label">
+        <children xmi:type="notation:DecorationNode" xmi:id="_pB7IUESqEeiaGNE693AvRA" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_pB7IUUSqEeiaGNE693AvRA" width="1320" height="1320"/>
         </children>
-        <children xmi:type="notation:BasicDecorationNode" xmi:id="_FduiNSkuEeia7YOXFt1EGg" type="Description">
-          <element xsi:nil="true"/>
-        </children>
-        <styles xmi:type="notation:TextStyle" xmi:id="_FduiMSkuEeia7YOXFt1EGg"/>
-        <styles xmi:type="notation:LineTypeStyle" xmi:id="_FduiMikuEeia7YOXFt1EGg"/>
-        <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FduiMykuEeia7YOXFt1EGg" x="14520" y="2904"/>
+        <children xmi:type="notation:BasicDecorationNode" xmi:id="_pB7vYESqEeiaGNE693AvRA" type="Stereotype"/>
+        <children xmi:type="notation:BasicDecorationNode" xmi:id="_pB7vYUSqEeiaGNE693AvRA" type="Kind"/>
+        <children xmi:type="notation:BasicDecorationNode" xmi:id="_pB7vYkSqEeiaGNE693AvRA" type="Name"/>
+        <children xmi:type="notation:BasicDecorationNode" xmi:id="_pB7vY0SqEeiaGNE693AvRA" type="Parent"/>
+        <children xmi:type="notation:SemanticListCompartment" xmi:id="_pB8WcESqEeiaGNE693AvRA" type="EnumerationCompartment"/>
+        <children xmi:type="notation:SemanticListCompartment" xmi:id="_pB8WcUSqEeiaGNE693AvRA" visible="false" type="AttributeCompartment"/>
+        <children xmi:type="notation:SemanticListCompartment" xmi:id="_pB8WckSqEeiaGNE693AvRA" visible="false" type="OperationCompartment"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pBhfsUSqEeiaGNE693AvRA" x="13332" y="1716" width="4176" height="5021"/>
       </children>
       <element xsi:nil="true"/>
-      <edges xmi:type="notation:Connector" xmi:id="_JAdCECkuEeia7YOXFt1EGg" type="NoteAttachment" source="_FduiMCkuEeia7YOXFt1EGg" target="_K0I4ICksEeia7YOXFt1EGg" lineColor="0" lineWidth="1">
-        <styles xmi:type="notation:ArrowStyle" xmi:id="_JAdCESkuEeia7YOXFt1EGg"/>
-        <styles xmi:type="notation:LineTypeStyle" xmi:id="_JAdCEikuEeia7YOXFt1EGg"/>
-        <element xsi:nil="true"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JAdCEykuEeia7YOXFt1EGg" points="[-32, 2, 5950, -526]$[-2253, 198, 3729, -330]"/>
-        <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JAdCFCkuEeia7YOXFt1EGg" id="(0.006915928247244435,0.6293045239702904)"/>
-        <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LCfLQCkuEeia7YOXFt1EGg" id="(0.9830171155632215,0.3979372582724538)"/>
-      </edges>
     </contents>
   </eAnnotations>
   <packageImport xmi:id="_dRKF1crhEeeIdKFtUEBhDg">
@@ -765,16 +758,29 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IatesPfAEeecraY92CD1SQ"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_Ky8lUCksEeia7YOXFt1EGg" name="Sala">
-    <ownedAttribute xmi:id="_lfMwECktEeia7YOXFt1EGg" name="idSala" visibility="private"/>
-    <ownedAttribute xmi:id="_o7reACktEeia7YOXFt1EGg" name="numFilas" visibility="private"/>
-    <ownedAttribute xmi:id="_tLV8YCktEeia7YOXFt1EGg" name="numColumnas" visibility="private"/>
-    <ownedAttribute xmi:id="_uvw8gCktEeia7YOXFt1EGg" name="numAsientosVIP" visibility="private"/>
-    <ownedAttribute xmi:id="_1fzF4CktEeia7YOXFt1EGg" name="numAsientosMinusvalidos" visibility="private"/>
-    <ownedAttribute xmi:id="_5MgBICktEeia7YOXFt1EGg" name="CalidadSonido" visibility="private"/>
-    <ownedAttribute xmi:id="_8iu9ICktEeia7YOXFt1EGg" name="3D" visibility="private"/>
-    <ownedAttribute xmi:id="_-3gcICktEeia7YOXFt1EGg" name="numAsientosOcupados" visibility="private"/>
-    <ownedAttribute xmi:id="_B4drsCkuEeia7YOXFt1EGg" name="numAsientosLibres" visibility="private"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Ky8lUCksEeia7YOXFt1EGg" name="Sala" clientDependency="_IP1OsD8tEeiu7p7HcajITg">
+    <ownedAttribute xmi:id="_lfMwECktEeia7YOXFt1EGg" name="idSala" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_A_H50D8wEeiu7p7HcajITg" name="idPelicula" visibility="private">
+      <type xmi:type="uml:Class" href="Peliculas.emx#_aRd7EBMuEei3V9qetQ2l5A?Peliculas/Peliculas?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_o7reACktEeia7YOXFt1EGg" name="numFilas" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_tLV8YCktEeia7YOXFt1EGg" name="numColumnas" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_uvw8gCktEeia7YOXFt1EGg" name="numAsientosVIP" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_1fzF4CktEeia7YOXFt1EGg" name="numAsientosMinusvalidos" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_5MgBICktEeia7YOXFt1EGg" name="calidadSonido" visibility="private" type="_o_4g8ESqEeiaGNE693AvRA"/>
+    <ownedAttribute xmi:id="_8iu9ICktEeia7YOXFt1EGg" name="3D" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_ypnscEpwEdyPUYGz1ZB-lg?Data/simple/Boolean?"/>
+    </ownedAttribute>
     <ownedOperation xmi:id="_QsiO4CksEeia7YOXFt1EGg" name="crearSala">
       <ownedParameter xmi:id="_VLXxsCksEeia7YOXFt1EGg" name="IdAdministrador">
         <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
@@ -846,6 +852,20 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_yzAR8EpwEdyPUYGz1ZB-lg?Data/simple/Integer?"/>
       </ownedParameter>
     </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_IP1OsD8tEeiu7p7HcajITg" name="pppç" client="_Ky8lUCksEeia7YOXFt1EGg">
+    <supplier xmi:type="uml:Class" href="entradas.emx#_y7Fw4COwEei0_rTXVtmU-w?entradas/Entrada?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_o_4g8ESqEeiaGNE693AvRA" name="CalidadSonidoEnum">
+    <ownedAttribute xmi:type="uml:ExtensionEnd" xmi:id="_tUqv4ESqEeiaGNE693AvRA" name="estereo" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:ExtensionEnd" xmi:id="_wPoFIESqEeiaGNE693AvRA" name="5.1" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:ExtensionEnd" xmi:id="_x_A_IESqEeiaGNE693AvRA" name="dolby" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://udplibraries/Data.emx#_y0ffsEpwEdyPUYGz1ZB-lg?Data/simple/String?"/>
+    </ownedAttribute>
   </packagedElement>
   <profileApplication xmi:id="_dRKF1srhEeeIdKFtUEBhDg">
     <eAnnotations xmi:id="_dRKF18rhEeeIdKFtUEBhDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
