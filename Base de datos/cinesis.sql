@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-04-2018 a las 17:51:40
+-- Tiempo de generación: 29-04-2018 a las 12:06:58
 -- Versión del servidor: 5.6.35
 -- Versión de PHP: 7.1.6
 
@@ -192,7 +192,7 @@ ALTER TABLE `entrada_pelicula`
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
