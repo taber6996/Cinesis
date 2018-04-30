@@ -1,10 +1,14 @@
 package com.master.cinesis.model;
 
+import java.sql.Date;
+
 /**
  * 
  */
 
 import java.util.Set;
+
+import org.hibernate.mapping.Array;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -12,19 +16,19 @@ import java.util.Set;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class Peliculas {
+public class Pelicula {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private String nom_Pelicula;
+	private String nombre;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Integer idPelicula;
+	private Integer pelicula_id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -108,7 +112,7 @@ public class Peliculas {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Set<Trailers> trailers;
+	private Set<Trailer> trailers;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->

@@ -1,5 +1,7 @@
 package com.master.cinesis.model;
 
+import java.sql.Date;
+
 /**
  * 
  */
@@ -16,25 +18,20 @@ public class Entrada {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object numeroAsiento;
+	private Integer numeroAsiento;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object sala_id;
+	private Integer sala_id;
+
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object pelicula;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Object codEntrada;
+	private Object id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -46,25 +43,7 @@ public class Entrada {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object codUsuario;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Sala sala;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Peliculas peliculas;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private System system;
+	private Object user_id;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -77,7 +56,7 @@ public class Entrada {
 	 * @param sala
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void compraEntrada(Integer numAsientos, Peliculas pelicula,
+	public void compraEntrada(Integer numAsientos, Pelicula pelicula,
 			Date Horario, Integer numEntradas, String pago, Sala sala) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -111,7 +90,7 @@ public class Entrada {
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public void modificarEntrada(Entrada CodEntrada, Integer numAsientos,
-			Peliculas pelicula, Date Horario, Integer numEntradas, String pago,
+			Pelicula pelicula, Date Horario, Integer numEntradas, String pago,
 			Object sala) {
 		// begin-user-code
 		// TODO Auto-generated method stub

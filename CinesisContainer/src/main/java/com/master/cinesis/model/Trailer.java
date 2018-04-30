@@ -1,9 +1,8 @@
 package com.master.cinesis.model;
+
 /**
  * 
  */
-
-import java.util.Hashtable.Enumerator;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -11,70 +10,55 @@ import java.util.Hashtable.Enumerator;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class System {
+public class Trailer {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object idUser;
+	private Object idTrailer;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private String rol;
+	private Object pelicula_id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object password;
+	private Object titulo;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object nombre;
+	private Object descripcion;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object email;
+	private Object duracion;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object telf;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Object posicion;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Entrada entrada;
+	private Pelicula peliculas;
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param userName
-	 * @param password
-	 * @param nombre
-	 * @param apellidos
-	 * @param email
-	 * @param telf
-	 * @param Posicion
+	 * @param idAministrador
+	 * @param duracion
+	 * @param titulo
+	 * @param descripcion
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void crearUsuario(String userName, String password, String nombre,
-			String apellidos, String email, Integer telf, Enumerator Posicion) {
+	public void crearTrailer(String idAministrador, Integer duracion,
+			String titulo, String descripcion) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -84,10 +68,11 @@ public class System {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idUser
+	 * @param idAdministrador
+	 * @param idTrailer
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void eliminarUsuario(Object idUser) {
+	public void eliminarTrailer(String idAdministrador, String idTrailer) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -97,19 +82,10 @@ public class System {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idUser
-	 * @param userName
-	 * @param password
-	 * @param nombre
-	 * @param apellidos
-	 * @param email
-	 * @param telf
-	 * @param Posicion
+	 * @param idTrailer
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modificarUsuario(Object idUser, String userName,
-			String password, String nombre, String apellidos, String email,
-			Integer telf, Enumerator Posicion) {
+	public void mostrarTrailer(String idTrailer) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -119,10 +95,15 @@ public class System {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idUser
+	 * @param idAministrador
+	 * @param duracion
+	 * @param titulo
+	 * @param descripcion
+	 * @param idTrailer
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostarUsuario(Object idUser) {
+	public void modificarTrailer(String idAministrador, Integer duracion,
+			String titulo, String descripcion, String idTrailer) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
