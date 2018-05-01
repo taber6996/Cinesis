@@ -3,6 +3,7 @@ package com.master.cinesis.dao;
 import java.util.List;
 
 import com.master.cinesis.model.Pelicula;
+import com.master.cinesis.model.Trailer;
 
 public class PeliculaDao extends AbstractSession{
 
@@ -36,4 +37,5 @@ public class PeliculaDao extends AbstractSession{
 				"from Pelicula where nombre = :pelicula_nombre")
 				.setParameter("pelicula_nombre", pelicula_nombre).uniqueResult();
 	}
+
 }

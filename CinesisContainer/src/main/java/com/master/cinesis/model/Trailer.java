@@ -1,5 +1,7 @@
 package com.master.cinesis.model;
 
+import javax.persistence.*;
+
 /**
  * 
  */
@@ -10,6 +12,8 @@ package com.master.cinesis.model;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
+@Entity
+@Table(name = "trailers")
 public class Trailer {
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -41,12 +45,9 @@ public class Trailer {
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Object duracion;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Pelicula peliculas;
+	
+	private Pelicula pelicula;
+
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -109,4 +110,17 @@ public class Trailer {
 
 		// end-user-code
 	}
+	
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @param idPelicula
+	 * @param valoracion
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	@ManyToOne
+    @JoinColumn(name = "pelicula_id")
+    public Pelicula getTrailer() {
+        return pelicula;
+    }
 }

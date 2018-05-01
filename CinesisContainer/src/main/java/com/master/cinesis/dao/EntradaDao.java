@@ -3,6 +3,7 @@ package com.master.cinesis.dao;
 import java.util.List;
 
 import com.master.cinesis.model.Entrada;
+import com.master.cinesis.model.Trailer;
 
 public class EntradaDao extends AbstractSession {
 	
@@ -35,5 +36,12 @@ public class EntradaDao extends AbstractSession {
 		return  (Entrada) getSession().createQuery(
 				"from Entrada where nombre = :entrada_nombre")
 				.setParameter("entrada_nombre", entrada_nombre).uniqueResult();
+	}
+	
+	public List<Entrada> findAllEntradaBySalaId (Integer sala_id){
+		
+		return (List<Entrada>) getSession().createQuery(
+				"from Entrada t join t.sala where t.sala_id = :sala_id")
+				.setParameter("sala_id", sala_id).list();
 	}
 }

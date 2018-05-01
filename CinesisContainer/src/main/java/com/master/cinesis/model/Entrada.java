@@ -1,6 +1,9 @@
 package com.master.cinesis.model;
 
 import java.sql.Date;
+import java.util.Set;
+
+import javax.persistence.*;
 
 /**
  * 
@@ -12,6 +15,8 @@ import java.sql.Date;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
+@Entity
+@Table(name = "entrada")
 public class Entrada {
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -44,6 +49,9 @@ public class Entrada {
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Object user_id;
+	
+	private Set<Sala> sala;
+	private Set<SystemUser> systemUser;
 
 	/** 
 	 * <!-- begin-UML-doc -->
