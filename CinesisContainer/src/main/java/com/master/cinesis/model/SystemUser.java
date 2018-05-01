@@ -3,7 +3,12 @@ package com.master.cinesis.model;
  * 
  */
 
+import java.util.Set;
+
+import javax.persistence.*;
+
 import antlr.collections.Enumerator;
+
 
 /** 
  * <!-- begin-UML-doc -->
@@ -11,6 +16,8 @@ import antlr.collections.Enumerator;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
+@Entity
+@Table(name = "users")
 public class SystemUser {
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -48,7 +55,8 @@ public class SystemUser {
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private String telefono;
-
+	
+	private Set<Entrada> entrada;
 
 	/** 
 	 * <!-- begin-UML-doc -->

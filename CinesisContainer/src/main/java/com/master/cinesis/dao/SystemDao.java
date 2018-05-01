@@ -2,6 +2,7 @@ package com.master.cinesis.dao;
 
 import java.util.List;
 
+import com.master.cinesis.model.Entrada;
 import com.master.cinesis.model.SystemUser;
 
 public class SystemDao extends AbstractSession {
@@ -35,5 +36,13 @@ public class SystemDao extends AbstractSession {
 		return  (SystemUser) getSession().createQuery(
 				"from SystemUser where nombre = :system_nombre")
 				.setParameter("system_nombre", system_nombre).uniqueResult();
+	}
+	
+	
+	public List<SystemUser> findAllUserByUserId (Integer user_id){
+		
+		return (List<SystemUser>) getSession().createQuery(
+				"from Entrada e join e.systemUser where t.user_id = :user_id")
+				.setParameter("user_id", user_id).list();
 	}
 }

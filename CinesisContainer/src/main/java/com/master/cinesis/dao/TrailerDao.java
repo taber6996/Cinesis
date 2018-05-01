@@ -36,4 +36,12 @@ public class TrailerDao extends AbstractSession {
 				"from Trailer where nombre = :trailer_nombre")
 				.setParameter("trailer_nombre", trailer_nombre).uniqueResult();
 	}
+	
+	
+	public List<Trailer> findAllTrailerByPeliculaId (Integer pelicula_id){
+		
+		return (List<Trailer>) getSession().createQuery(
+				"from Trailer t join t.pelicula where t.pelicula_id = :pelicula_id")
+				.setParameter("pelicula_id", pelicula_id).list();
+	}
 }
