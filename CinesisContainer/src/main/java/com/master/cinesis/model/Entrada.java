@@ -51,6 +51,9 @@ public class Entrada {
 	private Object user_id;
 	
 	private Set<Sala> sala;
+	
+	private Set<Pelicula> pelicula;
+	
 	private Set<SystemUser> systemUser;
 
 	/** 
@@ -130,4 +133,9 @@ public class Entrada {
 
 		// end-user-code
 	}
+	
+	@OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL)
+    public Set<Pelicula> getPelicula() {
+        return pelicula;
+    }
 }
