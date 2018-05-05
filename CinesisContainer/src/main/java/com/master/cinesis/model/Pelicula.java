@@ -1,15 +1,8 @@
 package com.master.cinesis.model;
 
 import javax.persistence.*;
-
 import java.sql.Date;
-
-/**
- * 
- */
-
-import java.util.Set;
-
+import org.hibernate.mapping.Set;
 import org.hibernate.mapping.Array;
 
 /** 
@@ -21,60 +14,72 @@ import org.hibernate.mapping.Array;
 @Entity
 @Table(name = "peliculas")
 public class Pelicula {
+	
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	@Id
+    @GeneratedValue
+	private Integer id;
+	
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private String nombre;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Integer pelicula_id;
+	private String slug;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Integer duracion;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private String imagen;
+	private String imagen_principal;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Array actores;
+	private String imagen_secundaria;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private String sinopsis;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Object trailer;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Integer calificacion;
+
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Array categoria;
+	private String categoria;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -92,61 +97,57 @@ public class Pelicula {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Array directores;
+	private String director;
+
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Array guionistas;
+	private Date created_at;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Array productores;
+	private Date updated_at;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Date fecha;
+	private Set trailers;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Set<Trailer> trailers;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Set<Entrada> entradas;
+	private Set entradas;
+	
+	private Pelicula pelicula;
 
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param nomPelicula
-	 * @param duration
-	 * @param imagen
-	 * @param actores
+	 * @param nombre
+	 * @param slug
+	 * @param duracion
+	 * @param imagen_principal
+	 * @param imagen_secundario
 	 * @param sinopsis
-	 * @param trailer
 	 * @param calificacion
+	 * @param categoria
 	 * @param pais
 	 * @param estreno
-	 * @param directores
-	 * @param guionistas
-	 * @param productores
-	 * @param fecha
+	 * @param director
+	 * @param updated_at
+	 * @param created_at
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void crearPelicula(String nomPelicula, Integer duration,
-			String imagen, Array actores, String sinopsis, Object trailer,
-			Integer calificacion, String pais, Date estreno, Array directores,
-			Array guionistas, Array productores, Date fecha) {
+	public void crearPelicula(String nombre, String slug, Integer duracion, String imagen_principal, String imagen_secundario, String sinopsis,
+			Integer calificacion, String categoria, String pais, Date estreno, String director, Date updated_at, Date created_at) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -156,26 +157,24 @@ public class Pelicula {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param nomPelicula
-	 * @param duration
-	 * @param imagen
-	 * @param actores
+	 * @param id
+	 * @param nombre
+	 * @param slug
+	 * @param duracion
+	 * @param imagen_principal
+	 * @param imagen_secundario
 	 * @param sinopsis
-	 * @param trailer
 	 * @param calificacion
+	 * @param categoria
 	 * @param pais
 	 * @param estreno
-	 * @param directores
-	 * @param guionistas
-	 * @param productores
-	 * @param fecha
-	 * @param idPelicula
+	 * @param director
+	 * @param updated_at
+	 * @param created_at
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void editar(String nomPelicula, Integer duration, String imagen,
-			Array actores, String sinopsis, Object trailer,
-			Integer calificacion, String pais, Date estreno, Array directores,
-			Array guionistas, Array productores, Date fecha, Integer idPelicula) {
+	public void editarelicula(Integer id, String nombre, String slug, Integer duracion, String imagen_principal, String imagen_secundario, String sinopsis,
+			Integer calificacion, String categoria, String pais, Date estreno, String director, Date updated_at, Date created_at){
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -188,7 +187,7 @@ public class Pelicula {
 	 * @param idPelicula
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void borrarPelicula(Integer idPelicula) {
+	public void borrarPelicula(Integer id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -213,7 +212,7 @@ public class Pelicula {
 	 * @param idPelicula
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void detallesPublicoPeliculas(Integer idPelicula) {
+	public void detallesPublicoPeliculas(Integer id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -226,7 +225,7 @@ public class Pelicula {
 	 * @param idPelicula
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void detallesPrivadoPeliculas(Integer idPelicula) {
+	public void detallesPrivadoPeliculas(Integer id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -239,7 +238,7 @@ public class Pelicula {
 	 * @param idPelicula
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void buscadorPelicula(Integer idPelicula) {
+	public void buscadorPelicula(Integer id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -253,7 +252,7 @@ public class Pelicula {
 	 * @param valoracion
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void valorarPelicula(Integer idPelicula, Integer valoracion) {
+	public void valorarPelicula(Integer id, Integer calificacion) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -262,12 +261,12 @@ public class Pelicula {
 	
 	
 	@OneToMany(mappedBy = "trailers", cascade = CascadeType.ALL)
-    public Set<Trailer> getTrailers() {
+    public Set getTrailers() {
         return trailers;
     }
 	
 	@OneToMany(mappedBy = "entradas", cascade = CascadeType.ALL)
-    public Set<Entrada> getEntradas() {
+    public Set getEntradas() {
         return entradas;
     }
 }

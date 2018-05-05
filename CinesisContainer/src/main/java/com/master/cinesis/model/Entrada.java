@@ -1,13 +1,9 @@
 package com.master.cinesis.model;
 
 import java.sql.Date;
-import java.util.Set;
-
+import org.hibernate.mapping.Set;
+import com.master.cinesis.model.Sala;
 import javax.persistence.*;
-
-/**
- * 
- */
 
 /** 
  * <!-- begin-UML-doc -->
@@ -18,57 +14,91 @@ import javax.persistence.*;
 @Entity
 @Table(name = "entrada")
 public class Entrada {
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Integer numeroAsiento;
+	@Id
+    @GeneratedValue
+    private int id;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Integer sala_id;
+	
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	private Integer user_id;
+	
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	private Integer pelicula_id;
+	
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	private Integer precio;
+	
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	private String numeroAsiento;
+	
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object id;
+	private Date horario;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object horario;
+	private Date created_at;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object user_id;
+	private Date updated_at;
 	
-	private Set<Sala> sala;
+
+	private Set pelicula;
 	
-	private Set<Pelicula> pelicula;
-	
-	private Set<SystemUser> systemUser;
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param numAsientos
-	 * @param pelicula
-	 * @param Horario
-	 * @param numEntradas
-	 * @param pago
-	 * @param sala
+	 * @param sala_id
+	 * @param user_id
+	 * @param pelicula_id
+	 * @param numeriAsiento
+	 * @param horario
+	 * @param created_at
+	 * @param updated_at
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void compraEntrada(Integer numAsientos, Pelicula pelicula,
-			Date Horario, Integer numEntradas, String pago, Sala sala) {
+	public void crearEntrada(Integer sala_id, Integer user_id, Integer pelicula_id, Integer numeroAsientos,
+			Date Horario, Date created_at, Date updated_at) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -81,7 +111,28 @@ public class Entrada {
 	 * @param CodEntrada
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void eliminarEntrada(Entrada CodEntrada) {
+	public void eliminarEntrada(Integer id) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @param id
+	 * @param sala_id
+	 * @param user_id
+	 * @param pelicula_id
+	 * @param numeriAsiento
+	 * @param horario
+	 * @param created_at
+	 * @param updated_at
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void modificarEntrada(Integer id, Integer sala_id, Integer user_id, Integer pelicula_id, Integer numeroAsientos,
+			Date Horario, Date created_at, Date updated_at) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -92,30 +143,9 @@ public class Entrada {
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @param CodEntrada
-	 * @param numAsientos
-	 * @param pelicula
-	 * @param Horario
-	 * @param numEntradas
-	 * @param pago
-	 * @param sala
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modificarEntrada(Entrada CodEntrada, Integer numAsientos,
-			Pelicula pelicula, Date Horario, Integer numEntradas, String pago,
-			Object sala) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param CodEntrada
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void mostrarEntrada(Entrada CodEntrada) {
+	public void mostrarEntrada(Integer id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -135,7 +165,7 @@ public class Entrada {
 	}
 	
 	@OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL)
-    public Set<Pelicula> getPelicula() {
+    public Set getPelicula() {
         return pelicula;
     }
 }

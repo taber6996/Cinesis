@@ -1,10 +1,8 @@
 package com.master.cinesis.model;
 
+import java.sql.Date;
 import javax.persistence.*;
 
-/**
- * 
- */
 
 /** 
  * <!-- begin-UML-doc -->
@@ -20,31 +18,32 @@ public class Trailer {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object idTrailer;
+	@Id
+    @GeneratedValue
+	private Object id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object pelicula_id;
+	private Integer pelicula_id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object titulo;
+	private String titulo;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object descripcion;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Object duracion;
+	private String descripcion;
+	
+	private Date created_at;
+	
+	private Date updated_at;
+
 	
 	private Pelicula pelicula;
 
@@ -52,28 +51,14 @@ public class Trailer {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idAministrador
-	 * @param duracion
+	 * @param pelicula_id
 	 * @param titulo
 	 * @param descripcion
+	 * @param created_at
+	 * @param updated_at
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void crearTrailer(String idAministrador, Integer duracion,
-			String titulo, String descripcion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idAdministrador
-	 * @param idTrailer
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void eliminarTrailer(String idAdministrador, String idTrailer) {
+	public void crearTrailer(Integer pelicula_id, String titulo, String descripcion, Date created_at, Date updated_at) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -86,7 +71,7 @@ public class Trailer {
 	 * @param idTrailer
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostrarTrailer(String idTrailer) {
+	public void eliminarTrailer(Integer id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -96,15 +81,28 @@ public class Trailer {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idAministrador
-	 * @param duracion
+	 * @param idTrailer
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void mostrarTrailer(Integer id) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @param pelicula_id
+	 * @param id
 	 * @param titulo
 	 * @param descripcion
-	 * @param idTrailer
+	 * @param created_at
+	 * @param updated_at
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modificarTrailer(String idAministrador, Integer duracion,
-			String titulo, String descripcion, String idTrailer) {
+	public void modificarTrailer(Integer id, Integer pelicula_id, String titulo, String descripcion, Date created_at, Date updated_at) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
