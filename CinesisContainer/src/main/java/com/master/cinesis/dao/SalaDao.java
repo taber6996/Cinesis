@@ -1,7 +1,7 @@
 package com.master.cinesis.dao;
 
 import java.util.List;
-
+import com.master.cinesis.dao.AbstractSession;
 import com.master.cinesis.model.Sala;
 
 public class SalaDao extends AbstractSession{

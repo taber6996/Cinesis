@@ -1,13 +1,8 @@
 package com.master.cinesis.model;
-/**
- * 
- */
 
-import java.util.Set;
-
+import java.sql.Date;
 import javax.persistence.*;
-
-import antlr.collections.Enumerator;
+import org.hibernate.mapping.Set;
 
 
 /** 
@@ -24,31 +19,31 @@ public class SystemUser {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Integer user_id;
+	@Id
+    @GeneratedValue
+	private Integer id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Enumerator rol;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Object password;
+	
+	private String rol;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private String nombre;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private String email;
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -56,57 +51,69 @@ public class SystemUser {
 	 */
 	private String telefono;
 	
-	private Set<Entrada> entrada;
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	private String password;
+	
+	private Date created_at;
+	
+	private Date updated_at;
+	
+	private Set entrada;
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param userName
-	 * @param password
+	 * @param rol
 	 * @param nombre
 	 * @param apellidos
 	 * @param email
-	 * @param telf
-	 * @param Posicion
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void crearUsuario(String userName, String password, String nombre,
-			String apellidos, String email, Integer telf, Enumerator Posicion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idUser
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void eliminarUsuario(Object idUser) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idUser
-	 * @param userName
+	 * @param telefono
 	 * @param password
+	 * @param created_at
+	 * @param updated_at
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void crearUsuario(String rol, String nombre, String apellidos, String email, String telefono, 
+			String password, Date created_at, Date updated_at) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @param idUser
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void eliminarUsuario(Integer id) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @param id
+	 * @param rol
 	 * @param nombre
 	 * @param apellidos
 	 * @param email
-	 * @param telf
-	 * @param Posicion
+	 * @param telefono
+	 * @param password
+	 * @param created_at
+	 * @param updated_at
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modificarUsuario(Object idUser, String userName,
-			String password, String nombre, String apellidos, String email,
-			Integer telf, Enumerator Posicion) {
+	public void modificarUsuario(Integer id, String rol, String nombre, String apellidos, String email, String telefono, 
+			String password, Date created_at, Date updated_at) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -119,7 +126,7 @@ public class SystemUser {
 	 * @param idUser
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostarUsuario(Object idUser) {
+	public void mostarUsuario(Integer id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 

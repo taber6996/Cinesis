@@ -3,14 +3,14 @@ package com.master.cinesis.dao;
 import java.util.List;
 
 import com.master.cinesis.model.Entrada;
-import com.master.cinesis.model.Trailer;
 
-public class EntradaDao extends AbstractSession {
+public class EntradaDao extends AbstractSession{
 	
 	public void saveEntrada(Entrada entrada){
 		getSession().persist(entrada);
 	}
 	
+
 	public void deleteEntradaById(Integer entrada_id){
 		Entrada entrada = findById(entrada_id);
 		
