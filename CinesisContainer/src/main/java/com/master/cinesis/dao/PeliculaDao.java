@@ -11,7 +11,7 @@ public class PeliculaDao extends AbstractSession{
 		getSession().persist(pelicula);
 	}
 	
-	public void deleteCineById(Integer pelicula_id){
+	public void deletePeliculaById(Integer pelicula_id){
 		Pelicula pelicula = findById(pelicula_id);
 		
 		if (pelicula != null) {

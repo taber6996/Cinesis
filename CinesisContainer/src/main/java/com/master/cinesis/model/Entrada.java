@@ -1,10 +1,22 @@
 package com.master.cinesis.model;
 
+import java.sql.Array;
 import java.sql.Date;
+import java.util.ArrayList;
+
+
 import java.util.Set;
 
 import javax.persistence.*;
-import java.util.Date;
+
+import com.master.cinesis.dao.EntradaDao;
+//import java.util.Date;
+
+
+
+@Entity
+@Table(name = "Entrada")
+
 
 public class Entrada {
 
@@ -15,9 +27,9 @@ public class Entrada {
 	
 	private Sala idSala;
 
-	private Peliculas idPelicula;
+	private Pelicula idPelicula;
 
-	private Usuario idUsuario;
+	private SystemUser idUsuario;
 
 	private Integer numeroAsiento;
 
@@ -28,7 +40,7 @@ public class Entrada {
 	
 	
 	
-	public Entrada(Integer idEntrada, Sala idSala, Peliculas idPelicula, Usuario idUsuario, Integer numeroAsiento,
+	public Entrada(Integer idEntrada, Sala idSala, Pelicula idPelicula, SystemUser idUsuario, Integer numeroAsiento,
 			Date horario, Integer precio) {
 		this.idEntrada = idEntrada;
 		this.idSala = idSala;
@@ -41,53 +53,45 @@ public class Entrada {
 	
 	
 
-	public void compraEntrada(Integer numAsientos, Peliculas pelicula,
-			Date Horario, Integer numEntradas, String pago, Sala sala) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	public void compraEntrada( Pelicula pelicula,
+			Date Horario, Integer numAsiento, Integer pago, Sala sala) {
+		Entrada E = new Entrada(null,null,null,null, numAsiento, Horario,pago);
+		EntradaDao eD = new EntradaDao();
+		eD.saveEntrada(E);
+	
+	}
 
-		// end-user-code
+	public Entrada mostrarEntrada(Integer idEntrada) {
+		 EntradaDao eD= new EntradaDao();
+		return eD.findById(idEntrada);
+	}
+	
+	public void modificarEntrada(Entrada Entrada) {
+		EntradaDao eD= new EntradaDao();
+		 eD.updateEntrada(Entrada);
+	}
+	
+	public void eliminarEntrada(Integer idEntrada) {
+		 EntradaDao eD= new EntradaDao();
+		 eD.deleteEntradaById(idEntrada);
 	}
 
 	
-	public void eliminarEntrada(Entrada CodEntrada) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
+	
 
 	
-	public void modificarEntrada(Entrada CodEntrada, Integer numAsientos,
-			Peliculas pelicula, Date Horario, Integer numEntradas, String pago,
-			Object sala) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
 	
-	public void mostrarEntrada(Entrada CodEntrada) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+/*
+	public Entrada mostrarTotalEntradas(Array Entradas) {
+		
+		for (Entrada Entrada : Entradas) {
+			 mostrarEntrada(Entrada);
+		}
+		
+		
 	}
+*/
 
-	public void mostrarTotalEntradas() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	public void mostrarFormulario() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
 
 
 	public Integer getIdEntrada() {
@@ -106,14 +110,14 @@ public class Entrada {
 
 
 
-	public Peliculas getIdPelicula() {
+	public Pelicula getIdPelicula() {
 		return idPelicula;
 	}
 
 
 	
 
-	public Usuario getIdUsuario() {
+	public SystemUser getIdUsuario() {
 		return idUsuario;
 	}
 

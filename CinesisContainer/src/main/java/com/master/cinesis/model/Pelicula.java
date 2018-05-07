@@ -4,189 +4,114 @@ import javax.persistence.*;
 
 import java.sql.Date;
 
-/**
- * 
- */
-
 import java.util.Set;
 
 import org.hibernate.mapping.Array;
 
-import java.lang.reflect.Array;
-import java.util.Date;
+import com.master.cinesis.dao.PeliculaDao;
+
+//import java.lang.reflect.Array;
+//import java.util.Date;
 import java.util.Set;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author usuario_local
- * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+
 @Entity
 @Table(name = "Pelicula")
 
 
 public class Pelicula {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
+
 	private String nomPelicula;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private String slug;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private Integer idPelicula;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private Integer duracion;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private String imagenPrinc;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private String imagenSec;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+
 	private String sinopsis;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private Integer calificacion;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private Categoria categoria;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private String pais;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private Date estreno;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private String directores;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	private Date fecha;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Set<Trailers> trailers;
+	
+	private Set<Trailer> trailers;
+	
+	
+	public Pelicula(Integer idPelicula, String nomPelicula, String slug, Integer duracion, String imagenPrinc,
+			String imagenSec, String sinopsis, Integer calificacion, Categoria categoria, String pais, Date estreno,
+			String directores, Date fecha, Set<Trailer> trailers) {
+		
+		this.idPelicula = idPelicula;
+		this.nomPelicula = nomPelicula;
+		this.slug = slug;
+		this.duracion = duracion;
+		this.imagenPrinc = imagenPrinc;
+		this.imagenSec = imagenSec;
+		this.sinopsis = sinopsis;
+		this.calificacion = calificacion;
+		this.categoria = categoria;
+		this.pais = pais;
+		this.estreno = estreno;
+		this.directores = directores;
+		this.fecha = fecha;
+		this.trailers = trailers;
+	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param nomPelicula
-	 * @param duration
-	 * @param imagen
-	 * @param actores
-	 * @param sinopsis
-	 * @param trailer
-	 * @param calificacion
-	 * @param pais
-	 * @param estreno
-	 * @param directores
-	 * @param guionistas
-	 * @param productores
-	 * @param fecha
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
+
 	public void crearPelicula(String nomPelicula, Integer duration,
-			String imagen, Array actores, String sinopsis, Object trailer,
-			Integer calificacion, String pais, Date estreno, Array directores,
-			Array guionistas, Array productores, Date fecha) {
+			String imagenPrinc, String imangenSec, Array actores, String sinopsis, Set<Trailer> trailers,
+			Integer calificacion, String pais, Date estreno, String directores, Date fecha, Categoria categoria) {
+		
+		Pelicula P = new Pelicula(null, nomPelicula,null,duration,imagenPrinc,imangenSec,sinopsis,calificacion,categoria,pais,
+					estreno,directores,fecha,trailers); 
+		PeliculaDao pD = new PeliculaDao();
+		pD.savePelicula(P);
+	}
+	
+	
+	public Pelicula mostrarPelicula(Integer idPelicula) {
+		PeliculaDao pD = new PeliculaDao();
+		return pD.findById(idPelicula);
+	}
+
+	/*
+	public void detallesPrivadoPeliculas(Integer idPelicula) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
 		// end-user-code
 	}
+	
+	*/
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param nomPelicula
-	 * @param duration
-	 * @param imagen
-	 * @param actores
-	 * @param sinopsis
-	 * @param trailer
-	 * @param calificacion
-	 * @param pais
-	 * @param estreno
-	 * @param directores
-	 * @param guionistas
-	 * @param productores
-	 * @param fecha
-	 * @param idPelicula
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void editarPelicula(String nomPelicula, Integer duration,
-			String imagen, Array actores, String sinopsis, Object trailer,
-			Integer calificacion, String pais, Date estreno, Array directores,
-			Array guionistas, Array productores, Date fecha, Integer idPelicula) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+	public void editarPelicula(Pelicula pelicula) {
+		PeliculaDao pD = new PeliculaDao();
+		pD.updatePelicula(pelicula);
+		
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idPelicula
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	public void borrarPelicula(Integer idPelicula) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+		PeliculaDao pD = new PeliculaDao();
+		pD.deletePeliculaById(idPelicula);
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	
 	public void listadoPublicoPeliculas() {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -194,68 +119,11 @@ public class Pelicula {
 		// end-user-code
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idPelicula
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void detallesPublicoPeliculas(Integer idPelicula) {
-		// begin-user-code
-		// TODO Auto-generated method stub
 
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idPelicula
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void detallesPrivadoPeliculas(Integer idPelicula) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idPelicula
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void buscadorPelicula(Integer idPelicula) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param idPelicula
-	 * @param valoracion
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void valorarPelicula(Integer idPelicula, Integer valoracion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+		this.calificacion = valoracion;
+		//???????????????????????????????????????
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void mostarFormulario() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
+	
 }
