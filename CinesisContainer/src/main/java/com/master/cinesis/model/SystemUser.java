@@ -3,14 +3,29 @@ package com.master.cinesis.model;
  * 
  */
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 
 import antlr.collections.Enumerator;
 
+
+import com.master.cinesis.dao.SystemDao;
+
 public class SystemUser {
 	
+	public SystemUser(Integer idUser, Roles rol, String password, String nombre, String email, String telf) {
+		super();
+		this.idUser = idUser;
+		this.rol = rol;
+		this.password = password;
+		this.nombre = nombre;
+		this.email = email;
+		this.telf = telf;
+	}
+
+
 	private Integer idUser;
 	
 	private Roles rol;
@@ -24,53 +39,51 @@ public class SystemUser {
 	private String telf;
 
 	public void crearUsuario(String password, String nombre, String email,
-			Integer telf, Roles rol) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+			String telf, Roles rol) {
+		SystemDao sD = new SystemDao();
+		
+		SystemUser user = new SystemUser(null, rol, password, nombre,email, telf);
+		
+		sD.saveSystem(user);
 	}
 
 	
 	public void eliminarUsuario(Integer idUser) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+		SystemDao sD = new SystemDao();
+		
+		sD.deleteSystemById(idUser);
 	}
 
-	
+	//Revisar atributos
 	public void modificarUsuario(Integer idUser, String userName,
 			String password, String nombre, String apellidos, String email,
-			Integer telf, Roles rol) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+			String telf, Roles rol) {
+		SystemDao sD = new SystemDao();
+		
+		SystemUser user = new SystemUser(idUser, rol, password, userName,email, telf);
+		
+		sD.updateSystem(user);
 	}
 
 	
-	public void mostarUsuario(Integer idUser) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+	public SystemUser mostarUsuario(Integer idUser) {
+		SystemDao sD = new SystemDao();
+		
+		return sD.findById(idUser);
 	}
-
 	
-	public void logIn(Object email, Object password) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+	public SystemUser mostrarUserByName(String name)
+	{
+		SystemDao sD = new SystemDao();
+		
+		return sD.findByName(name);
 	}
-
 	
-	public void mostrarFormulario() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+	public List<SystemUser> mostrarTodosUsuarios()
+	{
+		SystemDao sD = new SystemDao();
+		
+		return sD. findAllSystem();
 	}
 
 
