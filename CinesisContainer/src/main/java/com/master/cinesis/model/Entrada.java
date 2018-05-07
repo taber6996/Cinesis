@@ -3,8 +3,7 @@ package com.master.cinesis.model;
 import java.sql.Array;
 import java.sql.Date;
 import java.util.ArrayList;
-
-
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -76,23 +75,15 @@ public class Entrada {
 		 eD.deleteEntradaById(idEntrada);
 	}
 
-	
-	
-
-	
-	
-/*
-	public Entrada mostrarTotalEntradas(Array Entradas) {
-		
-		for (Entrada Entrada : Entradas) {
-			 mostrarEntrada(Entrada);
-		}
-		
-		
+	public List<Entrada> mostrarTotalEntradasSala(Integer idSala) {
+		 EntradaDao eD= new EntradaDao();
+		 return eD.findAllEntradaBySalaId(idSala);	
 	}
-*/
-
-
+	
+	public List<Entrada> mostrarTotalEntradas(){
+		 EntradaDao eD= new EntradaDao();
+		 return eD.findAllEntradas();
+	}
 
 	public Integer getIdEntrada() {
 		return idEntrada;

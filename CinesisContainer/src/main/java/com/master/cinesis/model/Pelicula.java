@@ -3,7 +3,7 @@ package com.master.cinesis.model;
 import javax.persistence.*;
 
 import java.sql.Date;
-
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.mapping.Array;
@@ -112,11 +112,10 @@ public class Pelicula {
 	}
 
 	
-	public void listadoPublicoPeliculas() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+	public List<Pelicula> listadoPublicoPeliculas() {
+		PeliculaDao pD = new PeliculaDao();
+		return pD.findAllPeliculas();
+		
 	}
 
 
