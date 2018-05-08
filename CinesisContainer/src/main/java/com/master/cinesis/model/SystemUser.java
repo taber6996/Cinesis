@@ -3,6 +3,7 @@ package com.master.cinesis.model;
 import java.sql.Date;
 import javax.persistence.*;
 import org.hibernate.mapping.Set;
+import org.springframework.stereotype.Component;
 
 
 /** 
@@ -11,6 +12,7 @@ import org.hibernate.mapping.Set;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
+@Component
 @Entity
 @Table(name = "users")
 public class SystemUser {

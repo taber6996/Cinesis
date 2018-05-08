@@ -31,7 +31,7 @@ public class DataBaseConfiguration {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://91.142.208.66:3306");
+		dataSource.setUrl("jdbc:mysql://91.142.208.66:3306/cinesis");
 		dataSource.setUsername("admin_cinesis");
 		dataSource.setPassword("Yh0q1b#1");
 		

@@ -4,7 +4,9 @@ import java.sql.Array;
 import java.sql.Date;
 import javax.persistence.*;
 
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table(name = "sala")
 public class Sala {

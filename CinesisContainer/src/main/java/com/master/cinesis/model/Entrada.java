@@ -2,6 +2,8 @@ package com.master.cinesis.model;
 
 import java.sql.Date;
 import org.hibernate.mapping.Set;
+import org.springframework.stereotype.Component;
+
 import com.master.cinesis.model.Sala;
 import javax.persistence.*;
 
@@ -11,6 +13,7 @@ import javax.persistence.*;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
+@Component
 @Entity
 @Table(name = "entrada")
 public class Entrada {
