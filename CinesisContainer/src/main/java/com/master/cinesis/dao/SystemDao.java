@@ -2,9 +2,12 @@ package com.master.cinesis.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.master.cinesis.model.Entrada;
 import com.master.cinesis.model.SystemUser;
 
+@Repository
 public class SystemDao extends AbstractSession {
 	
 	public void saveSystem(SystemUser system){

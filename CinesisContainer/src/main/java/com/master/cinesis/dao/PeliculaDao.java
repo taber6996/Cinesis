@@ -2,9 +2,12 @@ package com.master.cinesis.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.master.cinesis.model.Pelicula;
 import com.master.cinesis.model.Trailer;
 
+@Repository
 public class PeliculaDao extends AbstractSession{
 
 	public void savePelicula(Pelicula pelicula){

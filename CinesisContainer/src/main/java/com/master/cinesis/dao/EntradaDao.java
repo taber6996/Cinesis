@@ -2,8 +2,11 @@ package com.master.cinesis.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.master.cinesis.model.Entrada;
 
+@Repository
 public class EntradaDao extends AbstractSession{
 	
 	public void saveEntrada(Entrada entrada){

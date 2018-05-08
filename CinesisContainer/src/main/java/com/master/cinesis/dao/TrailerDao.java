@@ -2,8 +2,11 @@ package com.master.cinesis.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.master.cinesis.model.Trailer;
 
+@Repository
 public class TrailerDao extends AbstractSession {
 	
 	public void saveTrailer(Trailer trailer){

@@ -1,9 +1,13 @@
 package com.master.cinesis.dao;
 
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
 import com.master.cinesis.dao.AbstractSession;
 import com.master.cinesis.model.Sala;
 
+@Repository
 public class SalaDao extends AbstractSession{
 
 	public void saveSala(Sala sala){
