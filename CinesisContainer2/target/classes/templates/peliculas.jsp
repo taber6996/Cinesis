@@ -52,7 +52,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="peliculas.jsp">Películas</a></li>
+                <li><a href="#about">Películas</a></li>
                 <li><a href="#contact">Contacto</a></li>
                 
                 <li class="active"><a href="login.jsp">Login</a></li>
@@ -65,56 +65,6 @@
     </div>
 
 <jsp:include page="..." />
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="../static/assets/img/avenge.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Vengadores.</h1>
-              <p>Película Vengadores</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="../static/assets/img/infinity.jpg" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Vengadores 2.</h1>
-              <p> Película Vengadores 2</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="../static/assets/img/jurassic-world.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Jurasick word.</h1>
-              <p>Película JURASICK.</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -128,7 +78,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class=""><a href="pelicula.jsp">Vengadores. <span class="text-muted">Segunda parte.</span></a></h2>
+          <h2 class="">Vengadores. <span class="text-muted">Segunda parte.</span></h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
           maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
           <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
@@ -142,10 +92,11 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class=""><a href="pelicula.jsp">Vengadores. <span class="text-muted">Peliculón.</span></a></h2>
+          <h2 class="">Vengadores. <span class="text-muted">Peliculón.</span></h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
           maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
           <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
+          
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" data-src="../static/assets/img/infinity.jpg" src="../static/assets/img/infinity.jpg" alt="Generic placeholder image">
@@ -156,7 +107,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class=""><a href="pelicula.jsp">Jurasick Park.<span class="text-muted">Otra más.....</span></a></h2>
+          <h2 class="">Jurasick Park.<span class="text-muted">Otra más.....</span></h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
           maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id</p>
           <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
