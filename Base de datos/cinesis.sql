@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-04-2018 a las 00:51:52
+-- Tiempo de generación: 29-04-2018 a las 12:06:58
 -- Versión del servidor: 5.6.35
 -- Versión de PHP: 7.1.6
 
@@ -31,13 +31,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `entrada` (
   `id` int(11) NOT NULL,
   `sala_id` int(11) DEFAULT NULL,
-  `pelicula_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
   `numero_asiento` varchar(5) DEFAULT NULL,
   `horario` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `entrada_pelicula`
+--
+
+CREATE TABLE `entrada_pelicula` (
+  `id` int(11) NOT NULL,
+  `pelicula_id` int(11) NOT NULL,
+  `entrada_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -55,7 +66,7 @@ CREATE TABLE `peliculas` (
   `imagen_secundario` text,
   `sinopsis` text,
   `calificacion` int(11) DEFAULT NULL,
-  `categoria` varchar(100) DEFAULT NULL,
+  `categoria` enum('Horro','Comedia','Romance','Acción','XXX') DEFAULT NULL,
   `pais` varchar(100) DEFAULT NULL,
   `estreno` timestamp NULL DEFAULT NULL,
   `director` varchar(100) DEFAULT NULL,
@@ -72,12 +83,11 @@ CREATE TABLE `peliculas` (
 
 CREATE TABLE `sala` (
   `id` int(11) NOT NULL,
-  `entrada_id` int(11) DEFAULT NULL,
   `num_filas` int(11) DEFAULT NULL,
   `num_columnas` int(11) DEFAULT NULL,
   `num_asientos_vip` int(11) DEFAULT NULL,
   `num_asientos_minusvalidos` int(11) DEFAULT NULL,
-  `calidad_sonido` varchar(100) DEFAULT NULL,
+  `calidad_sonido` enum('Estereo','Dolby') DEFAULT NULL,
   `3d` tinyint(1) DEFAULT '1',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NULL DEFAULT NULL
@@ -92,8 +102,8 @@ CREATE TABLE `sala` (
 CREATE TABLE `trailers` (
   `id` int(11) NOT NULL,
   `pelicula_id` int(11) DEFAULT NULL,
-  `titulo` int(11) DEFAULT NULL,
-  `descripcion` int(11) DEFAULT NULL,
+  `titulo` varchar(200) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -106,7 +116,7 @@ CREATE TABLE `trailers` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `rol` enum('usuario','administrador') DEFAULT NULL,
+  `rol` enum('usuario','administrador','empleado') DEFAULT NULL,
   `nombre` varchar(200) DEFAULT NULL,
   `email` varchar(200) DEFAULT NULL,
   `telefono` varchar(14) DEFAULT NULL,
@@ -125,8 +135,15 @@ CREATE TABLE `users` (
 ALTER TABLE `entrada`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sala_id` (`sala_id`),
-  ADD KEY `pelicula_id` (`pelicula_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `entrada_pelicula`
+--
+ALTER TABLE `entrada_pelicula`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pelicula_id` (`pelicula_id`),
+  ADD KEY `entrada_id` (`entrada_id`);
 
 --
 -- Indices de la tabla `peliculas`
@@ -140,8 +157,7 @@ ALTER TABLE `peliculas`
 -- Indices de la tabla `sala`
 --
 ALTER TABLE `sala`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `entrada_id` (`entrada_id`) USING BTREE;
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `trailers`
@@ -167,10 +183,16 @@ ALTER TABLE `entrada`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `entrada_pelicula`
+--
+ALTER TABLE `entrada_pelicula`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
@@ -198,9 +220,15 @@ ALTER TABLE `users`
 -- Filtros para la tabla `entrada`
 --
 ALTER TABLE `entrada`
-  ADD CONSTRAINT `entrada_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `peliculas` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `entrada_sala_id` FOREIGN KEY (`sala_id`) REFERENCES `sala` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `entrada_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+
+--
+-- Filtros para la tabla `entrada_pelicula`
+--
+ALTER TABLE `entrada_pelicula`
+  ADD CONSTRAINT `entr_pel_entrada_id` FOREIGN KEY (`entrada_id`) REFERENCES `entrada` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `entr_pel_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `peliculas` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `trailers`

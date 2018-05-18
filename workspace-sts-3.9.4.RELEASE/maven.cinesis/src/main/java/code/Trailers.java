@@ -1,3 +1,4 @@
+package code;
 /**
  * 
  */
@@ -14,31 +15,25 @@ public class Trailers {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object idTrailer;
+	private Integer idTrailer;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object pelicula_id;
+	private Peliculas idPelicula;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object titulo;
+	private String titulo;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object descripcion;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Object duracion;
+	private String descripcion;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -102,6 +97,18 @@ public class Trailers {
 	 */
 	public void modificarTrailer(String idAministrador, Integer duracion,
 			String titulo, String descripcion, String idTrailer) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void mostrarFormulario() {
 		// begin-user-code
 		// TODO Auto-generated method stub
 

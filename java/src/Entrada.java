@@ -2,78 +2,69 @@
  * 
  */
 
-import java.util.Hashtable.Enumerator;
-
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class System {
+public class Entrada {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object idUser;
+	private Integer idEntrada;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private String rol;
+	private Sala idSala;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object password;
+	private Peliculas idPelicula;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object nombre;
+	private Usuario idUsuario;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object email;
+	private Integer numeroAsiento;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object telf;
+	private Date horario;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Object posicion;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Entrada entrada;
+	private Integer precio;
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param userName
-	 * @param password
-	 * @param nombre
-	 * @param apellidos
-	 * @param email
-	 * @param telf
-	 * @param Posicion
+	 * @param numAsientos
+	 * @param pelicula
+	 * @param Horario
+	 * @param numEntradas
+	 * @param pago
+	 * @param sala
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void crearUsuario(String userName, String password, String nombre,
-			String apellidos, String email, Integer telf, Enumerator Posicion) {
+	public void compraEntrada(Integer numAsientos, Peliculas pelicula,
+			Date Horario, Integer numEntradas, String pago, Sala sala) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -83,10 +74,10 @@ public class System {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idUser
+	 * @param CodEntrada
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void eliminarUsuario(Object idUser) {
+	public void eliminarEntrada(Entrada CodEntrada) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -96,19 +87,18 @@ public class System {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idUser
-	 * @param userName
-	 * @param password
-	 * @param nombre
-	 * @param apellidos
-	 * @param email
-	 * @param telf
-	 * @param Posicion
+	 * @param CodEntrada
+	 * @param numAsientos
+	 * @param pelicula
+	 * @param Horario
+	 * @param numEntradas
+	 * @param pago
+	 * @param sala
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modificarUsuario(Object idUser, String userName,
-			String password, String nombre, String apellidos, String email,
-			Integer telf, Enumerator Posicion) {
+	public void modificarEntrada(Entrada CodEntrada, Integer numAsientos,
+			Peliculas pelicula, Date Horario, Integer numEntradas, String pago,
+			Object sala) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
@@ -118,10 +108,34 @@ public class System {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param idUser
+	 * @param CodEntrada
 	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostarUsuario(Object idUser) {
+	public void mostrarEntrada(Entrada CodEntrada) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void mostrarTotalEntradas() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void mostrarFormulario() {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
