@@ -18,6 +18,7 @@ public class DataBaseConfiguration {
 	
 	@Bean
 	public LocalSessionFactoryBean sessionFactory(){
+		
 		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource());
 		sessionFactoryBean.setPackagesToScan("com.master.cinesis.model");
