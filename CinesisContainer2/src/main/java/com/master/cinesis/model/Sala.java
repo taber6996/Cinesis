@@ -2,9 +2,12 @@ package com.master.cinesis.model;
 
 import javax.persistence.*;
 
-
-
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+
 
 //import java.util.Hashtable.Enumerator;
 import com.master.cinesis.dao.SalaDao;
@@ -29,6 +32,11 @@ public class Sala {
 	private CalidadSonidoEnum calidadSonido;
 
 	private Boolean _3D;
+	
+	//public Sala(Integer id)
+	//{
+	//	this.idSala = id; 
+	//}
 	
 	
 	public Sala(Integer id, Integer idPeli, Integer numFilas, Integer numColumnas, Integer numAsientosVip, Integer numAsienMinus, CalidadSonidoEnum calidadSonido, boolean _3D){
@@ -59,9 +67,9 @@ public class Sala {
 		return sD.findById(idSala);
 	}
 
-	public void modificarSala(Sala sala) {
+	public void modificarSala() {
 		SalaDao sD= new SalaDao();
-		sD.updateSala(sala);
+		sD.updateSala(this);
 	}
 
 	
@@ -69,7 +77,23 @@ public class Sala {
 		SalaDao sD= new SalaDao();
 		sD.deleteSalaById(idSala);
 	}
-
+	
+	public List<String> objectToList()
+	{
+		ArrayList<String> arrlist = new ArrayList<String>(8);
+		
+		arrlist.add(String.valueOf(this.getIdSala()));
+		arrlist.add(String.valueOf(this.getIdPelicula()));
+		arrlist.add(String.valueOf(this.getNumFilas()));
+		arrlist.add(String.valueOf(this.getNumColumnas()));
+		arrlist.add(String.valueOf(this.getNumAsientosVIP()));
+		arrlist.add(String.valueOf(this.getNumAsientosMinusvalidos()));
+		arrlist.add(this.getCalidadSonido().toString());
+		arrlist.add(this.get_3D().toString());
+		
+		
+		return arrlist;
+	}
 	
 	public Integer getIdSala() {
 		return idSala;
