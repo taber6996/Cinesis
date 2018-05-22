@@ -24,12 +24,12 @@ public class Entrada {
 
 	private Integer idEntrada;
 	
-	private Sala idSala;
+	private Integer idSala;
 
-	private Pelicula idPelicula;
+	private Integer idPelicula;
 
-	private SystemUser idUsuario;
-
+	private Integer idUsuario;
+	
 	private Integer numeroAsiento;
 
 	private Date horario;
@@ -39,7 +39,7 @@ public class Entrada {
 	
 	
 	
-	public Entrada(Integer idEntrada, Sala idSala, Pelicula idPelicula, SystemUser idUsuario, Integer numeroAsiento,
+	public Entrada(Integer idEntrada, Integer idSala, Integer idPelicula, Integer idUsuario, Integer numeroAsiento,
 			Date horario, Integer precio) {
 		this.idEntrada = idEntrada;
 		this.idSala = idSala;
@@ -52,11 +52,9 @@ public class Entrada {
 	
 	
 
-	public void compraEntrada( Pelicula pelicula,
-			Date Horario, Integer numAsiento, Integer pago, Sala sala) {
-		Entrada E = new Entrada(null,null,null,null, numAsiento, Horario,pago);
+	public void compraEntrada() {
 		EntradaDao eD = new EntradaDao();
-		eD.saveEntrada(E);
+		eD.saveEntrada(this);
 	
 	}
 
@@ -65,14 +63,14 @@ public class Entrada {
 		return eD.findById(idEntrada);
 	}
 	
-	public void modificarEntrada(Entrada Entrada) {
+	public void modificarEntrada() {
 		EntradaDao eD= new EntradaDao();
-		 eD.updateEntrada(Entrada);
+		 eD.updateEntrada(this);
 	}
 	
-	public void eliminarEntrada(Integer idEntrada) {
+	public void eliminarEntrada() {
 		 EntradaDao eD= new EntradaDao();
-		 eD.deleteEntradaById(idEntrada);
+		 eD.deleteEntradaById(this.idEntrada);
 	}
 
 	public List<Entrada> mostrarTotalEntradasSala(Integer idSala) {
@@ -95,20 +93,20 @@ public class Entrada {
 	}
 
 
-	public Sala getIdSala() {
+	public Integer getIdSala() {
 		return idSala;
 	}
 
 
 
-	public Pelicula getIdPelicula() {
+	public Integer getIdPelicula() {
 		return idPelicula;
 	}
 
 
 	
 
-	public SystemUser getIdUsuario() {
+	public Integer getIdUsuario() {
 		return idUsuario;
 	}
 

@@ -46,14 +46,11 @@ public class Sala {
 	
 	
 
-	public void crearSala(String IdAdministrador, Integer numFilas,
-			Integer numColumnas, Integer numAsientosVIP,
-			Integer numAsientosMinusvalidos, CalidadSonidoEnum calidadSonido,
-			Boolean _3D) {
+	public void crearSala() {
 		//insertar
-		Sala S = new Sala(null, null, numFilas, numColumnas, numAsientosVIP, numAsientosMinusvalidos, calidadSonido, _3D);
+		//Sala S = new Sala(null, null, numFilas, numColumnas, numAsientosVIP, numAsientosMinusvalidos, calidadSonido, _3D);
 		 SalaDao sD= new SalaDao();
-		sD.saveSala(S);
+		sD.saveSala(this);
 		
 	}
 
@@ -62,9 +59,9 @@ public class Sala {
 		return sD.findById(idSala);
 	}
 
-	public void modificarSala(Sala sala) {
+	public void modificarSala() {
 		SalaDao sD= new SalaDao();
-		sD.updateSala(sala);
+		sD.updateSala(this);
 	}
 
 	

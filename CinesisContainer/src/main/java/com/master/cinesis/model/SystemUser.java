@@ -38,13 +38,11 @@ public class SystemUser {
 	
 	private String telf;
 
-	public void crearUsuario(String password, String nombre, String email,
-			String telf, Roles rol) {
+	public void crearUsuario() {
 		SystemDao sD = new SystemDao();
 		
-		SystemUser user = new SystemUser(null, rol, password, nombre,email, telf);
 		
-		sD.saveSystem(user);
+		sD.saveSystem(this);
 	}
 
 	
@@ -55,14 +53,10 @@ public class SystemUser {
 	}
 
 	//Revisar atributos
-	public void modificarUsuario(Integer idUser, String userName,
-			String password, String nombre, String apellidos, String email,
-			String telf, Roles rol) {
+	public void modificarUsuario() {
 		SystemDao sD = new SystemDao();
 		
-		SystemUser user = new SystemUser(idUser, rol, password, userName,email, telf);
-		
-		sD.updateSystem(user);
+		sD.updateSystem(this);
 	}
 
 	
@@ -85,7 +79,8 @@ public class SystemUser {
 		
 		return sD. findAllSystem();
 	}
-
+	
+	
 
 	public Integer getIdUser() {
 		return idUser;

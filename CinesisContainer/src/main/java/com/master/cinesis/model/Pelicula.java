@@ -48,16 +48,17 @@ public class Pelicula {
 	
 	private Date fecha;
 	
-	private Set<Trailer> trailers;
+	//private List<Trailer> trailers;
 	
 	
-	public Pelicula(Integer idPelicula, String nomPelicula, String slug, Integer duracion, String imagenPrinc,
+	public Pelicula(String nomPelicula, String slug,Integer idPelicula,Integer duracion, String imagenPrinc,
 			String imagenSec, String sinopsis, Integer calificacion, Categoria categoria, String pais, Date estreno,
-			String directores, Date fecha, Set<Trailer> trailers) {
+			String directores, Date fecha) {
 		
-		this.idPelicula = idPelicula;
+		
 		this.nomPelicula = nomPelicula;
 		this.slug = slug;
+		this.idPelicula = idPelicula;
 		this.duracion = duracion;
 		this.imagenPrinc = imagenPrinc;
 		this.imagenSec = imagenSec;
@@ -68,19 +69,26 @@ public class Pelicula {
 		this.estreno = estreno;
 		this.directores = directores;
 		this.fecha = fecha;
-		this.trailers = trailers;
+	
 	}
 
 	
 
-	public void crearPelicula(String nomPelicula, Integer duration,
-			String imagenPrinc, String imangenSec, Array actores, String sinopsis, Set<Trailer> trailers,
-			Integer calificacion, String pais, Date estreno, String directores, Date fecha, Categoria categoria) {
+	
+
+
+
+	
+
+
+
+
+
+
+	public void crearPelicula() {
 		
-		Pelicula P = new Pelicula(null, nomPelicula,null,duration,imagenPrinc,imangenSec,sinopsis,calificacion,categoria,pais,
-					estreno,directores,fecha,trailers); 
 		PeliculaDao pD = new PeliculaDao();
-		pD.savePelicula(P);
+		pD.savePelicula(this);
 	}
 	
 	
@@ -99,9 +107,9 @@ public class Pelicula {
 	
 	*/
 
-	public void editarPelicula(Pelicula pelicula) {
+	public void editarPelicula() {
 		PeliculaDao pD = new PeliculaDao();
-		pD.updatePelicula(pelicula);
+		pD.updatePelicula(this);
 		
 	}
 

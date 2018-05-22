@@ -1,9 +1,9 @@
 package com.master.cinesis.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
-
 
 import com.master.cinesis.dao.TrailerDao;
 
@@ -19,41 +19,47 @@ public class Trailer {
 	}
 
 
+	public Trailer() {//Construtor vacio
+		this.idTrailer = null;
+		this.idPelicula = null;
+		this.titulo = null;
+		this.descripcion = null;
+	}
+
+
 	private Integer idTrailer;
 	
-	private Pelicula idPelicula;
+	private Integer idPelicula;
 	
 	private String titulo;
 	
 	private String descripcion;
 	
-	private Pelicula peliculas;
+	
+	
+	//private Pelicula peliculas;
 	
  //Duracion?????
 	
-	public void crearTrailer(Integer duracion,
-			String titulo, String descripcion, Integer idPelicula) {
+	public void crearTrailer() {
 		TrailerDao tD = new TrailerDao();
-		
-		Trailer trailer = new Trailer(null, idPelicula, titulo, descripcion);
-		
-		tD.saveTrailer(trailer);
-		
+				
+		tD.saveTrailer(this);
 	}
 
-	public void eliminarTrailer(String idTrailer) {
+	public void eliminarTrailer(Integer idTrailer) {
 		TrailerDao tD = new TrailerDao();
 		tD.deleteTrailerById(idTrailer);
 	}
 
 	
-	public Trailer mostrarTrailer(String idTrailer) {
+	public Trailer mostrarTrailer(Integer idTrailer) {
 		TrailerDao tD = new TrailerDao();
 		
 		return tD.findById(idTrailer);
 	}
 	
-	public Trailer mostrarTrailerByName(string name)
+	public Trailer mostrarTrailerByName(String name)
 	{
 		TrailerDao tD = new TrailerDao();
 		
@@ -64,7 +70,7 @@ public class Trailer {
 	{
 		TrailerDao tD = new TrailerDao();
 		
-		tD.findAllTrailerByPeliculaId(idPelicula);
+		return tD.findAllTrailerByPeliculaId(idPelicula);
 	}
 	
 	public List<Trailer>mostrarTodosTrailers()
@@ -74,16 +80,43 @@ public class Trailer {
 		return tD.findAllTrailer();
 	}
 
-	public void modificarTrailer(Integer duracion,
-			String titulo, String descripcion, Integer idTrailer, Integer idPelicula)
+	public void modificarTrailer()
 	{
 		TrailerDao tD = new TrailerDao();
 		
-		Trailer trailer = new Trailer(idTrailer, idPelicula, titulo, descripcion);
-		
-		tD.updateTrailer(trailer);
+		tD.updateTrailer(this);
 	}
-	
+	public Integer getIdTrailer() {
+		return idTrailer;
+	}
+
+	public void setIdTrailer(Integer idTrailer) {
+		this.idTrailer = idTrailer;
+	}
+
+	public Integer getIdPelicula() {
+		return idPelicula;
+	}
+
+	public void setIdPelicula(Integer idPelicula) {
+		this.idPelicula = idPelicula;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	
 
 }
