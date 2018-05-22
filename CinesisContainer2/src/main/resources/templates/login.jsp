@@ -49,6 +49,7 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a href="index.jsp" class="btn btn-lg btn-primary btn-block" type="button">Volver</a>
       </form>
 
     </div> <!-- /container -->
