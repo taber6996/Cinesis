@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
   <head>
@@ -61,41 +60,59 @@
     
           </div>
         </div>
-    <!-- Carousel
-    ================================================== -->
-
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
+    <div class="container marketing">
 
       <!-- START THE FEATURETTES -->
-    <div class="container marketing">
+
       <hr class="featurette-divider">
-      <div class="row">
-        <div class="col-sm-offset-1 col-sm-10">
-          <h2>Título de la película <a href="comprar_entradas.jsp" type="button" class="btn btn-primary pull-right">Comprar entradas</a></h2>
-          
-          <img src="../static/assets/img/avenge.jpg" width="100%"/>
-          
-          <ul style="margin-top: 10px;">
-            <li>Actores: <b>xxxx</b></li>
-            <li>Duración: <b>xxxx</b></li>
-            <li>Valoración: <b>xxxx</b></li>
-            <li>Categoría: <b>xxxx</b></li>
-          </ul>
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="">Vengadores. <span class="text-muted">Segunda parte.</span></h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
+          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
+          <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
         </div>
-        <div class="col-sm-12" style="margin-top:40px;">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante odio, luctus quis tristique ac, aliquet vitae turpis. Donec orci ante, faucibus non tincidunt semper, faucibus in nisi. Quisque ut ultricies massa, at luctus nibh. Sed eu tellus sit amet augue scelerisque pulvinar. Nullam ex erat, gravida quis massa vel, accumsan porta sem. Etiam sit amet quam elit. Sed sit amet fermentum urna. In non laoreet ex, sed maximus enim. Duis convallis mi odio, et iaculis ipsum porta vitae. Sed eget lectus euismod, gravida nunc at, iaculis libero. Sed ullamcorper malesuada sem volutpat eleifend. Sed aliquam interdum risus, non venenatis libero sollicitudin nec. Donec quis elit eu arcu venenatis semper. Cras cursus pellentesque nisi, sit amet porta odio cursus at. Morbi congue magna eu magna placerat auctor.
-            Phasellus vitae hendrerit nisl. Nam et justo enim. Maecenas maximus, velit sed vestibulum euismod, est augue vestibulum urna, non consectetur diam nisi at lacus. Curabitur luctus magna dapibus lectus varius tempor. Sed facilisis est eu imperdiet molestie. Phasellus maximus volutpat orci eu convallis. Integer nec lectus euismod, lobortis augue at, fermentum nulla. Aenean sit amet metus gravida tortor interdum malesuada. Aliquam id ligula vel leo faucibus mattis at a purus. Proin pellentesque fermentum volutpat. Phasellus a viverra turpis, eget maximus nisl. Phasellus finibus sapien eget justo commodo viverra. Vivamus eu ultrices elit. Nunc ultricies ipsum sed mauris feugiat porta. Vivamus facilisis lobortis lacus, non consequat mi tristique convallis. Cras tristique ligula eu ex dictum, auctor fringilla nunc elementum.
-            Suspendisse potenti. Quisque molestie, nisl et hendrerit venenatis, massa nulla faucibus nulla, quis semper magna ipsum in leo. Nullam fringilla eget odio sit amet fermentum. Suspendisse dignissim interdum posuere. Nunc lobortis posuere lobortis. Suspendisse et lorem nulla. Aliquam maximus metus ac justo congue egestas. Nulla maximus sem id magna vestibulum suscipit. Quisque nec quam ac quam tempor convallis posuere eget dui. Nunc pharetra sem at dignissim aliquet. Sed sit amet massa lorem. Pellentesque sapien lorem, gravida non nisi venenatis, tristique tempor ligula. Etiam faucibus nisl a diam rhoncus, faucibus posuere quam semper. Sed convallis odio nec lacus volutpat suscipit. Pellentesque vel enim posuere, ornare enim id, lobortis dolor. Mauris ut lacus venenatis, ornare dolor id, consectetur sem.
-          </p>
-          <a href="index.jsp" type="button" class="btn btn-primary pull-right">Volver</a>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="static/assets/img/avenge.jpg" data-src="static/assets/img/avenge.jpg" alt="Generic placeholder image">
         </div>
       </div>
-	  </div>
+      
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="">Vengadores. <span class="text-muted">Peliculón.</span></h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
+          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
+          <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
+          
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/infinity.jpg" src="static/assets/img/infinity.jpg" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="">Jurasick Park.<span class="text-muted">Otra más.....</span></h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
+          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id</p>
+          <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/jurassic-world.jpg" src="static/assets/img/jurassic-world.jpg" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
 

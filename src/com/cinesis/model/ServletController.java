@@ -27,17 +27,26 @@ public class ServletController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		/**
+		 * En este ejemplo mandamos datos a la vista, entiendo que esto lo podemos colocar dentro de cada controller y dejar aquí el primario que inicia el servidor
+		 * También manda la variable person cn reqeust a la vista
+		 * Terminar de ver este vídeo
+		 * 
+		 * https://www.youtube.com/watch?v=B-N5X90qizQ
+		 */
 		PersonBeanModel person = new PersonBeanModel();
-		person.setName(request.getParameter("name"));
+		person.setName("name");
 		person.setEmail(request.getParameter("email"));
 		person.doSomething();
-		//request.setAttribute("person", person);
-		//getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-		request.setAttribute("name", "nombre");
-		request.setAttribute("email", "email");
-		RequestDispatcher miDispatcher = request.getRequestDispatcher("index.jsp");
+		request.setAttribute("person", person);
+		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		
-		miDispatcher.forward(request, response);
+		
+		(**)
+		
+		
 
 	}
 

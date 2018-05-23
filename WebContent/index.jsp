@@ -74,7 +74,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="../static/assets/img/avenge.jpg" alt="First slide">
+          <img class="first-slide" src="static/assets/img/avenge.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Vengadores.</h1>
@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="../static/assets/img/infinity.jpg" alt="Second slide">
+          <img class="second-slide" src="static/assets/img/infinity.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Vengadores 2.</h1>
@@ -94,7 +94,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="../static/assets/img/jurassic-world.jpg" alt="Third slide">
+          <img class="third-slide" src="static/assets/img/jurassic-world.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Jurasick word.</h1>
@@ -132,7 +132,7 @@
           <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="../static/assets/img/avenge.jpg" data-src="../static/assets/img/avenge.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" src="static/assets/img/avenge.jpg" data-src="static/assets/img/avenge.jpg" alt="Generic placeholder image">
         </div>
       </div>
       
@@ -146,7 +146,7 @@
           <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="../static/assets/img/infinity.jpg" src="../static/assets/img/infinity.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/infinity.jpg" src="static/assets/img/infinity.jpg" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -160,12 +160,12 @@
           <p><a class="btn btn-lg btn-primary" href="pelicula.jsp" role="button">Ver sinopsis</a></p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="../static/assets/img/jurassic-world.jpg" src="../static/assets/img/jurassic-world.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/jurassic-world.jpg" src="static/assets/img/jurassic-world.jpg" alt="Generic placeholder image">
         </div>
       </div>
 <div>
 <p>Name: <jps:getProperty name="person" property="name"/></p>
-<p>Email: <jps:getProperty name="person" property="email"/><</p>
+<p>Email: <jps:getProperty name="person" property="email"/></p>
 </div>
       <hr class="featurette-divider">
 

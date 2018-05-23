@@ -104,7 +104,7 @@
 		<div class="row">
 			<div class="col-sm-3" style="margin-top-40px;">
 				<h4>Título de la película</h4>
-				<img src="../static/assets/img/avenge.jpg" width="100%"/>
+				<img src="static/assets/img/avenge.jpg" width="100%"/>
 			</div>
 			<div class="col-sm-8 col-sm-offset-1" style="margin-top-40px;">
 				<div class="row">
