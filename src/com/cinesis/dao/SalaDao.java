@@ -26,3 +26,6 @@ public class SalaDao extends AbstractSession{
 	public Sala findByName(String sala_nombre) {
 		return null;	}
 }
+
+
+

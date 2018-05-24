@@ -39,3 +39,23 @@ public class EntradaDao {
 	
 	}
 }
+
+
+/**
+ * 
+ * 
+ * CREATE TABLE `entrada` (
+  `id` int(11) NOT NULL,
+  `sala_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `pelicula_id` int(11) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  `numeroAsiento` varchar(5) DEFAULT NULL,
+  `horario` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT NULL
+
+ * 
+ * 
+ * /
+ */
