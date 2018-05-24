@@ -44,9 +44,6 @@ public class ServletController extends HttpServlet {
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		
 		
-		(**)
-		
-		
 
 	}
 

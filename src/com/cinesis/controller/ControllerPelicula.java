@@ -21,8 +21,6 @@ public class ControllerPelicula implements ControllerInter {
 	public void insert(List<String> lista) {
 		
 	Iterator<String> it = lista.iterator();
-	
-	
 		
 		Pelicula P = new Pelicula(it.next(),it.next(),Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
