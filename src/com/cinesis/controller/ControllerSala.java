@@ -17,22 +17,33 @@ public class ControllerSala implements ControllerInter {
 	{
 		Iterator<String> it = lista.iterator();
 		
-		Sala S = new Sala(Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+		Sala S = new Sala();
+		
+		S.crearSala(Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
 				stringToEnum(it.next()),Boolean.parseBoolean(it.next()));
 		
-		S.crearSala();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	@Override
 	public void Delete(Integer id) {
-		Sala S = new Sala(id, null, null, null, null, null, null, false);
+		Sala S = new Sala(id, null, null, null, null, null, false);
 		
 		S.eliminarSala(id);
 	}
 
 	@Override
 	public Sala read(Integer id) {
-		Sala S = new Sala(id, null, null, null, null, null, null, false);
+		Sala S = new Sala(id, null, null, null, null, null, false);
 			
 		return S.mostrarSala(id);
 	}
@@ -41,7 +52,7 @@ public class ControllerSala implements ControllerInter {
 	public void modify(List<String> lista) {
 		Iterator<String> it = lista.iterator();
 		
-		Sala S = new Sala(Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+		Sala S = new Sala(Integer.parseInt(it.next()),Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
 				stringToEnum(it.next()),Boolean.parseBoolean(it.next()));
 		S.modificarSala();

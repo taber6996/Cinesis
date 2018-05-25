@@ -2,7 +2,6 @@ package com.cinesis.model;
 
 
 
-import java.lang.reflect.Array;
 
 //import java.util.Hashtable.Enumerator;
 import com.cinesis.dao.SalaDao;
@@ -40,17 +39,30 @@ public class Sala {
 	
 	
 
-	public void crearSala() {
+	public Sala() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+	public void crearSala( int numFilas , int numColumnas, int numAsientosVIP,int numAsientosMinusvalidos, CalidadSonidoEnum calidadSonidoEnum, boolean _3D) {
 		//insertar
-		//Sala S = new Sala(null, null, numFilas, numColumnas, numAsientosVIP, numAsientosMinusvalidos, calidadSonido, _3D);
+		Sala S = new Sala(null, numFilas, numColumnas, numAsientosVIP, numAsientosMinusvalidos, calidadSonidoEnum, _3D);
 		 SalaDao sD= new SalaDao();
-		sD.saveSala(this);
+		sD.saveSala(S);
 		
 	}
 
 	public Sala mostrarSala(Integer idSala) {
-		 SalaDao sD= new SalaDao();
-		return sD.findById(idSala);
+		SalaDao sD= new SalaDao();
+		
+		 Sala s = new Sala(null, null, null, null, null, null, false);
+		 java.sql.ResultSet rs = sD.findById(idSala);
+		 ///¿¿¿ seters con el result set?
+		 return s;
+		
+		
 	}
 
 	public void modificarSala() {

@@ -2,6 +2,7 @@ package com.cinesis.controller;
 
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,60 +18,56 @@ import com.cinesis.model.Sala;
 public class ControllerPelicula implements ControllerInter {
 	private String id = "ContPeli";
 
-	/*@Override
+	@Override
 	public void insert(List<String> lista) {
 		
 	Iterator<String> it = lista.iterator();
 		
-		Pelicula P = new Pelicula(it.next(),it.next(),Integer.parseInt(it.next()),
+		Pelicula P = new Pelicula();
+		
+		P.crearPelicula(it.next(),it.next(),
 				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
-				stringToEnum(it.next()),it.next(),stringToDate(it.next()),it.next(),stringToDate(it.next()));
-		
-		P.crearPelicula();
-		
-	}*/
+				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
+	}
 
 	
-
-	private Date stringToDate(String fecha){
-		DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-		Date date = null;
+	public Timestamp stringToTimestamp(String fecha)
+	{
+		Timestamp timestamp = null;
 		try {
-			date = (Date) format.parse(fecha);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+		    Date parsedDate = (Date) dateFormat.parse(fecha);
+		    timestamp = new java.sql.Timestamp(parsedDate.getTime());
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return date;
+		return timestamp;
 	}
+
 	
 	
 	@Override
 	public void Delete(Integer id) {
-		Pelicula p = new Pelicula(null,null,id,null,null,null,null,null,null,null,null,null,null);
+		Pelicula p = new Pelicula();
 		p.borrarPelicula(id);
-		
 	}
 
 	@Override
 	public Pelicula read(Integer id) {
-		Pelicula p = new Pelicula(null,null,id,null,null,null,null,null,null,null,null,null,null);
+		Pelicula p = new Pelicula();
 		return p.mostrarPelicula(id);
-		
 	}
 
 	/*@Override
 	public void modify(List<String> lista) {
 		
 		Iterator<String> it = lista.iterator();
-		
-		
+
+		Pelicula P = new Pelicula();
 			
-			Pelicula P = new Pelicula(it.next(),it.next(),Integer.parseInt(it.next()),
-					Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
-					stringToEnum(it.next()),it.next(),stringToDate(it.next()),it.next(),stringToDate(it.next()));
-			
-			P.editarPelicula();
+		P.editarPelicula(Integer.parseInt(it.next()),it.next(),it.next(),
+				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
+				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
 		
 	}*/
 
@@ -94,7 +91,7 @@ public class ControllerPelicula implements ControllerInter {
 	
 	
 	public List<Pelicula> ReadALL(){
-		Pelicula p = new Pelicula(null,null,null,null,null,null,null,null,null,null,null,null,null);
+		Pelicula p = new Pelicula();
 		return p.listadoPublicoPeliculas();
 	}
 
