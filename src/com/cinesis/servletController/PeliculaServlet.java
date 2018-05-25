@@ -17,7 +17,7 @@ import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
-@WebServlet(name = "peliculas", urlPatterns = {"/peliculas"})
+@WebServlet(name = "pelicula", urlPatterns = {"/pelicula"})
 public class PeliculaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,7 +36,15 @@ public class PeliculaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		Integer pelicula_id = (Integer) request.getAttribute("pelicula_id");
-		getServletContext().getRequestDispatcher("/pelicuas.jsp").forward(request, response);
+		
+		List<String> listaPelicula = new ArrayList<String>();
+		
+		listaPelicula.add("ContPeli");
+		// nombre
+		listaPelicula.add(request.getParameter("nombre"));
+		
+		
+		getServletContext().getRequestDispatcher("/pelicula.jsp").forward(request, response);
 				
 	}
 

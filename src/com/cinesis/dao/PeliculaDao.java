@@ -84,7 +84,7 @@ public class PeliculaDao extends AbstractSession{
   		   rs = preparedStmt.executeQuery();
   		   while(rs.isLast())
   		   {
-  			 list.add(setDatosQuery(rs));
+  			 //list.add(setDatosQuery(rs));
   			 rs.next();
   		   }
   		 //  stmt.close();
@@ -106,7 +106,7 @@ public class PeliculaDao extends AbstractSession{
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
   		  
-  		   List<String> l = setDatosQuery(rs);
+  		  List<String> l = setDatosQuery(rs);
   	
   		//   stmt.close();
   		//   conn.close();
@@ -116,7 +116,7 @@ public class PeliculaDao extends AbstractSession{
   		  }
 		return null;
 	}
-	/*public List<String> setDatosQuery(ResultSet rs)
+	public List<String> setDatosQuery(ResultSet rs)
 	{
 		List<String> lPeli = new ArrayList<String>();
 		try {
@@ -138,7 +138,7 @@ public class PeliculaDao extends AbstractSession{
 			e.printStackTrace();
 		}
 		return lPeli;
-	}*/
+	}
 	
 	public Pelicula findByName(String pelicula_nombre) {
 		return null;	}

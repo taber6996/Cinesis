@@ -12,9 +12,6 @@ import com.cinesis.dao.EntradaDao;
 
 public class Entrada {
 
-
-
-
 	private Integer idEntrada;
 	
 	private Integer idSala;
@@ -34,6 +31,7 @@ public class Entrada {
 	
 	public Entrada(Integer idEntrada, Integer idSala, Integer idPelicula, Integer idUsuario, Integer numeroAsiento,
 			Date horario, Integer precio) {
+		
 		this.idEntrada = idEntrada;
 		this.idSala = idSala;
 		this.idPelicula = idPelicula;

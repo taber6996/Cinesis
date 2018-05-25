@@ -96,12 +96,6 @@ public class ControllerPelicula implements ControllerInter {
 	}
 
 
-	@Override
-	public void insert(List<String> lista) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public void modify(List<String> lista) {

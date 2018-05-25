@@ -17,14 +17,14 @@ import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
-@WebServlet(name = "peliculas", urlPatterns = {"/peliculas"})
-public class PeliculasServlet extends HttpServlet {
+@WebServlet(name = "crear-sala", urlPatterns = {"/index"})
+public class CrearSalaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PeliculasServlet() {
+    public CrearSalaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +35,7 @@ public class PeliculasServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		getServletContext().getRequestDispatcher("/peliculas.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/privado/crear-sala.jsp").forward(request, response);
 				
 	}
 

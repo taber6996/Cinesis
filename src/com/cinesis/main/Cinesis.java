@@ -13,17 +13,17 @@ public class Cinesis {
 	
 	public static void main( String[] args)
 	{
-		Timestamp ahora = new Timestamp(System.currentTimeMillis());
+		/*Timestamp ahora = new Timestamp(System.currentTimeMillis());
 	   // SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
 	   // Date h = formateador.format(ahora);
 		
-		Pelicula P = new Pelicula("Vengadores", null, null, 100, null,null, "Sinopsis", 50, null, "España", ahora, "jhyhb", ahora);
+		Pelicula P = new Pelicula("Vengadores", null, null, 100, null,null, "Sinopsis", 50, null, "Espaï¿½a", ahora, "jhyhb", ahora);
 		PeliculaDao pd = new PeliculaDao();
 		
 		//pd.createPelicula(P);
 		
 		Pelicula prueba = P.mostrarPelicula(2);
 		
-		System.out.print(prueba.getNomPelicula());
+		System.out.print(prueba.getNomPelicula());*/
 	}
 }

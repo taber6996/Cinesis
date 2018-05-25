@@ -16,7 +16,7 @@ public class Conexion {
       if (cnx == null) {
          try {
         	Class.forName("com.mysql.jdbc.Driver");
-            cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinesis", "root", "");
+            cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinesis", "root", "root");
          } catch (SQLException ex) {
         	ex.printStackTrace();
             throw new SQLException(ex); 
