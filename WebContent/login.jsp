@@ -48,7 +48,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a href="privado/listado-entradas.jsp" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</a>
         <a href="index.jsp" class="btn btn-lg btn-primary btn-block" type="button">Volver</a>
       </form>
 
