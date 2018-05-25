@@ -12,7 +12,6 @@ public class Sala {
 
 	private Integer idSala;
 	
-	private Integer idPelicula;
 	
 	private Integer numFilas;
 	
@@ -27,9 +26,8 @@ public class Sala {
 	private Boolean _3D;
 	
 	
-	public Sala(Integer id, Integer idPeli, Integer numFilas, Integer numColumnas, Integer numAsientosVip, Integer numAsienMinus, CalidadSonidoEnum calidadSonido, boolean _3D){
+	public Sala(Integer id, Integer numFilas, Integer numColumnas, Integer numAsientosVip, Integer numAsienMinus, CalidadSonidoEnum calidadSonido, boolean _3D){
 		this.idSala = id;
-		this.idPelicula = idPeli;
 		this.numFilas = numFilas;
 		this.numColumnas = numColumnas;
 		this.numAsientosVIP = numAsientosVip;
@@ -79,18 +77,6 @@ public class Sala {
 	}
 
 
-
-
-	public Integer getIdPelicula() {
-		return idPelicula;
-	}
-
-
-
-
-	public void setIdPelicula(Integer idPelicula) {
-		this.idPelicula = idPelicula;
-	}
 
 
 

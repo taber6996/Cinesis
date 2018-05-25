@@ -1,11 +1,15 @@
 package com.cinesis.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.cinesis.dao.TrailerDao;
 
 public class Trailer {
+	
+	
 	
 	public Trailer(Integer idTrailer, Integer idPelicula, String titulo, String descripcion) {
 		super();
@@ -17,10 +21,6 @@ public class Trailer {
 
 
 	public Trailer() {//Construtor vacio
-		this.idTrailer = null;
-		this.idPelicula = null;
-		this.titulo = null;
-		this.descripcion = null;
 	}
 
 
@@ -34,14 +34,12 @@ public class Trailer {
 	
 	
 	
-	//private Pelicula peliculas;
 	
- //Duracion?????
-	
-	public void crearTrailer() {
+	public void crearTrailer(int idPelicula, String titulo, String descripcion) {
+		
 		TrailerDao tD = new TrailerDao();
-				
-		tD.saveTrailer(this);
+		Trailer t = new Trailer(null, idPelicula, titulo, descripcion);
+		tD.saveTrailer(t);
 	}
 
 	public void eliminarTrailer(Integer idTrailer) {
@@ -77,11 +75,12 @@ public class Trailer {
 		return tD.findAllTrailer();
 	}
 
-	public void modificarTrailer()
+	public void modificarTrailer(int idTrailer, int idPelicula, String titulo, String descripcion)
 	{
 		TrailerDao tD = new TrailerDao();
+		Trailer t = new Trailer(idTrailer, idPelicula, titulo, descripcion);
 		
-		tD.updateTrailer(this);
+		tD.updateTrailer(t);
 	}
 	public Integer getIdTrailer() {
 		return idTrailer;
@@ -115,5 +114,18 @@ public class Trailer {
 		this.descripcion = descripcion;
 	}
 	
-
+	public Trailer setDatosQuery(ResultSet rs){
+		Trailer trailer = null;
+		try {
+		trailer.setIdTrailer(rs.getInt("id"));
+		trailer.setIdPelicula(rs.getInt("pelicula_id"));
+		trailer.setTitulo(rs.getString("titulo"));
+		trailer.setDescripcion(rs.getString("descripcion"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return trailer;
+	}
 }
