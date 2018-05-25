@@ -17,7 +17,7 @@ import com.cinesis.model.Sala;
 public class ControllerPelicula implements ControllerInter {
 	private String id = "ContPeli";
 
-	@Override
+	/*@Override
 	public void insert(List<String> lista) {
 		
 	Iterator<String> it = lista.iterator();
@@ -28,7 +28,7 @@ public class ControllerPelicula implements ControllerInter {
 		
 		P.crearPelicula();
 		
-	}
+	}*/
 
 	
 
@@ -59,7 +59,7 @@ public class ControllerPelicula implements ControllerInter {
 		
 	}
 
-	@Override
+	/*@Override
 	public void modify(List<String> lista) {
 		
 		Iterator<String> it = lista.iterator();
@@ -72,7 +72,7 @@ public class ControllerPelicula implements ControllerInter {
 			
 			P.editarPelicula();
 		
-	}
+	}*/
 
 	@Override
 	public Categoria stringToEnum(String stringEnum) {
@@ -96,6 +96,20 @@ public class ControllerPelicula implements ControllerInter {
 	public List<Pelicula> ReadALL(){
 		Pelicula p = new Pelicula(null,null,null,null,null,null,null,null,null,null,null,null,null);
 		return p.listadoPublicoPeliculas();
+	}
+
+
+	@Override
+	public void insert(List<String> lista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void modify(List<String> lista) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

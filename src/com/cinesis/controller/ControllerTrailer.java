@@ -12,12 +12,12 @@ public class ControllerTrailer implements ControllerInter{
 	private String id = "ContTrailer";
 	@Override
 	public void insert(List<String> lista) {
-			Iterator<String> it = lista.iterator();
+			/*Iterator<String> it = lista.iterator();
 		
 		Trailer T = new Trailer(Integer.parseInt(it.next()), Integer.parseInt(it.next())
 				, it.next(), it.next());
 		
-		T.crearTrailer();
+		T.crearTrailer();*/
 	}
 
 	@Override
@@ -48,12 +48,12 @@ public class ControllerTrailer implements ControllerInter{
 
 	@Override
 	public void modify(List<String> lista) {
-		Iterator<String> it = lista.iterator();
+		/*Iterator<String> it = lista.iterator();
 		
 		Trailer T = new Trailer(Integer.parseInt(it.next()), Integer.parseInt(it.next())
 				, it.next(), it.next());
 		
-		T.modificarTrailer();
+		T.modificarTrailer();*/
 	}
 
 

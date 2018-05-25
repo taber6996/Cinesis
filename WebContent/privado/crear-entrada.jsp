@@ -19,9 +19,12 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="http://getbootstrap.com/docs/3.3/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/docs/3.3/assets/js/ie-emulation-modes-warning.js"></script>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,13 +50,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="index.jsp">Cinesis</a>
+                  <a class="navbar-brand" href="../index.jsp">Cinesis</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.jsp">Home</a></li>
-                    <li><a href="peliculas.jsp">Películas</a></li>
-                    <li class="active"><a href="login.jsp">Login</a></li>
+                    <li><a href="../index.jsp">Home</a></li>
+                    <li><a href="../peliculas.jsp">Películas</a></li>
+                    <li><a href="listado-entradas.jsp">Listado Entradas</a></li>
+                    <li><a href="crear-pelicula.jsp">Crear película</a></li>
+                    <li><a class="active" href="crear-entradajsp">Crear entrada</a></li>
+                    <li><a href="../index.jsp">Logout</a></li>
                   </ul>
                 </div>
               </div>
@@ -69,33 +75,52 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-
       <!-- START THE FEATURETTES -->
     <div class="container marketing">
       <hr class="featurette-divider">
       <div class="row">
-        <div class="col-sm-offset-1 col-sm-10">
-          <h2>Título de la película <a href="comprar_entradas.jsp" type="button" class="btn btn-primary pull-right">Comprar entradas</a></h2>
-          
-          <img src="static/assets/img/avenge.jpg" width="100%"/>
+        <div class="col-sm-6 col-sm-offset-3">
+        	
+        	<c:if test="${not empty error}">
+                <div class="alert alert-danger">
+                    <div class="alert alert-success" role="alert">${error }</div>
+                </div>
+            </c:if>
+ 
+            <h3>Formulario creación entrada</h3>
+            <form role="form" method="post" action="ServletController">
+            
+            <input type="hidden" name="type_form" value="entrada">
+              <div class="form-group">
+                <label for"exampleInputEmail1">Sala id</label>
+                <input name="sala_id" type="text" class="form-control" id="sala_id" placeholder="Sala id">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">User Id</label>
+                <input name="user_id" type="text" class="form-control" id="user_id" placeholder="User id">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">Película id</label>
+                <input name="pelicula_id" type="text" class="form-control" id="pelicula_id" placeholder="Película Id">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">Precio</label>
+                <input name="precio" type="text" class="form-control" id="precio" placeholder=Precio">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">Número Asiento</label>
+                <input name="numeroAsiento" type="text" class="form-control" id="numeroAsiento" placeholder="Número Asiento">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">Horario</label>
+                <input name="horario" type="number" class="form-control" id="horario" placeholder="Horario">
+              </div>
+              <button type="submit" class="btn btn-primary">Guardar entrada</button>
+            </form>
+        </div>
 
-          <ul style="margin-top: 10px;">
-            <li>Actores: <b>xxxx</b></li>
-            <li>Duración: <b>xxxx</b></li>
-            <li>Valoración: <b>xxxx</b></li>
-            <li>Categoría: <b>xxxx</b></li>
-          </ul>
-        </div>
-        <div class="col-sm-12" style="margin-top:40px;">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante odio, luctus quis tristique ac, aliquet vitae turpis. Donec orci ante, faucibus non tincidunt semper, faucibus in nisi. Quisque ut ultricies massa, at luctus nibh. Sed eu tellus sit amet augue scelerisque pulvinar. Nullam ex erat, gravida quis massa vel, accumsan porta sem. Etiam sit amet quam elit. Sed sit amet fermentum urna. In non laoreet ex, sed maximus enim. Duis convallis mi odio, et iaculis ipsum porta vitae. Sed eget lectus euismod, gravida nunc at, iaculis libero. Sed ullamcorper malesuada sem volutpat eleifend. Sed aliquam interdum risus, non venenatis libero sollicitudin nec. Donec quis elit eu arcu venenatis semper. Cras cursus pellentesque nisi, sit amet porta odio cursus at. Morbi congue magna eu magna placerat auctor.
-            Phasellus vitae hendrerit nisl. Nam et justo enim. Maecenas maximus, velit sed vestibulum euismod, est augue vestibulum urna, non consectetur diam nisi at lacus. Curabitur luctus magna dapibus lectus varius tempor. Sed facilisis est eu imperdiet molestie. Phasellus maximus volutpat orci eu convallis. Integer nec lectus euismod, lobortis augue at, fermentum nulla. Aenean sit amet metus gravida tortor interdum malesuada. Aliquam id ligula vel leo faucibus mattis at a purus. Proin pellentesque fermentum volutpat. Phasellus a viverra turpis, eget maximus nisl. Phasellus finibus sapien eget justo commodo viverra. Vivamus eu ultrices elit. Nunc ultricies ipsum sed mauris feugiat porta. Vivamus facilisis lobortis lacus, non consequat mi tristique convallis. Cras tristique ligula eu ex dictum, auctor fringilla nunc elementum.
-            Suspendisse potenti. Quisque molestie, nisl et hendrerit venenatis, massa nulla faucibus nulla, quis semper magna ipsum in leo. Nullam fringilla eget odio sit amet fermentum. Suspendisse dignissim interdum posuere. Nunc lobortis posuere lobortis. Suspendisse et lorem nulla. Aliquam maximus metus ac justo congue egestas. Nulla maximus sem id magna vestibulum suscipit. Quisque nec quam ac quam tempor convallis posuere eget dui. Nunc pharetra sem at dignissim aliquet. Sed sit amet massa lorem. Pellentesque sapien lorem, gravida non nisi venenatis, tristique tempor ligula. Etiam faucibus nisl a diam rhoncus, faucibus posuere quam semper. Sed convallis odio nec lacus volutpat suscipit. Pellentesque vel enim posuere, ornare enim id, lobortis dolor. Mauris ut lacus venenatis, ornare dolor id, consectetur sem.
-          </p>
-          <a href="index.jsp" type="button" class="btn btn-primary pull-right">Volver</a>
-        </div>
+
       </div>
-	  </div>
 
       <!-- /END THE FEATURETTES -->
 
@@ -112,12 +137,20 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="http://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="http://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <style src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></style>
+
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
   </body>
 </html>
