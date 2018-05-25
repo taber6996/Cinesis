@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -36,21 +39,20 @@ public class Pelicula {
 	
 	private String directores;
 	
-	private Timestamp fecha;
 	
 	//private List<Trailer> trailers;
 	
 	public Pelicula() {
 	}
 	
-	public Pelicula(String nomPelicula, String slug,Integer idPelicula,Integer duracion, String imagenPrinc,
+	public Pelicula(Integer idPelicula,String nomPelicula, String slug,Integer duracion, String imagenPrinc,
 			String imagenSec, String sinopsis, Integer calificacion, Categoria categoria, String pais, Timestamp estreno,
-			String directores, Timestamp fecha) {
+			String directores) {
 		
 		
+		this.idPelicula = idPelicula;
 		this.nomPelicula = nomPelicula;
 		this.slug = slug;
-		this.idPelicula = idPelicula;
 		this.duracion = duracion;
 		this.imagenPrinc = imagenPrinc;
 		this.imagenSec = imagenSec;
@@ -60,20 +62,17 @@ public class Pelicula {
 		this.pais = pais;
 		this.estreno = estreno;
 		this.directores = directores;
-		this.fecha = fecha;
-	
 	}
 
 	
 
 
-	public void crearPelicula(String nomPelicula,String slug,Integer idPeli, Integer duration,
+	public void crearPelicula(String nomPelicula,String slug, Integer duration,
 			String imagen,String imagenSec, String sinopsis,
-			Integer calificacion,Categoria categoria, String pais, Timestamp estreno,String directores,
-			Timestamp fecha) {
+			Integer calificacion,Categoria categoria, String pais, Timestamp estreno,String directores) {
 		
 		PeliculaDao pD = new PeliculaDao();
-		Pelicula p = new Pelicula(nomPelicula,slug,idPeli,duration, imagen, imagenSec, sinopsis, calificacion, categoria, pais,estreno, directores, fecha);
+		Pelicula p = new Pelicula(null,nomPelicula,slug,duration, imagen, imagenSec, sinopsis, calificacion, categoria, pais,estreno, directores);
 		
 		pD.createPelicula(p);
 	}
@@ -81,34 +80,31 @@ public class Pelicula {
 	
 	public Pelicula mostrarPelicula(Integer idPelicula) {
 		PeliculaDao pD = new PeliculaDao();
-		ResultSet rs =  pD.findById(idPelicula);
+		List<String> lPeli = new ArrayList<String>();
 		
-		return setDatosQuery(rs);
-	}
-	public Pelicula setDatosQuery(ResultSet rs)
-	{
-		Pelicula peli = new Pelicula();
-		String cat;
-		try {
-			rs.next();
-			peli.setIdPelicula(rs.getInt("id"));
-			peli.setNomPelicula(rs.getString("nombre"));
-			peli.setSlug(rs.getString("slug"));
-			peli.setDuracion(rs.getInt("duracion"));
-			peli.setImagenPrinc(rs.getString("imagen_principal"));
-			peli.setImagenSec(rs.getString("imagen_secundario"));
-			peli.setSinopsis(rs.getString("sinopsis"));
-			peli.setCalificacion(rs.getInt("calificacion"));
-			cat = rs.getString("categoria");
-			peli.setCategoria(stringToEnum(cat));
-			peli.setPais(rs.getString("pais"));
-			peli.setEstreno(rs.getTimestamp("estreno"));
-			peli.setDirectores(rs.getString("director"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		lPeli = pD.findById(idPelicula);
+		Iterator<String> it =  lPeli.iterator();
+		
+		
+		Pelicula peli = new Pelicula(Integer.parseInt(it.next()),it.next(),it.next(),
+				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
+				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
+		
 		return peli;
+	}
+	
+	public Timestamp stringToTimestamp(String fecha)
+	{
+		Timestamp timestamp = null;
+		try {
+		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+		    Date parsedDate = (Date) dateFormat.parse(fecha);
+		    timestamp = new java.sql.Timestamp(parsedDate.getTime());
+		} catch(Exception e) {
+
+		}
+		return timestamp;
 	}
 	
 	public Categoria stringToEnum(String stringEnum) {
@@ -127,12 +123,11 @@ public class Pelicula {
 	
 	*/
 
-	public void editarPelicula(String nombre, String slug, int idPelicula, int duration, String imagen, String imagenSec, String sinopsis, int calificacion, Categoria categoria, String pais, Timestamp estreno, String directores, Timestamp fecha) {
+	public void editarPelicula(int idPelicula, String nombre, String slug,  int duration, String imagen, String imagenSec, String sinopsis, int calificacion, Categoria categoria, String pais, Timestamp estreno, String directores) {
 		PeliculaDao pD = new PeliculaDao();
-		Pelicula p = new Pelicula(nomPelicula,slug,idPelicula,duration, imagen, imagenSec, sinopsis, calificacion, categoria, pais,estreno, directores, fecha);
+		Pelicula p = new Pelicula(idPelicula,nombre,slug,duration, imagen, imagenSec, sinopsis, calificacion, categoria, pais,estreno, directores);
 
 		pD.updatePelicula(p);
-		
 	}
 
 	
@@ -144,8 +139,23 @@ public class Pelicula {
 	
 	public List<Pelicula> listadoPublicoPeliculas() {
 		PeliculaDao pD = new PeliculaDao();
-		return pD.findAllPeliculas();
+		List<List<String>> list = new ArrayList<List<String>>();
+		List<String> list2 =  new ArrayList<String>();
+		List<Pelicula> listPeli = new ArrayList<Pelicula>();
+		Iterator<List<String>> it = list.iterator();
+		Iterator<String> it2 = list2.iterator();
 		
+		list = pD.findAllPeliculas();
+		for (int i = 0; i < list.size(); i++)
+		{
+			list2 = it.next();
+			Pelicula peliAux = new Pelicula(Integer.parseInt(it2.next()),it2.next(),it2.next(),
+					Integer.parseInt(it2.next()),it2.next(),it2.next(),it2.next(),Integer.parseInt(it2.next()),
+					stringToEnum(it2.next()),it2.next(),stringToTimestamp(it2.next()),it2.next());
+			listPeli.add(peliAux); 
+		}
+		
+		return listPeli;
 	}
 
 
@@ -249,14 +259,5 @@ public class Pelicula {
 	public void setDirectores(String directores) {
 		this.directores = directores;
 	}
-
-	public Timestamp getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Timestamp fecha) {
-		this.fecha = fecha;
-	}
-
 	
 }
