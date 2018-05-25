@@ -164,8 +164,11 @@
         </div>
       </div>
 <div>
-<p>Name: <jps:getProperty name="person" property="name"/></p>
-<p>Email: <jps:getProperty name="person" property="email"/></p>
+<% String email = (String)request.getAttribute("email"); %>
+<% String name = (String)request.getAttribute("name"); %>
+<p>Email: <%=email %></p>
+<p>Name: <%=name %></p>
+
 </div>
       <hr class="featurette-divider">
 

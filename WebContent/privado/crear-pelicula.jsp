@@ -74,14 +74,23 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-
       <!-- START THE FEATURETTES -->
     <div class="container marketing">
       <hr class="featurette-divider">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
+        	
+        	<c:if test="${not empty error}">
+                <div class="alert alert-danger">
+                    <div class="alert alert-success" role="alert">${error }</div>
+                </div>
+            </c:if>
+                
+        	
             <h3>Formulario creación entrada</h3>
-            <form>
+            <form role="form" method="post" action="ServletController">
+            
+            <input type="hidden" name="type_form" value="pelicula">
               <div class="form-group">
                 <label for"exampleInputEmail1">Título</label>
                 <input name="titulo" type="text" class="form-control" id="titulo" placeholder="Título">
@@ -103,8 +112,16 @@
                 <input name="duracion" type="text" class="form-control" id="duracion" placeholder="Duración">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Valoración</label>
-                <input name="valoracion" type="number" class="form-control" id="valoracion" placeholder="Valoración">
+                <label for"exampleInputEmail1">Calificación</label>
+                <input name="calificacion" type="number" class="form-control" id="calificacion" placeholder="Calificación">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">Pais</label>
+                <input name="pais" type="text" class="form-control" id="pais" placeholder="Pais">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">Estreno</label>
+                <input name="estreno" type="text" class="form-control" id="estreno" placeholder="Estreno">
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Extracto</label>
@@ -112,7 +129,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputFile">Imagen</label>
-                <input type="file" id="imagen" name="imagen">
+                <input type="file" id="imagen_principal" name="imagen_principal">
               </div>
               <button type="submit" class="btn btn-primary">Guardar película</button>
             </form>

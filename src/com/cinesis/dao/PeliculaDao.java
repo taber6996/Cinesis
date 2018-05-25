@@ -116,7 +116,7 @@ public class PeliculaDao extends AbstractSession{
   		  }
 		return null;
 	}
-	public List<String> setDatosQuery(ResultSet rs)
+	/*public List<String> setDatosQuery(ResultSet rs)
 	{
 		List<String> lPeli = new ArrayList<String>();
 		try {
@@ -138,7 +138,7 @@ public class PeliculaDao extends AbstractSession{
 			e.printStackTrace();
 		}
 		return lPeli;
-	}
+	}*/
 	
 	public Pelicula findByName(String pelicula_nombre) {
 		return null;	}
