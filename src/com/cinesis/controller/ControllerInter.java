@@ -25,6 +25,13 @@ public class  ControllerInter {
 		
 	}
 	
+	public List<Object> readAll(){
+		return null;
+		
+		
+		
+	}
+	
 	public void modify(List<String> lista){
 		
 		

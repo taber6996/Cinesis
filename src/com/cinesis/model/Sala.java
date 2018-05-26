@@ -3,6 +3,11 @@ package com.cinesis.model;
 
 
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import com.cinesis.dao.PeliculaDao;
 //import java.util.Hashtable.Enumerator;
 import com.cinesis.dao.SalaDao;
 
@@ -57,13 +62,42 @@ public class Sala {
 	public Sala mostrarSala(Integer idSala) {
 		SalaDao sD= new SalaDao();
 		
-		 Sala s = new Sala(null, null, null, null, null, null, false);
-		 java.sql.ResultSet rs = sD.findById(idSala);
-		 ///¿¿¿ seters con el result set?
+		List<String> lSala = new ArrayList<String>();
+		lSala = sD.findById(idSala);
+		Iterator<String> it =  lSala.iterator();
+		
+		 Sala s = new Sala(Integer.parseInt(it.next()), Integer.parseInt(it.next()), Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),stringToEnum(it.next()), IntToBoolean(Integer.parseInt(it.next())));
+		
 		 return s;
 		
 		
 	}
+	
+	
+	
+	public List<Sala> listadoSalas() {
+		SalaDao sD = new SalaDao();
+		List<List<String>> list = new ArrayList<List<String>>();
+		List<String> list2 =  new ArrayList<String>();
+		List<Sala> listSala = new ArrayList<Sala>();
+		Iterator<List<String>> it = list.iterator();
+		Iterator<String> it2 = list2.iterator();
+		
+		list = sD.findAllSala();
+		for (int i = 0; i < list.size(); i++)
+		{
+			list2 = it.next();
+			Sala salaAux = new Sala(Integer.parseInt(it2.next()), Integer.parseInt(it2.next()),
+					Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),
+					Integer.parseInt(it2.next()),stringToEnum(it2.next()), IntToBoolean(Integer.parseInt(it2.next())));
+			
+			listSala.add(salaAux); 
+		}
+		
+		return listSala;
+	}
+	
+	
 
 	public void modificarSala() {
 		SalaDao sD= new SalaDao();
@@ -173,4 +207,20 @@ public class Sala {
 	public void set_3D(Boolean _3d) {
 		_3D = _3d;
 	}
+	
+	
+	
+	public CalidadSonidoEnum stringToEnum(String stringEnum) {
+		CalidadSonidoEnum cal = CalidadSonidoEnum.valueOf(stringEnum);
+		return cal;
+	
+	}
+	
+	public boolean IntToBoolean(int  siono){
+		if(siono == 1)
+			return true;
+		
+		return false;
+	}
+	
 }
