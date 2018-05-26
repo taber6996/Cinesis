@@ -9,17 +9,17 @@ public class Conexion {
    public  Connection obtener() throws SQLException, ClassNotFoundException {
       if (cnx == null) {
          try {
-        	Class.forName("com.mysql.jdbc.Driver");
+        	Class.forName("com.mysql.cj.jdbc.Driver");
         	
-        	String cadcon="jdbc:mysql://localhost:8889/cinesis";
-        	String user="root";
-        	String password="root";
-        	
-            cnx = DriverManager.getConnection(cadcon, cadcon, password);
+        	String cadcon="jdbc:mysql://127.0.0.1:8889/cinesis?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        	String user = "root";
+        	String password = "root";
+
+            cnx = DriverManager.getConnection("jdbc:mysql://127.0.0.1:8889/cinesis?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "root");
          } catch (SQLException ex) {
         	System.out.println("Error sql: "+ex.getMessage());
-        	//ex.printStackTrace();
-            //throw new SQLException(ex); 
+        	ex.printStackTrace();
+            throw new SQLException(ex); 
          } catch (ClassNotFoundException ex) {
         	 System.out.println("Error class: "+ex.getMessage());
             throw new ClassCastException(ex.getMessage());

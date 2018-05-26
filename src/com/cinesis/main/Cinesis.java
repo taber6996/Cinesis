@@ -1,14 +1,15 @@
 package com.cinesis.main;
 
-
-
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.cinesis.dao.PeliculaDao;
+import com.cinesis.controller.ControllerInter;
+import com.cinesis.controller.ControllerParser;
 import com.cinesis.model.Pelicula;
 
 public class Cinesis {
+	
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 	
 	public static void main( String[] args)
@@ -30,32 +31,13 @@ public class Cinesis {
 		
 		List<String> lista = new ArrayList<String>();
 		
-		lista.add("ContSala");
-		lista.add("150");
-		lista.add("105");
-		lista.add("32");
-		lista.add("2");
-		lista.add("DOLBY");
-		lista.add("0");
-		
-		
-
+		lista.add("ContPeli");
 		ControllerParser parser = new ControllerParser();	
-		
 		ControllerInter contr =	 parser.parse(lista);
-			
+		Pelicula pelicula =  (Pelicula) contr.read(1);
 		
-		
-		
-		contr.insert(lista);
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(pelicula.getNomPelicula());
+	
+
 	}
 }

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
+import com.cinesis.controller.ControllerInter;
+import com.cinesis.controller.ControllerParser;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -40,8 +42,10 @@ public class CRUDPeliculasServlet extends HttpServlet {
 		List<String> listaPelicula = new ArrayList<String>();
 		
 		listaPelicula.add("ContPeli");
-		// nombre
-		listaPelicula.add(request.getParameter("nombre"));
+		
+		ControllerParser parser = new ControllerParser();	
+		
+		ControllerInter contr =	 parser.parse(listaPelicula);
 		
 		
 		getServletContext().getRequestDispatcher("/privado/peliculas.jsp").forward(request, response);

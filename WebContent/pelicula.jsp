@@ -5,15 +5,15 @@
       <hr class="featurette-divider">
       <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
-          <h2>Título de la película <a href="comprar_entradas.jsp" type="button" class="btn btn-primary pull-right">Comprar entradas</a></h2>
+          <h2>${pelicula.getNomPelicula() } <a href="comprar_entradas.jsp" type="button" class="btn btn-primary pull-right">Comprar entradas</a></h2>
           
           <img src="static/assets/img/avenge.jpg" width="100%"/>
 
           <ul style="margin-top: 10px;">
-            <li>Actores: <b>xxxx</b></li>
-            <li>Duración: <b>xxxx</b></li>
-            <li>Valoración: <b>xxxx</b></li>
-            <li>Categoría: <b>xxxx</b></li>
+            <li>${pelicula.getNomPelicula() }: <b>xxxx</b></li>
+            <li>${pelicula.getNomPelicula() }: <b>xxxx</b></li>
+            <li>${pelicula.getNomPelicula() }: <b>xxxx</b></li>
+            <li>${pelicula.getNomPelicula() }: <b>xxxx</b></li>
           </ul>
         </div>
         <div class="col-sm-12" style="margin-top:40px;">
