@@ -104,7 +104,7 @@ public class SalaDao extends AbstractSession{
   		   rs = preparedStmt.executeQuery();
   		   while(rs.isLast())
   		   {
-  			 //list.add(setDatosQuery(rs));
+  			 list.add(setDatosQuery(rs));
   			 rs.next();
   		   }
   		 //  stmt.close();
