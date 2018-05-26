@@ -35,7 +35,7 @@ public class ListarTrailersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		getServletContext().getRequestDispatcher("/privado/listado-entradas.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/privado/listado-trailer.jsp").forward(request, response);
 				
 	}
 

@@ -17,20 +17,13 @@ public class ControllerSala implements ControllerInter {
 	{
 		Iterator<String> it = lista.iterator();
 		
+		it.next();
+		
 		Sala S = new Sala();
 		
 		S.crearSala(Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
 				stringToEnum(it.next()),Boolean.parseBoolean(it.next()));
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 	}

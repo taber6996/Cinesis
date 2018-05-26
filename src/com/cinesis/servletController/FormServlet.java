@@ -13,18 +13,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
+import com.cinesis.controller.ControllerInter;
+import com.cinesis.controller.ControllerPelicula;
+import com.cinesis.controller.ControllerSala;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
 @WebServlet(name = "form", urlPatterns = {"/form"})
-public class ServletController extends HttpServlet {
+public class FormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletController() {
+    public FormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -131,9 +134,10 @@ public class ServletController extends HttpServlet {
 			listaSala.add(request.getParameter("3d"));
 			
 			
-			Controller controllerSala = new Controller();
+			ControllerSala controllerSala= new ControllerSala();
 			
-			controllerSala.run(listaSala);
+			controllerSala.insert(listaSala);
+			
 			
 			// Devolvemos a la vista Entrada
 	        request.setAttribute("error", "Sala creada");

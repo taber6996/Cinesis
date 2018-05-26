@@ -8,17 +8,10 @@ public class Controller {
 	
 	private ControllerParser controladorParser;
 	
+	public Object run(List<String> lista ) {
+		
 	
-	
-	
-	public void run(List<String> lista ) {
-		
-		
-		
-		 this.controlador = this.controladorParser.parse(lista);
-		
-		
-		
+		return this.controladorParser.parse(lista);
 		
 	}
 
