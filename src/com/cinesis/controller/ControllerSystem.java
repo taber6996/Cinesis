@@ -7,7 +7,7 @@ import com.cinesis.model.CalidadSonidoEnum;
 import com.cinesis.model.Roles;
 import com.cinesis.model.SystemUser;
 
-public class ControllerSystem implements ControllerInter{
+public class ControllerSystem extends ControllerInter{
 
 	private String id = "ContSystem";
 	@Override
