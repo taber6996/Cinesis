@@ -54,12 +54,10 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
-                    <li><a href="index.">Home</a></li>
-                    <li><a href="peliculas">Películas</a></li>
-                    <li><a href="listado-entradas">Listado Entradas</a></li>
-                    <li><a href="crear-pelicula">Crear película</a></li>
-                    <li><a href="crear-entrada">Crear entrada</a></li>
-                    <li><a href="crear-sala">Crear sala</a></li>
+                    <li><a href="crear-pelicula">Peliculas</a></li>
+                    <li><a href="entradas">Entradas</a></li>
+                    <li><a href="salas">Salas</a></li>
+                    <li><a href="trailers">Trailers</a></li>
                     <li><a href="index">Logout</a></li>
                   </ul>
                 </div>

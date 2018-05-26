@@ -17,7 +17,7 @@ import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
-@WebServlet("crear-pelicula")
+@WebServlet(name = "crear-pelicula", urlPatterns = {"/crear-pelicula"})
 public class CRUDPeliculasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,7 +44,7 @@ public class CRUDPeliculasServlet extends HttpServlet {
 		listaPelicula.add(request.getParameter("nombre"));
 		
 		
-		getServletContext().getRequestDispatcher("/privado/crear-pelicula.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/privado/peliculas.jsp").forward(request, response);
 				
 	}
 	
@@ -88,7 +88,7 @@ public class CRUDPeliculasServlet extends HttpServlet {
 			
 			// Devolvemos a la vista pelis
 	        request.setAttribute("error", "Película creada");
-	        getServletContext().getRequestDispatcher("/privado/crear-pelicula.jsp").forward(request, response);
+	        getServletContext().getRequestDispatcher("/privado/peliculas.jsp").forward(request, response);
 	        
 		}
 

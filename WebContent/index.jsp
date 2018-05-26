@@ -16,7 +16,7 @@
             <div class="carousel-caption">
               <h1>Vengadores.</h1>
               <p>Película Vengadores</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula_id=1" role="button">Ver sinopsis</a></p>
+              <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=1" role="button">Ver sinopsis</a></p>
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="carousel-caption">
               <h1>Vengadores 2.</h1>
               <p> Película Vengadores 2</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula_id=2" role="button">Ver sinopsis</a></p>
+              <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=2" role="button">Ver sinopsis</a></p>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="carousel-caption">
               <h1>Jurasick word.</h1>
               <p>Película JURASICK.</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula_id=3" role="button">Ver sinopsis</a></p>
+              <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=3" role="button">Ver sinopsis</a></p>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
           <h2 class=""><a href="pelicula.jsp">Vengadores. <span class="text-muted">Segunda parte.</span></a></h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
           maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula_id=1" role="button">Ver sinopsis</a></p>
+          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=1" role="button">Ver sinopsis</a></p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" src="static/assets/img/avenge.jpg" data-src="static/assets/img/avenge.jpg" alt="Generic placeholder image">
@@ -80,7 +80,7 @@
           <h2 class=""><a href="pelicula.jsp">Vengadores. <span class="text-muted">Peliculón.</span></a></h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
           maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula_id=2" role="button">Ver sinopsis</a></p>
+          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=2" role="button">Ver sinopsis</a></p>
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" data-src="static/assets/img/infinity.jpg" src="static/assets/img/infinity.jpg" alt="Generic placeholder image">
@@ -94,7 +94,7 @@
           <h2 class=""><a href="pelicula.jsp">Jurasick Park.<span class="text-muted">Otra más.....</span></a></h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
           maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula_id=3" role="button">Ver sinopsis</a></p>
+          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=3" role="button">Ver sinopsis</a></p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" data-src="static/assets/img/jurassic-world.jpg" src="static/assets/img/jurassic-world.jpg" alt="Generic placeholder image">
