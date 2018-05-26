@@ -24,10 +24,11 @@ public class ControllerPelicula extends ControllerInter {
 	Iterator<String> it = lista.iterator();
 		
 		Pelicula P = new Pelicula();
-		
+		it.next();//conti
+
 		P.crearPelicula(it.next(),it.next(),
 				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
-				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
+				stringToEnum(it.next()),it.next(),it.next(),it.next());
 	}
 
 	

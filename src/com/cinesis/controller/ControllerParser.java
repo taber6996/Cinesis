@@ -12,8 +12,7 @@ public class ControllerParser {
 		ControllerInter cntr;
 		int i =0;
 		for(ControllerInter c : ControllerParser.availableControllers){
-			
-			System.out.println(i);
+
 			i++;
 			cntr = c.parse(lista);
 			if(cntr != null)

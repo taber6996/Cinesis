@@ -17,6 +17,9 @@ public class ControllerEntrada extends ControllerInter {
 	@Override
 	public void insert(List<String> lista) {
 		Iterator<String> it = lista.iterator();
+		
+		it.next();
+		
 		Entrada E = new Entrada(Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()), Integer.parseInt(it.next()),stringToDate(it.next()), Integer.parseInt(it.next()));
 		E.compraEntrada();

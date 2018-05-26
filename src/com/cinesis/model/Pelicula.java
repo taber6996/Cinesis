@@ -35,7 +35,7 @@ public class Pelicula {
 	
 	private String pais;
 	
-	private Timestamp estreno;
+	private String estreno;
 	
 	private String directores;
 	
@@ -46,7 +46,7 @@ public class Pelicula {
 	}
 	
 	public Pelicula(Integer idPelicula,String nomPelicula, String slug,Integer duracion, String imagenPrinc,
-			String imagenSec, String sinopsis, Integer calificacion, Categoria categoria, String pais, Timestamp estreno,
+			String imagenSec, String sinopsis, Integer calificacion, Categoria categoria, String pais, String estreno,
 			String directores) {
 		
 		
@@ -69,7 +69,7 @@ public class Pelicula {
 
 	public void crearPelicula(String nomPelicula,String slug, Integer duration,
 			String imagen,String imagenSec, String sinopsis,
-			Integer calificacion,Categoria categoria, String pais, Timestamp estreno,String directores) {
+			Integer calificacion,Categoria categoria, String pais, String estreno,String directores) {
 		
 		PeliculaDao pD = new PeliculaDao();
 		Pelicula p = new Pelicula(null,nomPelicula,slug,duration, imagen, imagenSec, sinopsis, calificacion, categoria, pais,estreno, directores);
@@ -81,16 +81,15 @@ public class Pelicula {
 	public Pelicula mostrarPelicula(Integer idPelicula) {
 		PeliculaDao pD = new PeliculaDao();
 		List<String> lPeli = new ArrayList<String>();
-		
+
 		
 		lPeli = pD.findById(idPelicula);
 		Iterator<String> it =  lPeli.iterator();
 		
-		
 		Pelicula peli = new Pelicula(Integer.parseInt(it.next()),it.next(),it.next(),
 				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
-				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
-		
+				stringToEnum(it.next()),it.next(),it.next(),it.next());
+
 		return peli;
 	}
 	
@@ -123,7 +122,7 @@ public class Pelicula {
 	
 	*/
 
-	public void editarPelicula(int idPelicula, String nombre, String slug,  int duration, String imagen, String imagenSec, String sinopsis, int calificacion, Categoria categoria, String pais, Timestamp estreno, String directores) {
+	public void editarPelicula(int idPelicula, String nombre, String slug,  int duration, String imagen, String imagenSec, String sinopsis, int calificacion, Categoria categoria, String pais, String estreno, String directores) {
 		PeliculaDao pD = new PeliculaDao();
 		Pelicula p = new Pelicula(idPelicula,nombre,slug,duration, imagen, imagenSec, sinopsis, calificacion, categoria, pais,estreno, directores);
 
@@ -151,7 +150,7 @@ public class Pelicula {
 			list2 = it.next();
 			Pelicula peliAux = new Pelicula(Integer.parseInt(it2.next()),it2.next(),it2.next(),
 					Integer.parseInt(it2.next()),it2.next(),it2.next(),it2.next(),Integer.parseInt(it2.next()),
-					stringToEnum(it2.next()),it2.next(),stringToTimestamp(it2.next()),it2.next());
+					stringToEnum(it2.next()),it2.next(),it2.next(),it2.next());
 			listPeli.add(peliAux); 
 		}
 		
@@ -244,11 +243,11 @@ public class Pelicula {
 		this.pais = pais;
 	}
 
-	public Timestamp getEstreno() {
+	public String getEstreno() {
 		return estreno;
 	}
 
-	public void setEstreno(Timestamp estreno) {
+	public void setEstreno(String estreno) {
 		this.estreno = estreno;
 	}
 

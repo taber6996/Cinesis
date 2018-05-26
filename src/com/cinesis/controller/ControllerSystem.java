@@ -14,6 +14,7 @@ public class ControllerSystem extends ControllerInter{
 	public void insert(List<String> lista) {
 		// TODO Auto-generated method stub
 		Iterator<String> it = lista.iterator();
+		it.next();
 		SystemUser S = new SystemUser(Integer.parseInt(it.next()),stringToEnum(it.next()),it.next(), it.next(), it.next(), it.next());
 		
 		S.crearUsuario();

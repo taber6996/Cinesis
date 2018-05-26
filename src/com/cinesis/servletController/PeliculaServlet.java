@@ -39,6 +39,7 @@ public class PeliculaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String str_pelicula_id = request.getParameter("pelicula_id");
+	
 		Integer pelicula_id = Integer.parseInt(str_pelicula_id); 
 
 		List<String> listaPelicula = new ArrayList<String>();
@@ -50,7 +51,7 @@ public class PeliculaServlet extends HttpServlet {
 		ControllerInter contr =	 parser.parse(listaPelicula);
 
 		Pelicula pelicula =  (Pelicula) contr.read(pelicula_id);
-
+System.out.println(pelicula.getIdPelicula());
 		request.setAttribute("pelicula", pelicula);
 		
 		getServletContext().getRequestDispatcher("/pelicula.jsp").forward(request, response);
