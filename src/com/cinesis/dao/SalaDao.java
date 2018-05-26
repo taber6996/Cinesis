@@ -5,9 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
-
+import com.cinesis.model.CalidadSonidoEnum;
+import com.cinesis.model.Categoria;
 import com.cinesis.model.Sala;
 import com.cinesis.servicios.Conexion;
 
@@ -90,15 +92,40 @@ public class SalaDao extends AbstractSession{
 	        
 	        
 	
-	public List<Sala> findAllSala(){
-		return null;	}
+	public List<List<String>> findAllSala(){
+		ResultSet rs = null;
+		List<List<String>> list = new ArrayList<List<String>>();
+		try { 
+  		  Conexion cnx = new Conexion();
+  		   Connection conn = cnx.obtener();
+  		  // Statement stmt = conn.createStatement();
+  		   String query = "SELECT * From sala";
+  		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+  		   rs = preparedStmt.executeQuery();
+  		   while(rs.isLast())
+  		   {
+  			 list.add(setDatosQuery(rs));
+  			 rs.next();
+  		   }
+  		 //  stmt.close();
+  		 //  conn.close();
+  		  }catch(ClassNotFoundException | SQLException e) {
+  			  System.out.println("nop" + e);
+  		  }
+		return list;
+		
+		
+		
+		
+		
+	}
 	
 	
 	
 	
 	
 	
-	public ResultSet findById(Integer sala_id){
+	public List<String> findById(Integer sala_id){
 		ResultSet rs = null;
 		try { 
   		  Conexion cnx = new Conexion();
@@ -107,19 +134,43 @@ public class SalaDao extends AbstractSession{
   		   String query = "SELECT * From sala S Where S.id = '" + sala_id + "'";
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
-  		   if (rs.getRow() == 1)
-  		   {
-  		   }
-  		 //  stmt.close();
+  		   
+  		 List<String> S = setDatosQuery(rs);
+  		   return S;
+  		   
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   			  
   		  }
-		return rs;
+		return null;
 		
 		
 	
 	}
+	
+	public List<String> setDatosQuery(ResultSet rs)
+	{
+		List<String> lSala = new ArrayList<String>();
+		try {
+			rs.next();
+			lSala.add(String.valueOf(rs.getInt("id")));
+			lSala.add(String.valueOf(rs.getInt("num_filas")));
+			lSala.add(String.valueOf(rs.getInt("num_columnas")));
+			lSala.add(String.valueOf(rs.getInt("num_asientos_vip")));
+			lSala.add(String.valueOf(rs.getInt("num_asientos_minusvalidos")));
+			
+			lSala.add(rs.getString("calidad_sonido"));
+			lSala.add(String.valueOf(rs.getInt("3d")));
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lSala;
+	}
+	
+	
+
 	
 	
 }
