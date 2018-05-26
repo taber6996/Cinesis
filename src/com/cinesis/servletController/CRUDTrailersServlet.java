@@ -13,12 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
+import com.cinesis.controller.ControllerInter;
+import com.cinesis.controller.ControllerParser;
+import com.cinesis.controller.ControllerPelicula;
+import com.cinesis.controller.ControllerSala;
+import com.cinesis.controller.ControllerTrailer;
+import com.cinesis.model.Pelicula;
+import com.cinesis.model.Trailer;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
 @WebServlet(name = "trailers", urlPatterns = {"/trailers"})
-public class CRUDTrailersServlet extends HttpServlet {
+public class CRUDTrailersServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -34,7 +41,10 @@ public class CRUDTrailersServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		
+		setAllTrailer(request);
+		setAllPeliculas(request);
+		
 		getServletContext().getRequestDispatcher("/privado/trailers.jsp").forward(request, response);
 				
 	}
@@ -53,12 +63,16 @@ public class CRUDTrailersServlet extends HttpServlet {
 			listaTrailer.add(request.getParameter("descripcion"));
 
 			
+			ControllerParser parser = new ControllerParser();	
 			
-			Controller controllerTrailer = new Controller();
+			ControllerInter contr =	 parser.parse(listaTrailer);
+		
+			contr.insert(listaTrailer);
+
+			setAllTrailer(request);
+			setAllPeliculas(request);
 			
-			controllerTrailer.run(listaTrailer);
-			
-			// Devolvemos a la vista Entrada
+
 	        request.setAttribute("error", "Trailer creada");
 	        getServletContext().getRequestDispatcher("/privado/trailers.jsp").forward(request, response);
    

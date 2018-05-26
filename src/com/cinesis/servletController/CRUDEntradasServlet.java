@@ -13,12 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
+import com.cinesis.controller.ControllerEntrada;
+import com.cinesis.controller.ControllerInter;
+import com.cinesis.controller.ControllerParser;
+import com.cinesis.controller.ControllerPelicula;
+import com.cinesis.model.Entrada;
+import com.cinesis.model.Pelicula;
+import com.cinesis.model.Sala;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
 @WebServlet(name = "entradas", urlPatterns = {"/entradas"})
-public class CRUDEntradasServlet extends HttpServlet {
+public class CRUDEntradasServlet extends Servlet  {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -34,7 +41,11 @@ public class CRUDEntradasServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		
+		setAllSalas(request);
+		setAllEntradas(request);
+		setAllPeliculas(request);
+		
 		getServletContext().getRequestDispatcher("/privado/entradas.jsp").forward(request, response);
 				
 	}
@@ -60,14 +71,27 @@ public class CRUDEntradasServlet extends HttpServlet {
 			
 			listaEntrada.add(request.getParameter("horario"));
 			
-			Controller controllerEntrada = new Controller();
+			ControllerParser parser = new ControllerParser();	
 			
-			controllerEntrada.run(listaEntrada);
+			ControllerInter contr =	 parser.parse(listaEntrada);
+		
+			contr.insert(listaEntrada);
 			
 			// Devolvemos a la vista Entrada
 	        request.setAttribute("error", "Entrada creada");
+			
+			setAllSalas(request);
+			setAllEntradas(request);
+			setAllPeliculas(request);
+		
+			getServletContext().getRequestDispatcher("/privado/entradas.jsp").forward(request, response);
+			
+		
 	        getServletContext().getRequestDispatcher("/privado/entrada.jsp").forward(request, response);
 	        
 	}
+	
+	
+	
 
 }
