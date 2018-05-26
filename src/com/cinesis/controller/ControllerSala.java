@@ -22,17 +22,7 @@ public class ControllerSala extends ControllerInter {
 		S.crearSala(Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
 				stringToEnum(it.next()),Boolean.parseBoolean(it.next()));
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	}
 	@Override
 	public void Delete(Integer id) {

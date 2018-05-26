@@ -18,9 +18,10 @@ public class PeliculaDao extends AbstractSession{
     		  // Statement stmt = conn.createStatement();
     		   String query = "INSERT INTO peliculas(nombre,slug,duracion,imagen_principal,imagen_secundario,sinopsis,calificacion,categoria,pais,estreno,director) Values( '" + peli.getNomPelicula() + "','" + peli.getSlug() +"','" + peli.getDuracion()+ "','" + peli.getImagenPrinc()+"','"+ peli.getImagenSec() +"','"+peli.getSinopsis()
     	        +"','"+peli.getCalificacion()+"','"+peli.getCategoria()+"','"+ peli.getPais()+"','"+ peli.getEstreno() +"','"+peli.getDirectores()+"')";
+    		   System.out.println(query);
     		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
     		   boolean b = preparedStmt.execute();
-    		   System.out.println(b);
+
     		//   preparedStmt.close();
     		//   conn.close();
     		  }catch(ClassNotFoundException | SQLException e) {
@@ -102,7 +103,7 @@ public class PeliculaDao extends AbstractSession{
   		  Conexion cnx = new Conexion();
   		   Connection conn = cnx.obtener();
   		  // Statement stmt = conn.createStatement();
-  		   String query = "SELECT * From peliculas P"; //Where P.id = " + pelicula_id;
+  		   String query = "SELECT * From peliculas P Where P.id = " + pelicula_id;
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
   		  

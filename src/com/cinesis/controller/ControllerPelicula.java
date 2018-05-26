@@ -24,10 +24,11 @@ public class ControllerPelicula extends ControllerInter {
 	Iterator<String> it = lista.iterator();
 		
 		Pelicula P = new Pelicula();
-		
+		it.next();//conti
+
 		P.crearPelicula(it.next(),it.next(),
 				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
-				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
+				stringToEnum(it.next()),it.next(),it.next(),it.next());
 	}
 
 	
@@ -58,18 +59,6 @@ public class ControllerPelicula extends ControllerInter {
 		return p.mostrarPelicula(id);
 	}
 
-	/*@Override
-	public void modify(List<String> lista) {
-		
-		Iterator<String> it = lista.iterator();
-
-		Pelicula P = new Pelicula();
-			
-		P.editarPelicula(Integer.parseInt(it.next()),it.next(),it.next(),
-				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
-				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
-		
-	}*/
 
 	@Override
 	public Categoria stringToEnum(String stringEnum) {

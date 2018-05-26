@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
+import com.cinesis.controller.ControllerInter;
+import com.cinesis.controller.ControllerParser;
 import com.cinesis.controller.ControllerSala;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
@@ -35,7 +37,14 @@ public class CRUDSalaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		
+		List<String> listaSala = new ArrayList<String>();
+		
+		listaSala.add("ContSala");
+		ControllerParser parser = new ControllerParser();	
+		
+		ControllerInter contr =	 parser.parse(listaSala);
+		
 		getServletContext().getRequestDispatcher("/privado/salas.jsp").forward(request, response);
 				
 	}
@@ -57,9 +66,12 @@ public class CRUDSalaServlet extends HttpServlet {
 		listaSala.add(request.getParameter("calidad_sonido"));
 		listaSala.add(request.getParameter("3d"));
 		
-		ControllerSala controllerSala= new ControllerSala();
+		ControllerParser parser = new ControllerParser();	
+	
+		ControllerInter contr =	 parser.parse(listaSala);
+
+		contr.insert(listaSala);
 		
-		controllerSala.insert(listaSala);
 		
 		// Devolvemos a la vista Entrada
         request.setAttribute("error", "Sala creada");

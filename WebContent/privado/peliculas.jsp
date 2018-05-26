@@ -29,7 +29,7 @@
 	                </thead>
 	                <tbody>
 	                    <tr>
-	                    	<td>1</td>
+	                    	<td>11</td>
 	                        <td>10</td>
 	                        <td>Vengadores</td>
 	                        <td>Libre</td>
@@ -59,24 +59,25 @@
                 <input name="titulo" type="text" class="form-control" id="titulo" placeholder="Título">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Sinopsis</label>
-                <input name="sinopsis" type="text" class="form-control" id="sinopsis" placeholder="Sinopsis">
-              </div>
-              <div class="form-group">
                 <label for"exampleInputEmail1">Categoría</label>
-                <input name="categoria" type="text" class="form-control" id="categoria" placeholder="Categoría">
+                <select name="categoria" class="form-control">
+	                <option name="HORROR">HORROR</option>
+	                <option name="ROMANCE">ROMANCE</option>
+	                <option name="FANTASIA">FANTASIA</option>
+	                <option name="COMEDIA">COMEDIA</option>
+                </select>
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Actores</label>
-                <input name="actores" type="text" class="form-control" id="actores" placeholder="Actores">
-              </div>
-              <div class="form-group">
-                <label for"exampleInputEmail1">Duración</label>
-                <input name="duracion" type="text" class="form-control" id="duracion" placeholder="Duración">
+                <label for"exampleInputEmail1">Director</label>
+                <input name="director" type="text" class="form-control" id="actores" placeholder="Director">
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Calificación</label>
                 <input name="calificacion" type="number" class="form-control" id="calificacion" placeholder="Calificación">
+              </div>
+              <div class="form-group">
+                <label for"exampleInputEmail1">Duración</label>
+                <input name="duracion" type="number" class="form-control" id="duracion" placeholder="Duración">
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Pais</label>
@@ -84,15 +85,20 @@
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Estreno</label>
-                <input name="estreno" type="text" class="form-control" id="estreno" placeholder="Estreno">
+                <input name="estreno" type="date" class="form-control" id="estreno" placeholder="Estreno">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Extracto</label>
-                <textarea class="form-control" name="extracto" id="" cols="30" rows="10"></textarea>
+                <label for"exampleInputEmail1">Sinopsis</label>
+                <textarea class="form-control" name="sinopsis" id="" cols="30" rows="10"></textarea>
               </div>
               <div class="form-group">
-                <label for="exampleInputFile">Imagen</label>
-                <input type="file" id="imagen_principal" name="imagen_principal">
+                <label for="exampleInputFile">Selecciona el tamaño de tu imagen</label>
+                <select name="imagen_principal" class="form-control">
+	                <option name="1200x600">1200x600</option>
+	                <option name="1250x625">1250x625</option>
+	                <option name="1300x650">1300x650</option>
+	                <option name="1100x550">1100x550</option>
+                </select>
               </div>
               <button type="submit" class="btn btn-primary">Guardar película</button>
             </form>

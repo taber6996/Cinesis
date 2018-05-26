@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
+import com.cinesis.controller.ControllerInter;
+import com.cinesis.controller.ControllerParser;
+import com.cinesis.model.Pelicula;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -35,14 +38,21 @@ public class PeliculaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Integer pelicula_id = (Integer) request.getAttribute("pelicula_id");
-		
+		String str_pelicula_id = request.getParameter("pelicula_id");
+	
+		Integer pelicula_id = Integer.parseInt(str_pelicula_id); 
+
 		List<String> listaPelicula = new ArrayList<String>();
 		
 		listaPelicula.add("ContPeli");
-		// nombre
-		listaPelicula.add(request.getParameter("nombre"));
+
+		ControllerParser parser = new ControllerParser();	
 		
+		ControllerInter contr =	 parser.parse(listaPelicula);
+
+		Pelicula pelicula =  (Pelicula) contr.read(pelicula_id);
+System.out.println(pelicula.getIdPelicula());
+		request.setAttribute("pelicula", pelicula);
 		
 		getServletContext().getRequestDispatcher("/pelicula.jsp").forward(request, response);
 				
