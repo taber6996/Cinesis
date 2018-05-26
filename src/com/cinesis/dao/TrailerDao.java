@@ -17,13 +17,13 @@ public class TrailerDao extends AbstractSession {
 		try { 
   		  Conexion cnx = new Conexion();
   		   Connection conn = cnx.obtener();
-  		   Statement stmt = conn.createStatement();
-  		   String query = "INSERT INTO trailers(pelicula_id,titulo,descripcion) Values( '" + trailer.getIdPelicula() + "','" + trailer.getTitulo() +"')'" ;
+  		   //Statement stmt = conn.createStatement();
+  		   String query = "INSERT INTO trailers(pelicula_id,titulo,descripcion) Values( '" + trailer.getIdPelicula() + "','" + trailer.getTitulo() +"','"+ trailer.getDescripcion() +"')" ;
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   boolean b = preparedStmt.execute();
   		   System.out.println(b);
-  		   stmt.close();
-  		   conn.close();
+  		   //stmt.close();
+  		   //conn.close();
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   			  
@@ -32,25 +32,25 @@ public class TrailerDao extends AbstractSession {
 	
 	public void deleteTrailerById(Integer trailer_id){
 		 Conexion cnx = new Conexion();
-	    	Connection con = null;
-	    	ResultSet rs = null;
-	    	PreparedStatement pStatement = null;
+		Connection con = null;
+		//ResultSet rs = null;
+		java.sql.PreparedStatement pStatement = null;
 	    	try {
-				System.out.println("Hola que tal " + con);
+				//System.out.println("Hola que tal " + con);
 	  	con = cnx.obtener();
 	 	 
 	  	System.out.println("Hola que tal " + con);
-	 	String sql = "DELETE * FROM trailers WHERE id = 'trailer_id' ";
+	 	String sql = "DELETE * FROM trailers WHERE id =" + trailer_id;
 	 	pStatement = con.prepareStatement(sql);
-	 	rs = pStatement.executeQuery();
+	 	//rs = pStatement.executeQuery();
 	    
 	     } catch (Exception e) {
 	     	System.out.println("Error en la obtencion del codigo: ");
 	     }
 	     try {
-	     	rs.close();
-	     	pStatement.close();
-	     	con.close();
+	     	//rs.close();
+	     	//pStatement.close();
+	     	//con.close();
 	     } catch (Exception ex) {
 	     	System.out.println("Error en el cierre de la base de datos");
 	     }
@@ -62,42 +62,44 @@ public class TrailerDao extends AbstractSession {
 	public void updateTrailer(Trailer trailer){
 		Conexion cnx = new Conexion();
     	Connection con = null;
-    	ResultSet rs = null;
-    	PreparedStatement pStatement = null;
+    	//ResultSet rs = null;
+    	java.sql.PreparedStatement pStatement = null;
     	try {
-			System.out.println("Hola que tal " + con);
-  	con = cnx.obtener();
- 	 
-  	System.out.println("Hola que tal " + con);
- 	String sql = "UPDATE trailers pelicula_id = trailer.getIdPelicula(), titulo = trailer.getTitulo(), descripcion = trailer.getDescripcion() "
- 			+ "WHERE id = trailer.getIdTrailer()";
-			
- 	pStatement = con.prepareStatement(sql);
- 	rs = pStatement.executeQuery();
+
+		  	con = cnx.obtener();
+		 	 
+		  	System.out.println("Hola que tal " + con);
+		 	String sql = "UPDATE trailers SET pelicula_id = '"+trailer.getIdPelicula()+"', titulo = '"+trailer.getTitulo()+"' , descripcion = '" + trailer.getDescripcion() +"' WHERE id =" + trailer.getIdTrailer();
+		 			
+					
+		 	pStatement = con.prepareStatement(sql);
+		 	boolean b = pStatement.execute();
+	  		System.out.println(b);
+		 	//rs = pStatement.executeQuery();
     
      } catch (Exception e) {
      	System.out.println("Error en la obtencion del codigo: ");
      }
-     try {
-     	rs.close();
-     	pStatement.close();
-     	con.close();
+    /* try {
+     	//rs.close();
+     	//pStatement.close();
+     	//con.close();
      } catch (Exception ex) {
      	System.out.println("Error en el cierre de la base de datos");
-     }
+     }*/
 
-			}
+	}
 	
 	public List<Trailer> findAllTrailer(){
 		List<Trailer> trailers = new ArrayList<Trailer>();
 	   	 Conexion cnx = new Conexion();
 	   	 Connection con = null;
-	   	 PreparedStatement stmt = null;
+	   	 java.sql.PreparedStatement stmt = null;
 	   	   try {
 	   	    
 	   		//Statement stmt = cnx.prepareStatement();
 	   		  con =     cnx.obtener();
-	   		String sql = "SELECT * FROM peliculas";
+	   		String sql = "SELECT * FROM trailers";
 	   		stmt = con.prepareStatement(sql);
 
 	   		ResultSet rs = stmt.executeQuery(sql);
@@ -106,8 +108,8 @@ public class TrailerDao extends AbstractSession {
 	   				
 	   			trailers.add(i, trailer);
 	   		}
-	   		stmt.close();
-	   		con.close();
+	   		//stmt.close();
+	   		//con.close();
 	   	   }catch(ClassNotFoundException | SQLException e) {
 	   	   
 	   	   }
@@ -120,20 +122,20 @@ public class TrailerDao extends AbstractSession {
 		Trailer trailer = null;
 	   	 Conexion cnx = new Conexion();
 	   	 Connection con = null;
-	   	 PreparedStatement stmt = null;
+	   	 java.sql.PreparedStatement stmt = null;
 	   	   try {
 	   	    
 	   		//Statement stmt = cnx.prepareStatement();
 	   		  con =     cnx.obtener();
-	   		String sql = "SELECT * FROM peliculas WHERE id = trailer_id";
+	   		String sql = "SELECT * FROM trailers WHERE id =" + trailer_id;
 	   		stmt = con.prepareStatement(sql);
 
 	   		ResultSet rs = stmt.executeQuery(sql);
 	   		
    			trailer = new Trailer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
 	   		
-	   		stmt.close();
-	   		con.close();
+	   		//stmt.close();
+	   		//con.close();
 	   	   }catch(ClassNotFoundException | SQLException e) {
 	   	   
 	   	   }
@@ -150,15 +152,15 @@ public class TrailerDao extends AbstractSession {
 	   	    
 	   		//Statement stmt = cnx.prepareStatement();
 	   		  con =     cnx.obtener();
-	   		String sql = "SELECT * FROM peliculas WHERE titulo = trailer_nombre";
+	   		String sql = "SELECT * FROM trailers WHERE titulo =" + trailer_nombre;
 	   		stmt = con.prepareStatement(sql);
 
 	   		ResultSet rs = stmt.executeQuery(sql);
 	   		
   			trailer = new Trailer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
 	   		
-	   		stmt.close();
-	   		con.close();
+	   		//stmt.close();
+	   		//con.close();
 	   	   }catch(ClassNotFoundException | SQLException e) {
 	   	   
 	   	   }
@@ -176,7 +178,7 @@ public class TrailerDao extends AbstractSession {
 	   	    
 	   		//Statement stmt = cnx.prepareStatement();
 	   		  con =     cnx.obtener();
-	   		String sql = "SELECT * FROM peliculas WHERE pelicula_id = pelicula_id";
+	   		String sql = "SELECT * FROM trailers WHERE pelicula_id = pelicula_id";
 	   		stmt = con.prepareStatement(sql);
 
 	   		ResultSet rs = stmt.executeQuery(sql);
