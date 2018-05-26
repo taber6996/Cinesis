@@ -35,7 +35,7 @@ public class CRUDTrailersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		getServletContext().getRequestDispatcher("/privado/listado-trailer.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/privado/trailers.jsp").forward(request, response);
 				
 	}
 	
@@ -60,7 +60,7 @@ public class CRUDTrailersServlet extends HttpServlet {
 			
 			// Devolvemos a la vista Entrada
 	        request.setAttribute("error", "Trailer creada");
-	        getServletContext().getRequestDispatcher("/privado/crear-trailer.jsp").forward(request, response);
+	        getServletContext().getRequestDispatcher("/privado/trailers.jsp").forward(request, response);
    
 	}
 
