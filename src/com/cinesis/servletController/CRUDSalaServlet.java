@@ -13,21 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
-import com.cinesis.controller.ControllerInter;
-import com.cinesis.controller.ControllerPelicula;
 import com.cinesis.controller.ControllerSala;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
-@WebServlet(name = "form", urlPatterns = {"/form"})
-public class FormServlet extends HttpServlet {
+@WebServlet(name = "salas", urlPatterns = {"/salas"})
+public class CRUDSalaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FormServlet() {
+    public CRUDSalaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,37 +36,35 @@ public class FormServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/privado/crear-sala.jsp").forward(request, response);
 				
 	}
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-			List<String> listaTrailer = new ArrayList<String>();
-			
-			listaTrailer.add("ContTrailer");
-			// nombre
-			listaTrailer.add(request.getParameter("pelicula_id"));
-			// Slug
-			listaTrailer.add(request.getParameter("titulo"));
-			// Duración
-			listaTrailer.add(request.getParameter("descripcion"));
-
-			
-			
-			Controller controllerTrailer = new Controller();
-			
-			controllerTrailer.run(listaTrailer);
-			
-			// Devolvemos a la vista Entrada
-	        request.setAttribute("error", "Trailer creada");
-	        getServletContext().getRequestDispatcher("/privado/crear-trailer.jsp").forward(request, response);
-   
+								
+		List<String> listaSala = new ArrayList<String>();
+		
+		listaSala.add("ContSala");
+		// nombre
+		listaSala.add(request.getParameter("num_filas"));
+		// Slug
+		listaSala.add(request.getParameter("num_columnas"));
+		// Duración
+		listaSala.add(request.getParameter("num_asientos_vip"));
+		listaSala.add(request.getParameter("num_asientos_minusvalidos"));
+		listaSala.add(request.getParameter("calidad_sonido"));
+		listaSala.add(request.getParameter("3d"));
+		
+		ControllerSala controllerSala= new ControllerSala();
+		
+		controllerSala.insert(listaSala);
+		
+		// Devolvemos a la vista Entrada
+        request.setAttribute("error", "Sala creada");
+        getServletContext().getRequestDispatcher("/privado/crear-sala.jsp").forward(request, response);
+			     
 	}
-	
-	
-
 
 }

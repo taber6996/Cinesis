@@ -32,10 +32,27 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 		getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+				
+	}
+    
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{		// TODO Auto-generated method stub
+    	
+    	String email = request.getParameter("email");
+    	String password = request.getParameter("password");
+    	
+    	if ((email == "usuario" || email == "admin") && (password == "1234")) {
+    		getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		} else {
+			request.setAttribute("error", "Usuario o contraseña incorrecta");
+			getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		}
+		
 				
 	}
 
