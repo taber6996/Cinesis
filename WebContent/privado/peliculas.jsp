@@ -8,15 +8,38 @@
     <div class="container marketing">
       <hr class="featurette-divider">
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
+      
+      <div class="col-sm-8">
+            <h3>Listado de peliculas</h3>
+            <table id="myTable" class="table table-striped table-bordered table-hover" style="margin-bottom:30px;">
+                <thead>
+                    <tr>
+                        <th>Horario</th>
+                        <th>Película</th>
+                        <th>Estado</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10</td>
+                        <td>Vengadores</td>
+                        <td>Libre</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        
+        <div class="col-sm-4">
         	
         	<jsp:include page="../includes/showMessage.jsp" />
                 
         	
             <h3>Formulario creación entrada</h3>
-            <form role="form" method="post" action="ServletController">
+            <form role="form" method="post" action="crear-pelicula">
             
-            <input type="hidden" name="type_form" value="pelicula">
               <div class="form-group">
                 <label for"exampleInputEmail1">Título</label>
                 <input name="titulo" type="text" class="form-control" id="titulo" placeholder="Título">
