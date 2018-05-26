@@ -58,15 +58,27 @@
             
               <div class="form-group">
                 <label for"exampleInputEmail1">Sala id</label>
-                <input name="sala_id" type="text" class="form-control" id="sala_id" placeholder="Sala id">
+                <select name="categoria" class="form-control">
+	                <option name="1">1</option>
+	                <option name="2">2</option>
+	                <option name="3">3</option>
+	                <option name="4">4</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">User Id</label>
-                <input name="user_id" type="text" class="form-control" id="user_id" placeholder="User id">
+                <select name="categoria" class="form-control">
+	                <option name="HORROR">1</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Película id</label>
-                <input name="pelicula_id" type="text" class="form-control" id="pelicula_id" placeholder="Película Id">
+                <select name="pelicula_id" class="form-control">
+	                <option name="3">3</option>
+	                <option name="4">4</option>
+	                <option name="5">5</option>
+	                <option name="6">6</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Precio</label>

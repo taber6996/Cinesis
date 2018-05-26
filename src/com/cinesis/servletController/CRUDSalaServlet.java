@@ -13,15 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cinesis.controller.Controller;
+import com.cinesis.controller.ControllerEntrada;
 import com.cinesis.controller.ControllerInter;
 import com.cinesis.controller.ControllerParser;
 import com.cinesis.controller.ControllerSala;
+import com.cinesis.model.Entrada;
+import com.cinesis.model.Sala;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
 
 @WebServlet(name = "salas", urlPatterns = {"/salas"})
-public class CRUDSalaServlet extends HttpServlet {
+public class CRUDSalaServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -38,12 +41,7 @@ public class CRUDSalaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		List<String> listaSala = new ArrayList<String>();
-		
-		listaSala.add("ContSala");
-		ControllerParser parser = new ControllerParser();	
-		
-		ControllerInter contr =	 parser.parse(listaSala);
+		setAllSalas(request);
 		
 		getServletContext().getRequestDispatcher("/privado/salas.jsp").forward(request, response);
 				
@@ -71,6 +69,8 @@ public class CRUDSalaServlet extends HttpServlet {
 		ControllerInter contr =	 parser.parse(listaSala);
 
 		contr.insert(listaSala);
+		
+		setAllSalas(request);
 		
 		
 		// Devolvemos a la vista Entrada

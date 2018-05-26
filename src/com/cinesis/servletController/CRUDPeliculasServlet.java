@@ -22,7 +22,7 @@ import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 import jdk.nashorn.internal.runtime.ListAdapter;
 
 @WebServlet(name = "crear-pelicula", urlPatterns = {"/crear-pelicula"})
-public class CRUDPeliculasServlet extends HttpServlet {
+public class CRUDPeliculasServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -39,16 +39,9 @@ public class CRUDPeliculasServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Integer pelicula_id = (Integer) request.getAttribute("pelicula_id");
-		
-		List<String> listaPelicula = new ArrayList<String>();
-		
-		listaPelicula.add("ContPeli");
-		
-		ControllerParser parser = new ControllerParser();	
-		
-		ControllerInter contr =	 parser.parse(listaPelicula);
-		
+
+		setAllPeliculas(request);
+	
 		getServletContext().getRequestDispatcher("/privado/peliculas.jsp").forward(request, response);
 				
 	}
@@ -91,16 +84,10 @@ public class CRUDPeliculasServlet extends HttpServlet {
 
 			contr.insert(listaPelicula);
 			
-			/*
-			Pelicula P = new Pelicula();
-			
-			ControllerPelicula controllerPelicula = new ControllerPelicula();
-			
-
-			P.crearPelicula("titulo","slug", 120, "1200x600", "1200x600", "asdasd asd asd asd asd as", 2, controllerPelicula.stringToEnum("HORROR"), "esp", "2018-05-26", "alejandro");
-*/
-			// Devolvemos a la vista pelis
 	        request.setAttribute("error", "Película creada");
+			
+	        setAllPeliculas(request);
+			
 	        getServletContext().getRequestDispatcher("/privado/peliculas.jsp").forward(request, response);
 	        
 		}
