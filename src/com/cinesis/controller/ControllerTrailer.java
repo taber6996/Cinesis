@@ -7,7 +7,7 @@ import java.util.List;
 import com.cinesis.model.Sala;
 import com.cinesis.model.Trailer;
 
-public class ControllerTrailer implements ControllerInter{
+public class ControllerTrailer extends ControllerInter{
 
 	private String id = "ContTrailer";
 	@Override
