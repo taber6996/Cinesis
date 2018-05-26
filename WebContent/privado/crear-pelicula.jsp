@@ -10,11 +10,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
         	
-        	<c:if test="${not empty error}">
-                <div class="alert alert-danger">
-                    <div class="alert alert-success" role="alert">${error }</div>
-                </div>
-            </c:if>
+        	<jsp:include page="../includes/showMessage.jsp" />
                 
         	
             <h3>Formulario creación entrada</h3>

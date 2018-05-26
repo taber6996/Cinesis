@@ -59,6 +59,7 @@
                     <li><a href="listado-entradas">Listado Entradas</a></li>
                     <li><a href="crear-pelicula">Crear película</a></li>
                     <li><a href="crear-entrada">Crear entrada</a></li>
+                    <li><a href="crear-sala">Crear sala</a></li>
                     <li><a href="index">Logout</a></li>
                   </ul>
                 </div>

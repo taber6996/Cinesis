@@ -10,11 +10,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
         	
-        	<c:if test="${not empty error}">
-                <div class="alert alert-danger">
-                    <div class="alert alert-success" role="alert">${error }</div>
-                </div>
-            </c:if>
+        	<jsp:include page="../includes/showMessage.jsp" />
 
             <h3>Formulario creación sala</h3>
             <form role="form" method="post" action="form">
@@ -38,7 +34,11 @@
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">calidad_sonido</label>
-                <input name="calidad_sonido" type="text" class="form-control" id="calidad_sonido" placeholder="calidad_sonido">
+                <select name="calidad_sonido" class="form-control">
+                	<option value="ESTEREO">ESTEREO</option>
+                	<option value="DOLBY">DOLBY</option>
+                	<option value="CINCOPUNTOUNO">CINCOPUNTOUNO</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">3d</label>

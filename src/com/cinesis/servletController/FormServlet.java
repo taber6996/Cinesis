@@ -134,6 +134,10 @@ public class FormServlet extends HttpServlet {
 			listaSala.add(request.getParameter("3d"));
 			
 			
+			ControllerSala controllerSala= new ControllerSala();
+			
+			controllerSala.insert(listaSala);
+			
 			
 			// Devolvemos a la vista Entrada
 	        request.setAttribute("error", "Sala creada");
