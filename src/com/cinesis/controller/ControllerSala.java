@@ -7,7 +7,7 @@ import java.util.List;
 import com.cinesis.model.Sala;
 import com.cinesis.model.CalidadSonidoEnum;
 
-public class ControllerSala implements ControllerInter {
+public class ControllerSala extends ControllerInter {
 	
 	private String id = "ContSala";
 
@@ -16,14 +16,21 @@ public class ControllerSala implements ControllerInter {
 	public void insert(List<String> lista)
 	{
 		Iterator<String> it = lista.iterator();
-		
 		it.next();
-		
 		Sala S = new Sala();
 		
 		S.crearSala(Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
 				stringToEnum(it.next()),Boolean.parseBoolean(it.next()));
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}

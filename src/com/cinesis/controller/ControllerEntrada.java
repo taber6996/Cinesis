@@ -10,7 +10,7 @@ import java.util.Locale;
 
 import com.cinesis.model.Entrada;
 
-public class ControllerEntrada implements ControllerInter {
+public class ControllerEntrada extends ControllerInter {
 
 	private String id = "ContEntrada";
 	

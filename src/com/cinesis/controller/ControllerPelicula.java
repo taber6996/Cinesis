@@ -15,7 +15,7 @@ import com.cinesis.model.Categoria;
 import com.cinesis.model.Pelicula;
 import com.cinesis.model.Sala;
 
-public class ControllerPelicula implements ControllerInter {
+public class ControllerPelicula extends ControllerInter {
 	private String id = "ContPeli";
 
 	@Override
