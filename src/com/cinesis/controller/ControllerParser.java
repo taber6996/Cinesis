@@ -5,12 +5,16 @@ import java.util.List;
 
 public class ControllerParser {
 
-	private static ControllerInter[] availableControllers = { new ControllerSala(), new ControllerPelicula(), new ControllerEntrada(), new ControllerSystem() } ;
+	private static ControllerInter[] availableControllers = { new ControllerPelicula(),  new ControllerSala() } ;
 	
 	
 	public ControllerInter parse(List<String> lista ){
 		ControllerInter cntr;
+		int i =0;
 		for(ControllerInter c : ControllerParser.availableControllers){
+			
+			System.out.println(i);
+			i++;
 			cntr = c.parse(lista);
 			if(cntr != null)
 				return cntr;
