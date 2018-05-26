@@ -25,5 +25,37 @@ public class Cinesis {
 		Pelicula prueba = P.mostrarPelicula(2);
 		
 		System.out.print(prueba.getNomPelicula());*/
+		
+		
+		
+		List<String> lista = new ArrayList<String>();
+		
+		lista.add("ContSala");
+		lista.add("150");
+		lista.add("105");
+		lista.add("32");
+		lista.add("2");
+		lista.add("DOLBY");
+		lista.add("0");
+		
+		
+
+		ControllerParser parser = new ControllerParser();	
+		
+		ControllerInter contr =	 parser.parse(lista);
+			
+		
+		
+		
+		contr.insert(lista);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
