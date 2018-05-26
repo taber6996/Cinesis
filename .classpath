@@ -14,5 +14,9 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/Applications/MAMP/htdocs/Java/Cinesis/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="/Applications/MAMP/htdocs/Java/Cinesis/src/com/cinesis/jdbc/mysql-connector-java-8.0.11.jar"/>
+	<classpathentry kind="lib" path="/Applications/MAMP/htdocs/Java/Cinesis/src/com/cinesis/jdbc/log4j-1.2.16.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Applications/MAMP/htdocs/Java/Cinesis/src/com/cinesis/jdbc/mysql-connector-java-8.0.9-rc-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
