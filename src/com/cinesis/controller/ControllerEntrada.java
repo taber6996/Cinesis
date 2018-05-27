@@ -17,9 +17,11 @@ public class ControllerEntrada extends ControllerInter {
 	@Override
 	public void insert(List<String> lista) {
 		Iterator<String> it = lista.iterator();
-		Entrada E = new Entrada(Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
-				Integer.parseInt(it.next()), Integer.parseInt(it.next()),stringToDate(it.next()), Integer.parseInt(it.next()));
-		E.compraEntrada();
+		it.next();
+		Entrada E = new Entrada();
+		E.compraEntrada(Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+				Integer.parseInt(it.next()), Integer.parseInt(it.next()),Integer.parseInt(it.next()),it.next());
+	
 	}
 
 	private Date stringToDate(String fecha){
@@ -37,7 +39,7 @@ public class ControllerEntrada extends ControllerInter {
 	@Override
 	public void Delete(Integer id) {
 		Entrada E = new Entrada(id, null, null, null, null, null, null);
-		E.eliminarEntrada();
+		E.eliminarEntrada(id);
 	}
 
 	@Override
@@ -50,8 +52,11 @@ public class ControllerEntrada extends ControllerInter {
 	@Override
 	public void modify(List<String> lista) {
 		Iterator<String> it = lista.iterator();
-		Entrada E = new Entrada(Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),
-				Integer.parseInt(it.next()), Integer.parseInt(it.next()),stringToDate(it.next()), Integer.parseInt(it.next()));
+		Entrada E = new Entrada(Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+				Integer.parseInt(it.next()), Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+				Integer.parseInt(it.next()),it.next());
+		
+		
 		E.modificarEntrada();
 	}
 
@@ -63,7 +68,11 @@ public class ControllerEntrada extends ControllerInter {
 
 	@Override
 	public ControllerInter parse(List<String> lista) {
-		// TODO Auto-generated method stub
+		Iterator<String> it = lista.iterator();
+		
+		if(it.next() == this.id)
+			return this;
+		
 		return null;
 	}
 
