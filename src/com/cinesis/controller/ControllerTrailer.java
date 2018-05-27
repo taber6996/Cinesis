@@ -27,19 +27,18 @@ public class ControllerTrailer extends ControllerInter{
 
 	@Override
 	public Trailer read(Integer id) {
-		Trailer T = new Trailer(id, null, null, null);
+		Trailer T = new Trailer();
 		
 		return T.mostrarTrailer(id);
 	}
 	
-	public List<Object> readAll()
+	public List<Object> ReadAll()
 	{
 		Trailer T = new Trailer();
 		
-		//return T.mostrarTodosTrailers();/¡
-		return null;
+		return T.mostrarTodosTrailers();
 	}
-	public List<Trailer> readAllbyId(Integer id)
+	public List<Object> ReadALLByID(int id)
 	{
 		Trailer T = new Trailer();
 		
@@ -48,18 +47,19 @@ public class ControllerTrailer extends ControllerInter{
 
 	@Override
 	public void modify(List<String> lista) {
-		Iterator<String> it = lista.iterator();
+		/*Iterator<String> it = lista.iterator();
 		
-		Trailer T = new Trailer();
+		Trailer T = new Trailer(Integer.parseInt(it.next()), Integer.parseInt(it.next())
+				, it.next(), it.next());
 		
-		T.modificarTrailer(Integer.parseInt(it.next()), Integer.parseInt(it.next()), it.next(), it.next());
+		T.modificarTrailer();*/
 	}
 
 
 
 	@Override
 	public ControllerInter parse(List<String> lista) {
-Iterator<String> it = lista.iterator();
+		Iterator<String> it = lista.iterator();
 		
 		if(it.next() == this.id)
 			return this;
