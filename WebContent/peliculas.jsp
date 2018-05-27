@@ -5,11 +5,22 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
       <div class="row featurette">
+      	<c:forEach items="${peliculas}" var="item">2
+      		<c:forEach items="${item.value}" var="nentry"> 
+		    ${value}<br>3
+		   	</c:forEach>
+		</c:forEach>
+
+<c:forEach var="node" items="${peliculas}">
+    <c:set var="1node" value="${node}" scope="request"/>
+    aa
+</c:forEach>
+
+		
         <div class="col-md-7">
           <h2 class="">Vengadores. <span class="text-muted">Segunda parte.</span></h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 

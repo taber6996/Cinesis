@@ -267,4 +267,28 @@ public class Pelicula {
 		this.directores = directores;
 	}
 	
+	/**
+	 * Genremoas una imagen aleatoria
+	 * @return
+	 */
+	public String getUrlImagenPrincipal()
+	{
+		// Separamos el tamaño imagen para selccionar una imagen
+		String string = this.getImagenPrinc();
+		String[] parts = string.split("x");
+		return "https://placeimg.com/" + parts[0] + "/" + parts[1] + "/tech";
+	}
+	
+	/**
+	 * Genremoas una imagen aleatoria
+	 * @return
+	 */
+	public String getUrlImagenSecundaria()
+	{
+		// Separamos el tamaño imagen para selccionar una imagen
+		String string = this.getImagenSec();
+		String[] parts = string.split("x");
+		return "https://placeimg.com/" + parts[0] + "/" + parts[1] + "/tech";
+	}
+	
 }

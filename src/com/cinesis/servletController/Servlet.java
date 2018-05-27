@@ -1,6 +1,7 @@
 package com.cinesis.servletController;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServlet;
@@ -15,22 +16,38 @@ import com.cinesis.model.Trailer;
 
 public class Servlet extends HttpServlet {
 
-	protected void setAllEntradas(HttpServletRequest request)
+	protected  List<Entrada> setAllEntradas(HttpServletRequest request)
 	{
+		
+		// Declaramos la lista donde indicamos el controlelr al que atacar
 		List<String> listaEntradas = new ArrayList<String>();
 		
+		// Indicamos el controller
 		listaEntradas.add("ContEntrada");
 		
+		// invocamos al parse
 		ControllerParser parser = new ControllerParser();	
 		
+		// Sacamos nuestro controller
 		ControllerInter contr = parser.parse(listaEntradas);
 		
-		List<Entrada> entradas = contr.readALL();
+		// Recogemos todos los elementos
+		List<Object> entradasObj = contr.readAll();
 		
-		request.setAttribute("entradas", entradas);
+		// Generamos lista para iterar
+		Iterator<Object> it = entradasObj.iterator();
+		
+		// Generamos una lista para almacenar los nuevos objetos de la clase 
+		List<Entrada> entradas = new ArrayList<Entrada>();
+		
+		while(it.hasNext()){
+			entradas.add((Entrada) it.next());
+		}
+		
+		return entradas;
 	}
 	
-	protected void setAllPeliculas(HttpServletRequest request)
+	protected  List<Pelicula> setAllPeliculas(HttpServletRequest request)
 	{
 		List<String> lista = new ArrayList<String>();
 		
@@ -40,12 +57,24 @@ public class Servlet extends HttpServlet {
 		
 		ControllerInter contr = parser.parse(lista);
 		
-		List<Pelicula> peliculas = contr.readAll();
+		// Recogemos todos los elementos
+		List<Object> peliculasObj = contr.readAll();
 		
-		request.setAttribute("peliculas", peliculas);
+		// Generamos lista para iterar
+		Iterator<Object> it = peliculasObj.iterator();
+		
+		// Generamos una lista para almacenar los nuevos objetos de la clase 
+		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+		
+		while(it.hasNext()){
+			peliculas.add((Pelicula) it.next());
+		}
+				
+		return peliculas;
+		
 	}
 	
-	protected void setAllTrailer(HttpServletRequest request)
+	protected  List<Trailer> setAllTrailer(HttpServletRequest request)
 	{
 		List<String> lista = new ArrayList<String>();
 		
@@ -55,24 +84,48 @@ public class Servlet extends HttpServlet {
 		
 		ControllerInter contr = parser.parse(lista);
 		
-		List<Trailer> trailers = contr.readALL();
+		// Recogemos todos los elementos
+		List<Object> trailerObj = contr.readAll();
 		
-		request.setAttribute("trailers", trailers);
+		// Generamos lista para iterar
+		Iterator<Object> it = trailerObj.iterator();
+		
+		// Generamos una lista para almacenar los nuevos objetos de la clase 
+		List<Trailer> trailers = new ArrayList<Trailer>();
+		
+		while(it.hasNext()){
+			trailers.add((Trailer) it.next());
+		}
+		
+		return trailers;
+		
 	}
 	
 	
-	protected void setAllSalas(HttpServletRequest request)
+	protected List<Sala> setAllSalas(HttpServletRequest request)
 	{
 		List<String> listaSalas = new ArrayList<String>();
 		
 		listaSalas.add("ContSala");
 		
-		ControllerParser parserSala = new ControllerParser();	
+		ControllerParser parser = new ControllerParser();	
 		
-		ControllerInter contrSala =  parserSala.parse(listaSalas);
+		ControllerInter contr =  parser.parse(listaSalas);
 		
-		List<Sala> salas = contrSala.readALL();
+		// Recogemos todos los elementos
+		List<Object> salasObj = contr.readAll();
 		
-		request.setAttribute("salas", salas);
+		// Generamos lista para iterar
+		Iterator<Object> it = salasObj.iterator();
+		
+		// Generamos una lista para almacenar los nuevos objetos de la clase 
+		List<Sala> salas = new ArrayList<Sala>();
+		
+		while(it.hasNext()){
+			salas.add((Sala) it.next());
+		}
+		
+		return salas;
+		
 	}
 }
