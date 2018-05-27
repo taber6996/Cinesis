@@ -81,21 +81,16 @@ public class PeliculaDao extends AbstractSession{
   		   Connection conn = cnx.obtener();
   		  // Statement stmt = conn.createStatement();
   		   String query = "SELECT * From peliculas";
-
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
-  		 System.out.println(rs.next());
-  		   while(rs.isLast())
-  		   {
-  			 list.add(setDatosQuery(rs));
-  			 rs.next();
-  		   }
-  		 //  stmt.close();
-  		 //  conn.close();
+
+  			 while(rs.next())
+  			 {
+  				 list.add(setDatosQuery(rs));
+  			 }
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   		  }
-		
 		return list;
 	}
 	
