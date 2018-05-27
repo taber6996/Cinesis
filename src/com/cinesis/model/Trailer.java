@@ -3,8 +3,10 @@ package com.cinesis.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import com.cinesis.dao.PeliculaDao;
 import com.cinesis.dao.TrailerDao;
 
 public class Trailer {
@@ -61,18 +63,60 @@ public class Trailer {
 		return tD.findByName(name);
 	}
 	
-	public List<Trailer> mostrarTodosTrailersById(Integer idPelicula)
+	public List<Object> mostrarTodosTrailersById(Integer idPelicula)
 	{
-		TrailerDao tD = new TrailerDao();
+			TrailerDao pT = new TrailerDao();
 		
-		return tD.findAllTrailerByPeliculaId(idPelicula);
+		List<List<String>> list = new ArrayList<List<String>>();
+		List<String> l2 = new ArrayList<String>();
+		List<Object> listTrailer = new ArrayList<Object>();
+		
+
+		list = pT.findAllTrailerByPeliculaId(idPelicula);
+		
+		Iterator<List<String>> it = list.iterator();
+		
+		for (int i = 0; i < list.size(); i++)
+		{
+			
+			l2 = it.next();
+			Iterator<String> it2 = l2.iterator();
+			
+			Trailer peliAux = new Trailer(Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),it2.next(),
+					it2.next());
+			listTrailer.add(peliAux); 
+		}
+		
+		return listTrailer;
+
 	}
 	
-	public List<Trailer>mostrarTodosTrailers()
+	public List<Object> mostrarTodosTrailers()
 	{
-		TrailerDao tD = new TrailerDao();
+		TrailerDao pT = new TrailerDao();
 		
-		return tD.findAllTrailer();
+		List<List<String>> list = new ArrayList<List<String>>();
+		List<String> l2 = new ArrayList<String>();
+		List<Object> listTrailer = new ArrayList<Object>();
+		
+
+		list = pT.findAllTrailer();
+		
+		Iterator<List<String>> it = list.iterator();
+		
+		for (int i = 0; i < list.size(); i++)
+		{
+			
+			l2 = it.next();
+			Iterator<String> it2 = l2.iterator();
+			
+			Trailer peliAux = new Trailer(Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),it2.next(),
+					it2.next());
+			listTrailer.add(peliAux); 
+		}
+		
+		return listTrailer;
+
 	}
 
 	public void modificarTrailer(int idTrailer, int idPelicula, String titulo, String descripcion)
