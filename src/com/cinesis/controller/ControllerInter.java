@@ -26,7 +26,6 @@ public class  ControllerInter {
 	}
 	
 	public List<Object> readAll(){
-		return null;
 		
 		
 		
