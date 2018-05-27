@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 
 import com.cinesis.model.Entrada;
+import com.cinesis.model.Trailer;
 
 public class ControllerEntrada extends ControllerInter {
 
@@ -47,6 +48,12 @@ public class ControllerEntrada extends ControllerInter {
 		Entrada E = new Entrada(id, null, null, null, null, null, null);
 		
 		return E.mostrarEntrada(id);
+	}
+	
+	public List<Object> readAll()
+	{
+		Trailer T = new Trailer();
+		return T.mostrarTodosTrailers();
 	}
 
 	@Override

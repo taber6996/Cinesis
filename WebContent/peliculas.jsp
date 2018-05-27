@@ -1,3 +1,8 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*, java.io.*"%>
+<%@page import="org.apache.log4j.Logger,java.text.DecimalFormat"%>
 <jsp:include page="includes/header.jsp" />
 
     <!-- Marketing messaging and featurettes
@@ -8,60 +13,23 @@
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
-      <div class="row featurette">
-      	<c:forEach items="${peliculas}" var="item">2
-      		<c:forEach items="${item.value}" var="nentry"> 
-		    ${value}<br>3
-		   	</c:forEach>
-		</c:forEach>
-
-<c:forEach var="node" items="${peliculas}">
-    <c:set var="1node" value="${node}" scope="request"/>
-    aa
-</c:forEach>
-
-		
-        <div class="col-md-7">
-          <h2 class="">Vengadores. <span class="text-muted">Segunda parte.</span></h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
-          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=1" role="button">Ver sinopsis</a></p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="static/assets/img/avenge.jpg" data-src="static/assets/img/avenge.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
       
-      <hr class="featurette-divider">
+      	<c:forEach items="${peliculas}" var="item">
 
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="">Vengadores. <span class="text-muted">Peliculón.</span></h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
-          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=2" role="button">Ver sinopsis</a></p>
-          
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/infinity.jpg" src="static/assets/img/infinity.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="">Jurasick Park.<span class="text-muted">Otra más.....</span></h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
-          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=3" role="button">Ver sinopsis</a></p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/jurassic-world.jpg" src="static/assets/img/jurassic-world.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
+			<div class="row featurette">
+		        <div class="col-md-7 col-md-push-5">
+		          <h2 class="">${item.getNomPelicula() }</h2>
+		          <p class="lead">${item.getSinopsis() }</p>
+		          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=${item.getIdPelicula() }" role="button">Ver sinopsis</a></p>
+		          
+		        </div>
+		        <div class="col-md-5 col-md-pull-7">
+		          <img class="featurette-image img-responsive center-block" data-src="${item.getUrlImagenPrincipal() }" src="${item.getUrlImagenPrincipal() }" alt="Generic placeholder image">
+		        </div>
+		      </div>
+		      <hr class="featurette-divider">
+		        
+		</c:forEach>
 
       <!-- /END THE FEATURETTES -->
 

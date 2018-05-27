@@ -41,9 +41,12 @@ public class CRUDTrailersServlet extends Servlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		setAllTrailer(request);
-		setAllPeliculas(request);
+		List<Trailer> trailers = setAllTrailer(request);
+		List<Pelicula> peliculas = setAllPeliculas(request);
 		
+		request.setAttribute("peliculas", peliculas);
+		request.setAttribute("trailers", trailers);
+
 		getServletContext().getRequestDispatcher("/privado/trailers.jsp").forward(request, response);
 				
 	}
@@ -68,11 +71,14 @@ public class CRUDTrailersServlet extends Servlet {
 		
 			contr.insert(listaTrailer);
 
-			setAllTrailer(request);
-			setAllPeliculas(request);
+			List<Trailer> trailers = setAllTrailer(request);
+			List<Pelicula> peliculas = setAllPeliculas(request);
+			
+			request.setAttribute("peliculas", peliculas);
+			request.setAttribute("trailers", trailers);
 			
 
-	        request.setAttribute("error", "Trailer creada");
+	        request.setAttribute("error", "Trailer creado");
 	        getServletContext().getRequestDispatcher("/privado/trailers.jsp").forward(request, response);
    
 	}

@@ -53,31 +53,31 @@
         <div class="col-sm-4">
         	<jsp:include page="../includes/showMessage.jsp" />
  
-            <h3>Formulario creaciÃ³n entrada</h3>
+            <h3>Formulario creación entrada</h3>
             <form role="form" method="post" action="entradas">
             
               <div class="form-group">
                 <label for"exampleInputEmail1">Sala id</label>
-                <select name="categoria" class="form-control">
-	                <option name="1">1</option>
-	                <option name="2">2</option>
-	                <option name="3">3</option>
-	                <option name="4">4</option>
+                <select name=sala_id class="form-control">
+	                <option value="1">1</option>
+	                <option value="2">2</option>
+	                <option value="3">3</option>
+	                <option value="4">4</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">User Id</label>
-                <select name="categoria" class="form-control">
-	                <option name="HORROR">1</option>
+                <select name="user_id" class="form-control">
+	                <option value="1">1</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">PelÃ­cula id</label>
+                <label for"exampleInputEmail1">Película id</label>
                 <select name="pelicula_id" class="form-control">
-	                <option name="3">3</option>
-	                <option name="4">4</option>
-	                <option name="5">5</option>
-	                <option name="6">6</option>
+	                <option value="3">3</option>
+	                <option value="4">4</option>
+	                <option value="5">5</option>
+	                <option value="6">6</option>
                 </select>
               </div>
               <div class="form-group">
@@ -85,7 +85,7 @@
                 <input name="precio" type="text" class="form-control" id="precio" placeholder=Precio">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">NÃºmero Asiento</label>
+                <label for"exampleInputEmail1">Número Asiento</label>
                 <input name="numeroAsiento" type="text" class="form-control" id="numeroAsiento" placeholder="NÃºmero Asiento">
               </div>
               <div class="form-group">
