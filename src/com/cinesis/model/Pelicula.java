@@ -136,12 +136,13 @@ public class Pelicula {
 	}
 
 	
-	public List<Pelicula> listadoPublicoPeliculas() {
+	public List<Object> listadoPublicoPeliculas() {
 		PeliculaDao pD = new PeliculaDao();
 		
 		List<List<String>> list = new ArrayList<List<String>>();
 		List<String> l2 = new ArrayList<String>();
-		List<Pelicula> listPeli = new ArrayList<Pelicula>();
+		List<Object> listPeli = new ArrayList<Object>();
+
 		list = pD.findAllPeliculas();
 		
 		Iterator<List<String>> it = list.iterator();
