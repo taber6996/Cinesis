@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cinesis.model.CalidadSonidoEnum;
-import com.cinesis.model.Categoria;
+
 import com.cinesis.model.Sala;
 import com.cinesis.servicios.Conexion;
 
@@ -25,7 +25,7 @@ public class SalaDao extends AbstractSession{
    		  Conexion cnx = new Conexion();
    		   Connection conn = cnx.obtener();
    		  // Statement stmt = conn.createStatement();
-   		   String query = "INSERT INTO sala(num_filas,num_columnas,num_asientos_vip,num_asientos_minusvalidos,calidad_sonido,3d)  Values( '" + sala.getNumFilas() +" ',' "+ sala.getNumColumnas() +"',' "+ sala.getNumAsientosVIP()+" ',' "+ sala.getNumAsientosMinusvalidos() +" ',' "+ sala.getCalidadSonido() +" ',' "+ booleanToInt(sala.get_3D()) +"')";
+   		   String query = "INSERT INTO sala(num_filas,num_columnas,num_asientos_vip,num_asientos_minusvalidos,calidad_sonido,3d)  Values( '" + sala.getNumFilas() +" ',' "+ sala.getNumColumnas() +"',' "+ sala.getNumAsientosVIP()+" ',' "+ sala.getNumAsientosMinusvalidos() +" ','"+sala.getCalidadSonido()+" ',' "+ booleanToInt(sala.get_3D()) +"')";
    		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
    		   boolean b = preparedStmt.execute();
    		   System.out.println(b);
@@ -92,7 +92,7 @@ public class SalaDao extends AbstractSession{
 	        
 	        
 	
-	public List<List<String>> findAllSala(){
+	public List<List<String>>  findAllSala(){
 		ResultSet rs = null;
 		List<List<String>> list = new ArrayList<List<String>>();
 		try { 
@@ -102,10 +102,10 @@ public class SalaDao extends AbstractSession{
   		   String query = "SELECT * From sala";
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
-  		   while(rs.isLast())
+  		   while(rs.next())
   		   {
   			 list.add(setDatosQuery(rs));
-  			 rs.next();
+  		
   		   }
   		 //  stmt.close();
   		 //  conn.close();
@@ -152,7 +152,6 @@ public class SalaDao extends AbstractSession{
 	{
 		List<String> lSala = new ArrayList<String>();
 		try {
-			rs.next();
 			lSala.add(String.valueOf(rs.getInt("id")));
 			lSala.add(String.valueOf(rs.getInt("num_filas")));
 			lSala.add(String.valueOf(rs.getInt("num_columnas")));

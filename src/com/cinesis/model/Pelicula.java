@@ -142,6 +142,7 @@ public class Pelicula {
 		List<List<String>> list = new ArrayList<List<String>>();
 		List<String> l2 = new ArrayList<String>();
 		List<Object> listPeli = new ArrayList<Object>();
+		
 
 		list = pD.findAllPeliculas();
 		
@@ -155,7 +156,7 @@ public class Pelicula {
 			
 			Pelicula peliAux = new Pelicula(Integer.parseInt(it2.next()),it2.next(),it2.next(),
 					Integer.parseInt(it2.next()),it2.next(),it2.next(),it2.next(),Integer.parseInt(it2.next()),
-					stringToEnum(it2.next()),it2.next(),stringToTimestamp(it2.next()),it2.next());
+					stringToEnum(it2.next()),it2.next(),it2.next(),it2.next());
 			listPeli.add(peliAux); 
 		}
 		

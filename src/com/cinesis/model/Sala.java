@@ -66,7 +66,12 @@ public class Sala {
 		lSala = sD.findById(idSala);
 		Iterator<String> it =  lSala.iterator();
 		
-		 Sala s = new Sala(Integer.parseInt(it.next()), Integer.parseInt(it.next()), Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),stringToEnum(it.next()), IntToBoolean(Integer.parseInt(it.next())));
+		
+		
+		
+		
+		
+		 Sala s = new Sala(Integer.parseInt(it.next()), Integer.parseInt(it.next()), Integer.parseInt(it.next()),Integer.parseInt(it.next()),Integer.parseInt(it.next()),stringToEnum2(it.next()), IntToBoolean(Integer.parseInt(it.next())));
 		
 		 return s;
 		
@@ -75,21 +80,26 @@ public class Sala {
 	
 	
 	
-	public List<Sala> listadoSalas() {
+	public List<Object> listadoSalas() {
 		SalaDao sD = new SalaDao();
 		List<List<String>> list = new ArrayList<List<String>>();
-		List<String> list2 =  new ArrayList<String>();
-		List<Sala> listSala = new ArrayList<Sala>();
-		Iterator<List<String>> it = list.iterator();
-		Iterator<String> it2 = list2.iterator();
+		List<String> l2 =  new ArrayList<String>();
+		List<Object> listSala = new ArrayList<Object>();
 		
 		list = sD.findAllSala();
+		
+		Iterator<List<String>> it = list.iterator();
+		
+		
 		for (int i = 0; i < list.size(); i++)
 		{
-			list2 = it.next();
+			
+			l2 = it.next();
+			Iterator<String> it2 = l2.iterator();
+			
 			Sala salaAux = new Sala(Integer.parseInt(it2.next()), Integer.parseInt(it2.next()),
 					Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),
-					Integer.parseInt(it2.next()),stringToEnum(it2.next()), IntToBoolean(Integer.parseInt(it2.next())));
+					Integer.parseInt(it2.next()),stringToEnum2(it2.next()), IntToBoolean(Integer.parseInt(it2.next())));
 			
 			listSala.add(salaAux); 
 		}
@@ -210,7 +220,7 @@ public class Sala {
 	
 	
 	
-	public CalidadSonidoEnum stringToEnum(String stringEnum) {
+	public CalidadSonidoEnum stringToEnum2(String stringEnum) {
 		CalidadSonidoEnum cal = CalidadSonidoEnum.valueOf(stringEnum);
 		return cal;
 	
