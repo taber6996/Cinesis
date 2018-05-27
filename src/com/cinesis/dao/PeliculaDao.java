@@ -104,7 +104,7 @@ public class PeliculaDao extends AbstractSession{
   		   String query = "SELECT * From peliculas P Where P.id = " + pelicula_id;
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
-  		  
+  		  rs.next();
   		  List<String> l = setDatosQuery(rs);
   	
   		//   stmt.close();
@@ -119,7 +119,6 @@ public class PeliculaDao extends AbstractSession{
 	{
 		List<String> lPeli = new ArrayList<String>();
 		try {
-			rs.next();
 			lPeli.add(String.valueOf(rs.getInt("id")));
 			lPeli.add(rs.getString("nombre"));
 			lPeli.add(rs.getString("slug"));
