@@ -3,6 +3,7 @@ package com.cinesis.model;
 import java.sql.Array;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -12,56 +13,110 @@ import com.cinesis.dao.EntradaDao;
 
 public class Entrada {
 
+
+
+
 	private Integer idEntrada;
 	
 	private Integer idSala;
 
-	private Integer idPelicula;
-
 	private Integer idUsuario;
+	
+	private Integer idPelicula;
+	
+	private Integer precio;
 	
 	private Integer numeroAsiento;
 
-	private Date horario;
+	private String horario;
 	
-	private Integer precio;
+
 
 	
 	
 	
-	public Entrada(Integer idEntrada, Integer idSala, Integer idPelicula, Integer idUsuario, Integer numeroAsiento,
-			Date horario, Integer precio) {
+	public Entrada(Integer idEntrada, Integer idSala, Integer idUsuario, Integer idPelicula, Integer precio, Integer numeroAsiento,
+			String horario) {
 		
 		this.idEntrada = idEntrada;
 		this.idSala = idSala;
-		this.idPelicula = idPelicula;
 		this.idUsuario = idUsuario;
+		this.idPelicula = idPelicula;
+		this.precio = precio;
 		this.numeroAsiento = numeroAsiento;
 		this.horario = horario;
-		this.precio = precio;
+		
 	}
 	
-	
+	public Entrada(){
 
-	public void compraEntrada() {
+	}
+
+	public void compraEntrada(Integer idSala, Integer idUsuario,Integer idPelicula, Integer precio, Integer numeroAsiento,
+			String horario) {
+		
+		//System.out.println("  idsala: "+ idSala +"   id usuario:  "+idUsuario + "   idpeli: "+ idPelicula+ "   precio: "+ precio+"   numeroAsiento:  "+ numeroAsiento + "     horario:" + horario);
+		
+		Entrada E = new Entrada(null, idSala, idUsuario,  idPelicula,  precio ,  numeroAsiento,
+				 horario);
+		
 		EntradaDao eD = new EntradaDao();
-		eD.saveEntrada(this);
+		eD.saveEntrada(E);
 	
 	}
 
 	public Entrada mostrarEntrada(Integer idEntrada) {
 		 EntradaDao eD= new EntradaDao();
-		return eD.findById(idEntrada);
+		 List<String> lEntrada = new ArrayList<String>();
+		 lEntrada = eD.findById(idEntrada);
+		 Iterator<String> it =  lEntrada.iterator();
+		 
+		 Entrada e = new Entrada(Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+					Integer.parseInt(it.next()), Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+					Integer.parseInt(it.next()),it.next());
+		 
+		return e;
 	}
+	
+	public List<Object> mostrarTotalEntradas(){
+		 EntradaDao eD= new EntradaDao();
+		 
+		 List<List<String>> list = new ArrayList<List<String>>();
+			List<String> l2 =  new ArrayList<String>();
+			List<Object> listEntrada = new ArrayList<Object>();
+			
+			list = eD.findAllEntradas();
+			
+			Iterator<List<String>> it = list.iterator();
+			
+			for (int i = 0; i < list.size(); i++)
+			{
+				
+				l2 = it.next();
+				Iterator<String> it2 = l2.iterator();
+				
+				Entrada entradaAux = new Entrada(Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),
+						Integer.parseInt(it2.next()), Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),
+						Integer.parseInt(it2.next()),it2.next());
+				 
+				 
+				listEntrada.add(entradaAux); 
+			}
+		
+		 return listEntrada;
+	}
+	
+	
+	
 	
 	public void modificarEntrada() {
 		EntradaDao eD= new EntradaDao();
 		 eD.updateEntrada(this);
 	}
 	
-	public void eliminarEntrada() {
+	public void eliminarEntrada(Integer idE) {
 		 EntradaDao eD= new EntradaDao();
-		 eD.deleteEntradaById(this.idEntrada);
+		 eD.deleteEntradaById(idE);
 	}
 
 	public List<Entrada> mostrarTotalEntradasSala(Integer idSala) {
@@ -69,10 +124,7 @@ public class Entrada {
 		 return eD.findAllEntradaBySalaId(idSala);	
 	}
 	
-	public List<Entrada> mostrarTotalEntradas(){
-		 EntradaDao eD= new EntradaDao();
-		 return eD.findAllEntradas();
-	}
+	
 
 	public Integer getIdEntrada() {
 		return idEntrada;
@@ -112,12 +164,12 @@ public class Entrada {
 	}
 
 
-	public Date getHorario() {
+	public String getHorario() {
 		return horario;
 	}
 
 
-	public void setHorario(Date horario) {
+	public void setHorario(String horario) {
 		this.horario = horario;
 	}
 

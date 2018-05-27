@@ -1,43 +1,155 @@
 package com.cinesis.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+
+
 
 import com.cinesis.model.Entrada;
 import com.cinesis.model.Trailer;
+import com.cinesis.servicios.Conexion;
 
 public class EntradaDao {
 	
 	public void saveEntrada(Entrada entrada){
-		
+		try { 
+	   		  Conexion cnx = new Conexion();
+	   		   Connection conn = cnx.obtener();
+	   		  // Statement stmt = conn.createStatement();
+	   		   String query = "INSERT INTO entrada(sala_id,user_id,pelicula_id,precio,numeroAsiento,horario)  Values('"+entrada.getIdSala()+"','"+entrada.getIdUsuario()+"','"+entrada.getIdPelicula()+"','"+entrada.getPrecio()+"','"+entrada.getNumeroAsiento()+"','"+entrada.getHorario()+"')";
+	   			   		   
+	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+	   		   boolean b = preparedStmt.execute();
+	   		   System.out.println(b);
+	   		  // stmt.close();
+	   		   //conn.close();
+	   		  }catch(ClassNotFoundException | SQLException e) {
+	   			  System.out.println("nop" + e);
+	   			  
+	   		  }
 	}
 	
 	public void deleteEntradaById(Integer entrada_id){
 
+		 try { 
+	   		  Conexion cnx = new Conexion();
+	   		   Connection conn = cnx.obtener();
+	   		  // Statement stmt = conn.createStatement();
+	   		   String query = "DELETE FROM entrada  WHERE id = '" + entrada_id + "'";
+	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+	   		   boolean b = preparedStmt.execute();
+	   		   System.out.println(b);
+	   		  // stmt.close();
+	   		  // conn.close();
+	   		  }catch(ClassNotFoundException | SQLException e) {
+	   			  System.out.println("nop" + e);
+	   			  
+	   		  }
+		
 		
 	}
 	
 	public void updateEntrada(Entrada entrada){
 		
-	}
-	
-	public List<Entrada> findAllEntradas(){
-		return null;
-	}
-	
-	public Entrada findById(Integer entrada_id){
-		return null;
-		 
-	}
-	
-	public Entrada findByName(String entrada_nombre) {
-		return null;
+		 try { 
+	   		  Conexion cnx = new Conexion();
+	   		   Connection conn = cnx.obtener();
+	   		  // Statement stmt = conn.createStatement();
+	   		   String query = "UPDATE entrada E SET E.id = '"+ entrada.getIdEntrada() +"', E.sala_id ='" + entrada.getIdSala() +" ', E.user_id =' "+ entrada.getIdUsuario() +"', E.pelicula_id =' "+ entrada.getIdPelicula()+" ', E.precio =' "+ entrada.getPrecio()+" ', E.numeroAsiento =  ' "+ entrada.getNumeroAsiento()+" ',E.horario =' "+ entrada.getHorario()+"' ";
+	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+	   		   boolean b = preparedStmt.execute();
+	   		   System.out.println(b);
+	   		   //stmt.close();
+	   		   //conn.close();
+	   		  }catch(ClassNotFoundException | SQLException e) {
+	   			  System.out.println("nop" + e);
+	   			  
+	   		  }
+			
 		
 	}
 	
+	
+	
+	public List<String> findById(Integer entrada_id){
+		ResultSet rs = null;
+		try { 
+  		  Conexion cnx = new Conexion();
+  		   Connection conn = cnx.obtener();
+  		   //Statement stmt = conn.createStatement();
+  		   String query = "SELECT * From entrada e Where e.id = '" + entrada_id + "'";
+  		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+  		   rs = preparedStmt.executeQuery();
+  		   
+  		 List<String> E = setDatosQuery(rs);
+  		   return E;
+  		   
+  		  }catch(ClassNotFoundException | SQLException e) {
+  			  System.out.println("nop" + e);
+  			  
+  		  }
+		return null;
+		
+		 
+	}
+	
+	public List<List<String>> findAllEntradas(){
+		ResultSet rs = null;
+		List<List<String>> list = new ArrayList<List<String>>();
+		try { 
+  		  Conexion cnx = new Conexion();
+  		   Connection conn = cnx.obtener();
+  		  // Statement stmt = conn.createStatement();
+  		   String query = "SELECT * From entrada";
+  		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+  		   rs = preparedStmt.executeQuery();
+  		   while(rs.next())
+  		   {
+  			 list.add(setDatosQuery(rs));
+  		
+  		   }
+  		 //  stmt.close();
+  		 //  conn.close();
+  		  }catch(ClassNotFoundException | SQLException e) {
+  			  System.out.println("nop" + e);
+  		  }
+		return list;
+		
+	}
+	
+
 	public List<Entrada> findAllEntradaBySalaId (Integer sala_id){
 		return null;
 	
 	}
+	
+	
+	public List<String> setDatosQuery(ResultSet rs)
+	{
+		List<String> lEntrada = new ArrayList<String>();
+		try {
+			lEntrada.add(String.valueOf(rs.getInt("id")));
+			lEntrada.add(String.valueOf(rs.getInt("sala_id")));
+			lEntrada.add(String.valueOf(rs.getInt("use_id")));
+			lEntrada.add(String.valueOf(rs.getInt("pelicula_id")));
+			lEntrada.add(String.valueOf(rs.getInt("precio")));
+			lEntrada.add(String.valueOf(rs.getInt("numeroAsiento")));
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lEntrada;
+	}
+	
+	
+	
 }
 
 
