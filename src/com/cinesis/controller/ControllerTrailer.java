@@ -12,17 +12,16 @@ public class ControllerTrailer extends ControllerInter{
 	private String id = "ContTrailer";
 	@Override
 	public void insert(List<String> lista) {
-			/*Iterator<String> it = lista.iterator();
+			Iterator<String> it = lista.iterator();
 		
-		Trailer T = new Trailer(Integer.parseInt(it.next()), Integer.parseInt(it.next())
-				, it.next(), it.next());
+		Trailer T = new Trailer();
 		
-		T.crearTrailer();*/
+		T.crearTrailer(Integer.parseInt(it.next()), it.next(), it.next());
 	}
 
 	@Override
 	public void Delete(Integer id) {
-		Trailer T = new Trailer(id, null, null ,null);
+		Trailer T = new Trailer();
 		T.eliminarTrailer(id);
 	}
 
@@ -33,11 +32,12 @@ public class ControllerTrailer extends ControllerInter{
 		return T.mostrarTrailer(id);
 	}
 	
-	public List<Trailer> readAll()
+	public List<Object> readAll()
 	{
 		Trailer T = new Trailer();
 		
-		return T.mostrarTodosTrailers();
+		//return T.mostrarTodosTrailers();/¡
+		return null;
 	}
 	public List<Trailer> readAllbyId(Integer id)
 	{
@@ -48,12 +48,11 @@ public class ControllerTrailer extends ControllerInter{
 
 	@Override
 	public void modify(List<String> lista) {
-		/*Iterator<String> it = lista.iterator();
+		Iterator<String> it = lista.iterator();
 		
-		Trailer T = new Trailer(Integer.parseInt(it.next()), Integer.parseInt(it.next())
-				, it.next(), it.next());
+		Trailer T = new Trailer();
 		
-		T.modificarTrailer();*/
+		T.modificarTrailer(Integer.parseInt(it.next()), Integer.parseInt(it.next()), it.next(), it.next());
 	}
 
 

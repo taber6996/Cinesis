@@ -1,11 +1,12 @@
 package com.cinesis.controller;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import com.cinesis.model.CalidadSonidoEnum;
-import com.cinesis.model.Pelicula;
 import com.cinesis.model.Roles;
+import com.cinesis.model.Sala;
 import com.cinesis.model.SystemUser;
 
 public class ControllerSystem extends ControllerInter{
@@ -15,7 +16,6 @@ public class ControllerSystem extends ControllerInter{
 	public void insert(List<String> lista) {
 		// TODO Auto-generated method stub
 		Iterator<String> it = lista.iterator();
-		it.next();
 		SystemUser S = new SystemUser(Integer.parseInt(it.next()),stringToEnum(it.next()),it.next(), it.next(), it.next(), it.next());
 		
 		S.crearUsuario();
@@ -33,12 +33,10 @@ public class ControllerSystem extends ControllerInter{
 		SystemUser S = new SystemUser(id, null, null, null, null, null);
 		return S.mostarUsuario(id);
 	}
-	public List<SystemUser> readAll()
-	{
-		SystemUser S = new SystemUser(null, null, null, null, null, null);
-		return S.mostrarTodosUsuarios();
+	@Override
+	public List<Object> readAll(){
+		return null;
 	}
-
 	public SystemUser readByName(String username)
 	{
 		SystemUser S = new SystemUser(null, null, null, username, null, null);
