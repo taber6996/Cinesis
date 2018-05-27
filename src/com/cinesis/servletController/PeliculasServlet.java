@@ -19,7 +19,7 @@ import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
-
+ 
 @WebServlet(name = "peliculas", urlPatterns = {"/peliculas"})
 public class PeliculasServlet extends Servlet{
 	private static final long serialVersionUID = 1L;
