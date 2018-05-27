@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 
 import com.cinesis.model.Entrada;
+import com.cinesis.model.Sala;
 
 public class ControllerEntrada extends ControllerInter {
 
@@ -48,6 +49,22 @@ public class ControllerEntrada extends ControllerInter {
 		
 		return E.mostrarEntrada(id);
 	}
+	
+	
+	
+	@Override
+	public List<Object> readAll(){
+		Entrada E = new Entrada();
+		
+		return  E.mostrarTotalEntradas();
+		
+		
+		//zorita like that
+	}
+	
+	
+	
+	
 
 	@Override
 	public void modify(List<String> lista) {
