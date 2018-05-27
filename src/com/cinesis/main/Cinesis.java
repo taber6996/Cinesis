@@ -1,14 +1,11 @@
 package com.cinesis.main;
 
-
-
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.cinesis.controller.Controller;
 import com.cinesis.controller.ControllerInter;
 import com.cinesis.controller.ControllerParser;
 import com.cinesis.controller.ControllerPelicula;
@@ -78,7 +75,7 @@ public class Cinesis {
 		
 		
 		
-	Iterator<Object> it = prueba1.iterator();
+		Iterator<Object> it = prueba1.iterator();
 		
 		while(it.hasNext()){
 			
