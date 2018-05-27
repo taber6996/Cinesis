@@ -82,10 +82,10 @@ public class EntradaDao {
   		  Conexion cnx = new Conexion();
   		   Connection conn = cnx.obtener();
   		   //Statement stmt = conn.createStatement();
-  		   String query = "SELECT * From entrada e Where e.id = '" + entrada_id + "'";
+  		   String query = "SELECT * From entrada E Where E.id = '"+entrada_id+"'";
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
-  		   
+  		 rs.next();
   		 List<String> E = setDatosQuery(rs);
   		   return E;
   		   
@@ -104,7 +104,7 @@ public class EntradaDao {
 		try { 
   		  Conexion cnx = new Conexion();
   		   Connection conn = cnx.obtener();
-  		  // Statement stmt = conn.createStatement();
+  		 
   		   String query = "SELECT * From entrada";
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
@@ -113,8 +113,7 @@ public class EntradaDao {
   			 list.add(setDatosQuery(rs));
   		
   		   }
-  		 //  stmt.close();
-  		 //  conn.close();
+  		
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   		  }
@@ -135,10 +134,11 @@ public class EntradaDao {
 		try {
 			lEntrada.add(String.valueOf(rs.getInt("id")));
 			lEntrada.add(String.valueOf(rs.getInt("sala_id")));
-			lEntrada.add(String.valueOf(rs.getInt("use_id")));
+			lEntrada.add(String.valueOf(rs.getInt("user_id")));
 			lEntrada.add(String.valueOf(rs.getInt("pelicula_id")));
 			lEntrada.add(String.valueOf(rs.getInt("precio")));
 			lEntrada.add(String.valueOf(rs.getInt("numeroAsiento")));
+			lEntrada.add(String.valueOf(rs.getInt("horario")));
 			
 			
 		} catch (SQLException e) {

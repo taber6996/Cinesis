@@ -132,11 +132,11 @@ public class SalaDao extends AbstractSession{
 		try { 
   		  Conexion cnx = new Conexion();
   		   Connection conn = cnx.obtener();
-  		   //Statement stmt = conn.createStatement();
+  		  
   		   String query = "SELECT * From sala S Where S.id = '"+sala_id+"'";
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
-  		   
+  		 rs.next();
   		 List<String> S = setDatosQuery(rs);
   		   return S;
   		   
