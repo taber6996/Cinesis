@@ -79,8 +79,9 @@ public class ControllerPelicula extends ControllerInter {
 	}
 	
 	
-	public List<Pelicula> readALL(){
+	public List<Object> readAll() {
 		Pelicula p = new Pelicula();
+
 		return p.listadoPublicoPeliculas();
 	}
 
