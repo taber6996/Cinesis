@@ -7,7 +7,7 @@
         <div class="col-sm-offset-1 col-sm-10">
           <h2>${pelicula.getNomPelicula() } <a href="comprar_entradas.jsp" type="button" class="btn btn-primary pull-right">Comprar entradas</a></h2>
           
-          <img src="static/assets/img/avenge.jpg" width="100%"/>
+          <img src="${pelicula.getUrlImagenPrincipal() }" width="100%"/>
 
           <ul style="margin-top: 10px;">
             <li>Director: <b>${pelicula.getDirectores() }</b></li>
@@ -21,7 +21,6 @@
           <a href="index.jsp" type="button" class="btn btn-primary pull-right">Volver</a>
         </div>
       </div>
-	  </div>
 
       <!-- /END THE FEATURETTES -->
 

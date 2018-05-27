@@ -1,3 +1,8 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*, java.io.*"%>
+<%@page import="org.apache.log4j.Logger,java.text.DecimalFormat"%>
 <jsp:include page="../includes/header-privado.jsp" />
 
     <!-- Marketing messaging and featurettes
@@ -15,19 +20,23 @@
 	            <table id="myTable" class="table table-striped table-bordered table-hover" style="margin-bottom:30px;">
 	                <thead>
 	                    <tr>
-	                        <th>Horario</th>
-	                        <th>Pel�cula</th>
-	                        <th>Estado</th>
-	                        <th>Precio</th>
+	                    	<th>Id</th>
+	                        <th>Película ID</th>
+	                        <th>Título</th>
+	                        <th>Descripción</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr>
-	                        <td>10</td>
-	                        <td>Vengadores</td>
-	                        <td>Libre</td>
-	                        <td>10</td>
-	                    </tr>
+	                    <c:forEach items="${trailers}" var="item">
+	                
+			                <tr>
+			                	<td>${item.getIdTrailer() }</td>
+			                	<td>${item.getIdPelicula() }</td>
+		                    	<td>${item.getTitulo() }</td>
+		                        <td>${item.getDescripcion() }</td>
+		                    </tr>
+		       
+					</c:forEach>
 	                </tbody>
 	            </table>
             </div>
@@ -36,12 +45,16 @@
         	
         	<jsp:include page="../includes/showMessage.jsp" />
 		
-            <h3>Formulario creaci�n sala</h3>
+            <h3>Formulario creación sala</h3>
             <form role="form" method="post" action="trailers">
             
               <div class="form-group">
-                <label for"exampleInputEmail1">pelicula_id</label>
-                <input name="pelicula_id" type="text" class="form-control" id="pelicula_id" placeholder="pelicula_id">
+                <label for"exampleInputEmail1">Pelicula</label>
+                <select name="pelicula_id" class="form-control">
+	                <c:forEach items="${peliculas}" var="item">
+	                	<option value="${item.getIdPelicula()}">${item.getNomPelicula() }</option>
+	                </c:forEach>
+                </select>
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">titulo</label>

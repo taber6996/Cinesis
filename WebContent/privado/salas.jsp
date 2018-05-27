@@ -1,3 +1,8 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*, java.io.*"%>
+<%@page import="org.apache.log4j.Logger,java.text.DecimalFormat"%>
 <jsp:include page="../includes/header-privado.jsp" />
 
     <!-- Marketing messaging and featurettes
@@ -14,23 +19,29 @@
             <table id="myTable" class="table table-striped table-bordered table-hover" style="margin-bottom:30px;">
                 <thead>
                     <tr>
-                        <th>Número filas</th>
-                        <th>Número de columnas</th>
-                        <th>Número asientos VIPs</th>
-                        <th>Número asientos Minusválidos</th>
+                        <th>Id</th>
+                        <th>NÃºmero filas</th>
+                        <th>NÃºmero de columnas</th>
+                        <th>NÃºmero asientos VIPs</th>
+                        <th>NÃºmero asientos MinusvÃ¡lidos</th>
                         <th>Calidad de sonido</th>
                         <th>3D</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>10</td>
-                        <td>22</td>
-                        <td>11</td>
-                        <td>2</td>
-                        <td>Buena</td>
-                        <td>Si</td>
+                    <c:forEach items="${salas}" var="item">
+	                
+	                <tr>
+	                	<td>${item.getIdSala() }</td>
+                    	<td>${item.getNumFilas() }</td>
+                        <td>${item.getNumColumnas() }</td>
+                        <td>${item.getNumAsientosVIP() }</td>
+                        <td>${item.getNumAsientosMinusvalidos() }</td>
+                        <td>${item.getCalidadSonido() }</td>
+            			<td>${item.get_3D() }</td>
                     </tr>
+		       
+					</c:forEach>
                 </tbody>
             </table>
             </div>
@@ -39,23 +50,23 @@
         	
         	<jsp:include page="../includes/showMessage.jsp" />
 
-            <h3>Formulario creación sala</h3>
+            <h3>Formulario creaciÃ³n sala</h3>
             <form role="form" method="post" action="salas">
               <div class="form-group">
-                <label for"exampleInputEmail1">Número filas</label>
-                <input name="num_filas" type="text" class="form-control" id="num_filas" placeholder="Número filas">
+                <label for"exampleInputEmail1">NÃºmero filas</label>
+                <input name="num_filas" type="text" class="form-control" id="num_filas" placeholder="NÃºmero filas">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Número de columnas</label>
-                <input name="num_columnas" type="text" class="form-control" id="num_columnas" placeholder="Número de columnas">
+                <label for"exampleInputEmail1">NÃºmero de columnas</label>
+                <input name="num_columnas" type="text" class="form-control" id="num_columnas" placeholder="NÃºmero de columnas">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Número asientos VIPs</label>
-                <input name="num_asientos_vip" type="text" class="form-control" id="num_asientos_vip" placeholder="Número asientos VIPs">
+                <label for"exampleInputEmail1">NÃºmero asientos VIPs</label>
+                <input name="num_asientos_vip" type="text" class="form-control" id="num_asientos_vip" placeholder="NÃºmero asientos VIPs">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Número asientos Minusválidos</label>
-                <input name="num_asientos_minusvalidos" type="text" class="form-control" id="num_asientos_minusvalidos" placeholder="Número asientos Minusválidos">
+                <label for"exampleInputEmail1">NÃºmero asientos MinusvÃ¡lidos</label>
+                <input name="num_asientos_minusvalidos" type="text" class="form-control" id="num_asientos_minusvalidos" placeholder="NÃºmero asientos MinusvÃ¡lidos">
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Calidad de sonido</label>

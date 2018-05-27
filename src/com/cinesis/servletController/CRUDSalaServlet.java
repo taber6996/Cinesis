@@ -17,7 +17,9 @@ import com.cinesis.controller.ControllerInter;
 import com.cinesis.controller.ControllerParser;
 import com.cinesis.controller.ControllerSala;
 import com.cinesis.model.Entrada;
+import com.cinesis.model.Pelicula;
 import com.cinesis.model.Sala;
+import com.cinesis.model.Trailer;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -40,7 +42,9 @@ public class CRUDSalaServlet extends Servlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		setAllSalas(request);
+		List<Sala> salas = setAllSalas(request);
+		
+		request.setAttribute("salas", salas);
 		
 		getServletContext().getRequestDispatcher("/privado/salas.jsp").forward(request, response);
 				
@@ -69,7 +73,9 @@ public class CRUDSalaServlet extends Servlet {
 
 		contr.insert(listaSala);
 		
-		setAllSalas(request);
+		List<Sala> salas = setAllSalas(request);
+		
+		request.setAttribute("salas", salas);
 		
 		
 		// Devolvemos a la vista Entrada

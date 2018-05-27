@@ -3,7 +3,7 @@ package com.cinesis.controller;
 import java.util.Iterator;
 import java.util.List;
 
-
+import com.cinesis.model.Pelicula;
 import com.cinesis.model.Sala;
 import com.cinesis.model.Trailer;
 
@@ -15,6 +15,8 @@ public class ControllerTrailer extends ControllerInter{
 			Iterator<String> it = lista.iterator();
 		
 		Trailer T = new Trailer();
+		
+		it.next();
 		
 		T.crearTrailer(Integer.parseInt(it.next()), it.next(), it.next());
 	}
@@ -32,12 +34,13 @@ public class ControllerTrailer extends ControllerInter{
 		return T.mostrarTrailer(id);
 	}
 	
-	public List<Object> ReadAll()
+	public List<Object> readAll()
 	{
 		Trailer T = new Trailer();
-		
 		return T.mostrarTodosTrailers();
 	}
+	
+	
 	public List<Object> ReadALLByID(int id)
 	{
 		Trailer T = new Trailer();

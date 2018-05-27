@@ -1,3 +1,8 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*, java.io.*"%>
+<%@page import="org.apache.log4j.Logger,java.text.DecimalFormat"%>
 <jsp:include page="includes/header.jsp" />
 
     <!-- Carousel
@@ -5,41 +10,23 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+      	<c:forEach items="${peliculas}" var="item">
+        	<li data-target="#myCarousel" data-slide-to="${item.getIdPelicula()}"></li>
+        </c:forEach>
       </ol>
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="static/assets/img/avenge.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Vengadores.</h1>
-              <p>Película Vengadores</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=1" role="button">Ver sinopsis</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="static/assets/img/infinity.jpg" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Vengadores 2.</h1>
-              <p> Película Vengadores 2</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=2" role="button">Ver sinopsis</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="static/assets/img/jurassic-world.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Jurasick word.</h1>
-              <p>Película JURASICK.</p>
-              <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=3" role="button">Ver sinopsis</a></p>
-            </div>
-          </div>
-        </div>
+      	<c:forEach items="${peliculas}" var="item" varStatus = "status">
+	        <div class="item ${status.first ? 'active' : ''}">
+	          <img class="first-slide" src="${item.getUrlImagenPrincipal() }" alt="First slide">
+	          <div class="container">
+	            <div class="carousel-caption">
+	              <h1>${item.getNomPelicula() }.</h1>
+	              <p>${item.getCategoria() }</p>
+	              <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=${item.getIdPelicula()}" role="button">Ver sinopsis</a></p>
+	            </div>
+	          </div>
+	        </div>
+	     </c:forEach>
       </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -59,51 +46,26 @@
 
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
+      <c:forEach items="${peliculas}" var="item">
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class=""><a href="pelicula.jsp">Vengadores. <span class="text-muted">Segunda parte.</span></a></h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
-          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=1" role="button">Ver sinopsis</a></p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="static/assets/img/avenge.jpg" data-src="static/assets/img/avenge.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
-      
-      <hr class="featurette-divider">
+			<div class="row featurette">
+		        <div class="col-md-7 col-md-push-5">
+		          <h2 class="">${item.getNomPelicula() }</h2>
+		          <p class="lead">${item.getSinopsis() }</p>
+		          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=${item.getIdPelicula() }" role="button">Ver sinopsis</a></p>
+		          
+		        </div>
+		        <div class="col-md-5 col-md-pull-7">
+		          <img class="featurette-image img-responsive center-block" data-src="${item.getUrlImagenPrincipal() }" src="${item.getUrlImagenPrincipal() }" alt="Generic placeholder image">
+		        </div>
+		      </div>
+		      <hr class="featurette-divider">
+		        
+		</c:forEach>
 
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class=""><a href="pelicula.jsp">Vengadores. <span class="text-muted">Peliculón.</span></a></h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
-          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id.</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=2" role="button">Ver sinopsis</a></p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/infinity.jpg" src="static/assets/img/infinity.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class=""><a href="pelicula.jsp">Jurasick Park.<span class="text-muted">Otra más.....</span></a></h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt ultrices tellus, nec rutrum dolor 
-          maximus sit amet. Proin vel elementum mi, sed dictum lectus. Nulla molestie dolor leo, id</p>
-          <p><a class="btn btn-lg btn-primary" href="pelicula?pelicula_id=3" role="button">Ver sinopsis</a></p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="static/assets/img/jurassic-world.jpg" src="static/assets/img/jurassic-world.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
 <div>
 
 </div>
-      <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
 

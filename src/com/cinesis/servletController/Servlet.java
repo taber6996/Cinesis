@@ -38,7 +38,7 @@ public class Servlet extends HttpServlet {
 		Iterator<Object> it = entradasObj.iterator();
 		
 		// Generamos una lista para almacenar los nuevos objetos de la clase 
-		List<Entrada> entradas = new ArrayList<Entrada>();
+		ArrayList<Entrada> entradas = new ArrayList<Entrada>();
 		
 		while(it.hasNext()){
 			entradas.add((Entrada) it.next());
@@ -83,6 +83,7 @@ public class Servlet extends HttpServlet {
 		ControllerParser parser = new ControllerParser();	
 		
 		ControllerInter contr = parser.parse(lista);
+		System.out.println(parser);
 		
 		// Recogemos todos los elementos
 		List<Object> trailerObj = contr.readAll();
@@ -91,12 +92,12 @@ public class Servlet extends HttpServlet {
 		Iterator<Object> it = trailerObj.iterator();
 		
 		// Generamos una lista para almacenar los nuevos objetos de la clase 
-		List<Trailer> trailers = new ArrayList<Trailer>();
+		ArrayList<Trailer> trailers = new ArrayList<Trailer>();
 		
 		while(it.hasNext()){
 			trailers.add((Trailer) it.next());
 		}
-		
+
 		return trailers;
 		
 	}
@@ -119,7 +120,7 @@ public class Servlet extends HttpServlet {
 		Iterator<Object> it = salasObj.iterator();
 		
 		// Generamos una lista para almacenar los nuevos objetos de la clase 
-		List<Sala> salas = new ArrayList<Sala>();
+		ArrayList<Sala> salas = new ArrayList<Sala>();
 		
 		while(it.hasNext()){
 			salas.add((Sala) it.next());

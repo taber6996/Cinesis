@@ -36,17 +36,10 @@ public class PeliculasServlet extends Servlet{
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		ArrayList<Pelicula> peliculas = (ArrayList<Pelicula>) setAllPeliculas(request);
+		List<Pelicula> peliculas = setAllPeliculas(request);
 		
-		// Generamos lista para iterar
-		Iterator<Pelicula> it = peliculas.iterator();
-		
-
 		request.setAttribute("peliculas", peliculas);
-		
-		System.out.println(peliculas);
 		
 		getServletContext().getRequestDispatcher("/peliculas.jsp").forward(request, response);
 				

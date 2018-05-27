@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ControllerParser {
 
-	private static ControllerInter[] availableControllers = { new ControllerPelicula(),  new ControllerSala() } ;
+	private static ControllerInter[] availableControllers = { new ControllerPelicula(),  new ControllerSala(), new ControllerEntrada(), new ControllerTrailer()} ;
 	
 	
 	public ControllerInter parse(List<String> lista ){

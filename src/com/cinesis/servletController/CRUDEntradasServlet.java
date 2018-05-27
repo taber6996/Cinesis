@@ -19,6 +19,7 @@ import com.cinesis.controller.ControllerPelicula;
 import com.cinesis.model.Entrada;
 import com.cinesis.model.Pelicula;
 import com.cinesis.model.Sala;
+import com.cinesis.model.Trailer;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -40,11 +41,15 @@ public class CRUDEntradasServlet extends Servlet  {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+			
+		List<Sala> salas = setAllSalas(request);
+		List<Pelicula> peliculas = setAllPeliculas(request);
+		List<Entrada> entradas = setAllEntradas(request);
 		
-		setAllSalas(request);
-		setAllEntradas(request);
-		setAllPeliculas(request);
-		
+		request.setAttribute("salas", salas);
+		request.setAttribute("peliculas", peliculas);
+		request.setAttribute("entradas", entradas);
+
 		getServletContext().getRequestDispatcher("/privado/entradas.jsp").forward(request, response);
 				
 	}
@@ -70,18 +75,24 @@ public class CRUDEntradasServlet extends Servlet  {
 			
 			listaEntrada.add(request.getParameter("horario"));
 			
+			System.out.println(listaEntrada);
+			
 			ControllerParser parser = new ControllerParser();	
 			
 			ControllerInter contr =	 parser.parse(listaEntrada);
-		
+
 			contr.insert(listaEntrada);
 			
 			// Devolvemos a la vista Entrada
 	        request.setAttribute("error", "Entrada creada");
 			
-			setAllSalas(request);
-			setAllEntradas(request);
-			setAllPeliculas(request);
+	        List<Sala> salas = setAllSalas(request);
+			List<Pelicula> peliculas = setAllPeliculas(request);
+			List<Entrada> entradas = setAllEntradas(request);
+			
+			request.setAttribute("salas", salas);
+			request.setAttribute("peliculas", peliculas);
+			request.setAttribute("entradas", entradas);
 		
 			getServletContext().getRequestDispatcher("/privado/entradas.jsp").forward(request, response);
 			

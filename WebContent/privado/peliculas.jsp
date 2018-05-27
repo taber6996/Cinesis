@@ -1,3 +1,8 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*, java.io.*"%>
+<%@page import="org.apache.log4j.Logger,java.text.DecimalFormat"%>
 <jsp:include page="../includes/header-privado.jsp" />
 
     <!-- Marketing messaging and featurettes
@@ -16,30 +21,39 @@
 	                <thead>
 	                    <tr>
 	                    	<th>Id</th>
-	                        <th>T韙ulo</th>
+	                        <th>T铆tulo</th>
+	                        <th>Imagen</th>
+	                        <th>Ver</th>
 	                        <th>Sinopsis</th>
-	                        <th>Actores</th>
-	                        <th>Duraci髇</th>
-	                        <th>Calificaci髇</th>
+	                        <th>Director</th>
+	                        <th>Duraci贸n</th>
+	                        <th>Calificaci贸n</th>
 	                        <th>Pais</th>
 	                        <th>Estreno</th>
-	                        <th>Extracto</th>
-	                        <th>Imagen</th>
+	                        <th>Categoria</th>
+	                        
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr>
-	                    	<td>11</td>
-	                        <td>10</td>
-	                        <td>Vengadores</td>
-	                        <td>Libre</td>
-	                        <td>10</td>
-	                        <td>10</td>
-	                        <td>10</td>
-	                        <td>10</td>
-	                        <td>10</td>
-	                        <td>10</td>
+	                
+	                <c:forEach items="${peliculas}" var="item">
+	                
+	                <tr>
+	                    	<td>${item.getIdPelicula() }</td>
+	                        <td>${item.getNomPelicula() }</td>
+	                        <td><img class="featurette-image img-responsive center-block" data-src="" src="${item.getUrlImagenPrincipal() }" alt="Generic placeholder image"></td>
+	                    	<td><a href="pelicula?pelicula_id=${item.getIdPelicula() }">Ver</a></td>
+	                        <td>${item.getSinopsis() }</td>
+	                        <td>${item.getDirectores() }</td>
+	                        <td>${item.getDuracion() }</td>
+	                        <td>${item.getCalificacion() }</td>
+	                        <td>${item.getPais() }</td>
+	                        <td>${item.getEstreno() }</td>
+	                        <td>${item.getCategoria() }</td>
 	                    </tr>
+		       
+					</c:forEach>
+		
 	                </tbody>
 	            </table>
 	        </div>
@@ -51,20 +65,20 @@
         	<jsp:include page="../includes/showMessage.jsp" />
                 
         	
-            <h3>Formulario creaci髇 pelicula</h3>
+            <h3>Formulario creaci贸n pelicula</h3>
             <form role="form" method="post" action="crear-pelicula">
             
               <div class="form-group">
-                <label for"exampleInputEmail1">T韙ulo</label>
-                <input name="titulo" type="text" class="form-control" id="titulo" placeholder="T韙ulo">
+                <label for"exampleInputEmail1">T铆tulo</label>
+                <input name="titulo" type="text" class="form-control" id="titulo" placeholder="T铆tulo">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Categor韆</label>
+                <label for"exampleInputEmail1">Categor铆a</label>
                 <select name="categoria" class="form-control">
-	                <option name="HORROR">HORROR</option>
-	                <option name="ROMANCE">ROMANCE</option>
-	                <option name="FANTASIA">FANTASIA</option>
-	                <option name="COMEDIA">COMEDIA</option>
+	                <option value="HORROR">HORROR</option>
+	                <option value="ROMANCE">ROMANCE</option>
+	                <option value="FANTASIA">FANTASIA</option>
+	                <option value="COMEDIA">COMEDIA</option>
                 </select>
               </div>
               <div class="form-group">
@@ -72,12 +86,12 @@
                 <input name="director" type="text" class="form-control" id="actores" placeholder="Director">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Calificaci髇</label>
-                <input name="calificacion" type="number" class="form-control" id="calificacion" placeholder="Calificaci髇">
+                <label for"exampleInputEmail1">Calificaci贸n</label>
+                <input name="calificacion" type="number" class="form-control" id="calificacion" placeholder="Calificaci贸n">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">Duraci髇</label>
-                <input name="duracion" type="number" class="form-control" id="duracion" placeholder="Duraci髇">
+                <label for"exampleInputEmail1">Duraci贸n</label>
+                <input name="duracion" type="number" class="form-control" id="duracion" placeholder="Duraci贸n">
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Pais</label>
@@ -92,7 +106,7 @@
                 <textarea class="form-control" name="sinopsis" id="" cols="30" rows="10"></textarea>
               </div>
               <div class="form-group">
-                <label for="exampleInputFile">Selecciona el tama駉 de tu imagen</label>
+                <label for="exampleInputFile">Selecciona el tama帽o de tu imagen</label>
                 <select name="imagen_principal" class="form-control">
 	                <option name="1200x600">1200x600</option>
 	                <option name="1250x625">1250x625</option>
@@ -100,7 +114,7 @@
 	                <option name="1100x550">1100x550</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary">Guardar pel韈ula</button>
+              <button type="submit" class="btn btn-primary">Guardar pel铆cula</button>
             </form>
         </div>
       </div>

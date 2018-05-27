@@ -48,9 +48,7 @@ public class ControllerEntrada extends ControllerInter {
 		Entrada E = new Entrada(id, null, null, null, null, null, null);
 		
 		return E.mostrarEntrada(id);
-	}
-	
-	
+	}	
 	
 	@Override
 	public List<Object> readAll(){
@@ -58,13 +56,9 @@ public class ControllerEntrada extends ControllerInter {
 		
 		return  E.mostrarTotalEntradas();
 		
-		
-		//zorita like that
+
 	}
-	
-	
-	
-	
+
 
 	@Override
 	public void modify(List<String> lista) {

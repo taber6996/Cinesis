@@ -1,10 +1,15 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*, java.io.*"%>
+<%@page import="org.apache.log4j.Logger,java.text.DecimalFormat"%>
 <jsp:include page="includes/header.jsp" />
       <!-- START THE FEATURETTES -->
 	<div class="container marketing">
     <hr class="featurette-divider">
 		<div class="row">
 			<div class="col-sm-3" style="margin-top-40px;">
-				<h4>Título de la película</h4>
+				<h4>TÃ­tulo de la pelÃ­cula</h4>
 				<img src="static/assets/img/avenge.jpg" width="100%"/>
 			</div>
 			<div class="col-sm-8 col-sm-offset-1" style="margin-top-40px;">
@@ -87,7 +92,7 @@
   
       if(URLactual === '?comprada=true'){
         swal({
-          title: "¡Entrada comprada!",
+          title: "Â¡Entrada comprada!",
           text: "Ha comprado correctamente la entrada",
           icon: "success",
         });

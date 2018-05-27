@@ -16,6 +16,7 @@ import com.cinesis.controller.ControllerInter;
 import com.cinesis.controller.ControllerParser;
 import com.cinesis.controller.ControllerPelicula;
 import com.cinesis.model.Pelicula;
+import com.cinesis.model.Sala;
 import com.sun.org.apache.xml.internal.security.utils.SignerOutputStream;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -38,8 +39,10 @@ public class CRUDPeliculasServlet extends Servlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-
-		setAllPeliculas(request);
+		
+		List<Pelicula> peliculas = setAllPeliculas(request);
+		
+		request.setAttribute("peliculas", peliculas);
 	
 		getServletContext().getRequestDispatcher("/privado/peliculas.jsp").forward(request, response);
 				
@@ -85,7 +88,9 @@ public class CRUDPeliculasServlet extends Servlet {
 			
 	        request.setAttribute("error", "Película creada");
 			
-	        setAllPeliculas(request);
+	        List<Pelicula> peliculas = setAllPeliculas(request);
+			
+			request.setAttribute("peliculas", peliculas);
 			
 	        getServletContext().getRequestDispatcher("/privado/peliculas.jsp").forward(request, response);
 	        
