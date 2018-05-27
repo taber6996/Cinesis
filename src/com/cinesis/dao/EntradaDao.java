@@ -118,6 +118,7 @@ public class EntradaDao {
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   		  }
+
 		return list;
 		
 	}
@@ -135,9 +136,10 @@ public class EntradaDao {
 		try {
 			lEntrada.add(String.valueOf(rs.getInt("id")));
 			lEntrada.add(String.valueOf(rs.getInt("sala_id")));
-			lEntrada.add(String.valueOf(rs.getInt("use_id")));
+			lEntrada.add(String.valueOf(rs.getInt("user_id")));
 			lEntrada.add(String.valueOf(rs.getInt("pelicula_id")));
 			lEntrada.add(String.valueOf(rs.getInt("precio")));
+			lEntrada.add(String.valueOf(rs.getInt("horario")));
 			lEntrada.add(String.valueOf(rs.getInt("numeroAsiento")));
 			
 			
@@ -148,8 +150,7 @@ public class EntradaDao {
 		return lEntrada;
 	}
 	
-	
-	
+
 }
 
 

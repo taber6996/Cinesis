@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Locale;
 
 import com.cinesis.model.Entrada;
-import com.cinesis.model.Sala;
 
 public class ControllerEntrada extends ControllerInter {
 
@@ -25,6 +24,7 @@ public class ControllerEntrada extends ControllerInter {
 	
 	}
 
+	
 	private Date stringToDate(String fecha){
 		DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
 		Date date = null;
