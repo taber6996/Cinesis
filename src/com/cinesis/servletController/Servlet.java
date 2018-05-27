@@ -25,7 +25,7 @@ public class Servlet extends HttpServlet {
 		
 		ControllerInter contr = parser.parse(listaEntradas);
 		
-		List<Entrada> entradas = contr.ReadALL();
+		List<Entrada> entradas = contr.readALL();
 		
 		request.setAttribute("entradas", entradas);
 	}
@@ -40,7 +40,7 @@ public class Servlet extends HttpServlet {
 		
 		ControllerInter contr = parser.parse(lista);
 		
-		List<Pelicula> peliculas = contr.ReadALL();
+		List<Pelicula> peliculas = contr.readAll();
 		
 		request.setAttribute("peliculas", peliculas);
 	}
@@ -55,9 +55,9 @@ public class Servlet extends HttpServlet {
 		
 		ControllerInter contr = parser.parse(lista);
 		
-		List<Trailer> trailers = contr.ReadALL();
+		List<Trailer> trailers = contr.readALL();
 		
-		request.setAttribute("peliculas", peliculas);
+		request.setAttribute("trailers", trailers);
 	}
 	
 	
@@ -71,7 +71,7 @@ public class Servlet extends HttpServlet {
 		
 		ControllerInter contrSala =  parserSala.parse(listaSalas);
 		
-		List<Sala> salas = contrSala.ReadALL();
+		List<Sala> salas = contrSala.readALL();
 		
 		request.setAttribute("salas", salas);
 	}
