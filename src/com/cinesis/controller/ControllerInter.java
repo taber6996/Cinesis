@@ -49,6 +49,10 @@ public class  ControllerInter {
 		
 		
 	}
+		public List<Object> ReadALLByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
