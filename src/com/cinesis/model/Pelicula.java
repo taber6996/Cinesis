@@ -138,19 +138,23 @@ public class Pelicula {
 	
 	public List<Pelicula> listadoPublicoPeliculas() {
 		PeliculaDao pD = new PeliculaDao();
-		List<List<String>> list = new ArrayList<List<String>>();
-		List<String> list2 =  new ArrayList<String>();
-		List<Pelicula> listPeli = new ArrayList<Pelicula>();
-		Iterator<List<String>> it = list.iterator();
-		Iterator<String> it2 = list2.iterator();
 		
+		List<List<String>> list = new ArrayList<List<String>>();
+		List<String> l2 = new ArrayList<String>();
+		List<Pelicula> listPeli = new ArrayList<Pelicula>();
 		list = pD.findAllPeliculas();
+		
+		Iterator<List<String>> it = list.iterator();
+		
 		for (int i = 0; i < list.size(); i++)
 		{
-			list2 = it.next();
+			
+			l2 = it.next();
+			Iterator<String> it2 = l2.iterator();
+			
 			Pelicula peliAux = new Pelicula(Integer.parseInt(it2.next()),it2.next(),it2.next(),
 					Integer.parseInt(it2.next()),it2.next(),it2.next(),it2.next(),Integer.parseInt(it2.next()),
-					stringToEnum(it2.next()),it2.next(),it2.next(),it2.next());
+					stringToEnum(it2.next()),it2.next(),stringToTimestamp(it2.next()),it2.next());
 			listPeli.add(peliAux); 
 		}
 		
