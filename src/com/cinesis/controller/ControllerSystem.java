@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.cinesis.model.CalidadSonidoEnum;
+import com.cinesis.model.Pelicula;
 import com.cinesis.model.Roles;
 import com.cinesis.model.SystemUser;
 
@@ -37,6 +38,7 @@ public class ControllerSystem extends ControllerInter{
 		SystemUser S = new SystemUser(null, null, null, null, null, null);
 		return S.mostrarTodosUsuarios();
 	}
+
 	public SystemUser readByName(String username)
 	{
 		SystemUser S = new SystemUser(null, null, null, username, null, null);

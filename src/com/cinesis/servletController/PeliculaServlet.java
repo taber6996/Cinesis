@@ -51,7 +51,7 @@ public class PeliculaServlet extends HttpServlet {
 		ControllerInter contr =	 parser.parse(listaPelicula);
 
 		Pelicula pelicula =  (Pelicula) contr.read(pelicula_id);
-System.out.println(pelicula.getIdPelicula());
+
 		request.setAttribute("pelicula", pelicula);
 		
 		getServletContext().getRequestDispatcher("/pelicula.jsp").forward(request, response);
