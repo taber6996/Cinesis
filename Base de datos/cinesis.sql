@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.8
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 18-05-2018 a las 15:09:38
--- Versión del servidor: 5.5.56-MariaDB
--- Versión de PHP: 7.1.14
+-- Servidor: localhost
+-- Tiempo de generación: 27-05-2018 a las 13:18:49
+-- Versión del servidor: 5.6.35
+-- Versión de PHP: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,7 +35,7 @@ CREATE TABLE `entrada` (
   `pelicula_id` int(11) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
   `numeroAsiento` varchar(5) DEFAULT NULL,
-  `horario` timestamp NULL DEFAULT NULL,
+  `horario` varchar(30) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -51,16 +51,16 @@ CREATE TABLE `peliculas` (
   `nombre` varchar(200) NOT NULL,
   `slug` varchar(200) NOT NULL,
   `duracion` int(11) DEFAULT NULL,
-  `imagen_principal` text,
+  `imagen_principal` longtext,
   `imagen_secundario` text,
   `sinopsis` text,
   `calificacion` int(11) DEFAULT NULL,
   `categoria` varchar(100) DEFAULT NULL,
   `pais` varchar(100) DEFAULT NULL,
-  `estreno` timestamp NULL DEFAULT NULL,
+  `estreno` varchar(50) DEFAULT NULL,
   `director` varchar(100) DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -167,13 +167,13 @@ ALTER TABLE `entrada`
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `trailers`
