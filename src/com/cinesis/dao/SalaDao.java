@@ -25,7 +25,9 @@ public class SalaDao extends AbstractSession{
    		  Conexion cnx = new Conexion();
    		   Connection conn = cnx.obtener();
    		  // Statement stmt = conn.createStatement();
-   		   String query = "INSERT INTO sala(num_filas,num_columnas,num_asientos_vip,num_asientos_minusvalidos,calidad_sonido,3d)  Values( '" + sala.getNumFilas() +" ',' "+ sala.getNumColumnas() +"',' "+ sala.getNumAsientosVIP()+" ',' "+ sala.getNumAsientosMinusvalidos() +" ','"+sala.getCalidadSonido()+" ',' "+ booleanToInt(sala.get_3D()) +"')";
+   		   String query = "INSERT INTO sala(num_filas,num_columnas,num_asientos_vip,num_asientos_minusvalidos,calidad_sonido,3d) Values('"+sala.getNumFilas()+"','"+sala.getNumColumnas()+"','"+sala.getNumAsientosVIP()+"','"+sala.getNumAsientosMinusvalidos()+"','"+sala.getCalidadSonido()+"','"+booleanToInt(sala.get_3D())+"')";
+   		
+   		   
    		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
    		   boolean b = preparedStmt.execute();
    		   System.out.println(b);
@@ -52,7 +54,7 @@ public class SalaDao extends AbstractSession{
 	   		  Conexion cnx = new Conexion();
 	   		   Connection conn = cnx.obtener();
 	   		  // Statement stmt = conn.createStatement();
-	   		   String query = "DELETE FROM sala  WHERE id = '" + sala_id + "'";
+	   		   String query = "DELETE FROM sala  WHERE id = '"+ sala_id +"'";
 	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
 	   		   boolean b = preparedStmt.execute();
 	   		   System.out.println(b);
@@ -75,7 +77,7 @@ public class SalaDao extends AbstractSession{
 	   		  Conexion cnx = new Conexion();
 	   		   Connection conn = cnx.obtener();
 	   		  // Statement stmt = conn.createStatement();
-	   		   String query = "UPDATE sala S SET S.id = '"+ sala.getIdSala() +"', S.num_filas ='" + sala.getNumFilas() +" ', S.num_columnas =' "+ sala.getNumColumnas() +"', S.num_asientos_vip =' "+ sala.getNumAsientosVIP()+" ', S.num_asientos_minusvalidos =' "+ sala.getNumAsientosMinusvalidos() +" ', S.calidad_sonido =  ' "+ sala.getCalidadSonido() +" ',S.3d =' "+ booleanToInt(sala.get_3D()) +"' ";
+	   		   String query = "UPDATE sala S SET S.id ='"+sala.getIdSala()+"',S.num_filas='"+sala.getNumFilas()+"',S.num_columnas ='"+sala.getNumColumnas()+"',S.num_asientos_vip ='"+sala.getNumAsientosVIP()+"',S.num_asientos_minusvalidos ='"+sala.getNumAsientosMinusvalidos()+"',S.calidad_sonido = '"+sala.getCalidadSonido()+"',S.3d ='"+booleanToInt(sala.get_3D())+"'";
 	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
 	   		   boolean b = preparedStmt.execute();
 	   		   System.out.println(b);
@@ -131,7 +133,7 @@ public class SalaDao extends AbstractSession{
   		  Conexion cnx = new Conexion();
   		   Connection conn = cnx.obtener();
   		   //Statement stmt = conn.createStatement();
-  		   String query = "SELECT * From sala S Where S.id = '" + sala_id + "'";
+  		   String query = "SELECT * From sala S Where S.id = '"+sala_id+"'";
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
   		   
