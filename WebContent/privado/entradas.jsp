@@ -1,3 +1,8 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*, java.io.*"%>
+<%@page import="org.apache.log4j.Logger,java.text.DecimalFormat"%>
 <jsp:include page="../includes/header-privado.jsp" />
 
     <!-- Marketing messaging and featurettes
@@ -14,38 +19,30 @@
             <div class="table-responsive">
 	            <table id="myTable" class="table table-striped table-bordered table-hover" style="margin-bottom:30px;">
 	                <thead>
-	                    <tr>
+	                	<tr>
+	                    	<th>ID</th>
+	                    	<th>Usuario</th>
+	                    	<th>Sala</th>
+	                    	<th>Película</th>
+	                    	<th>Precio</th>
+	                    	<th>Número de asiento</th>
 	                        <th>Horario</th>
-	                        <th>Película</th>
-	                        <th>Estado</th>
-	                        <th>Precio</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr>
-	                        <td>10</td>
-	                        <td>Vengadores</td>
-	                        <td>Libre</td>
-	                        <td>10€</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10</td>
-	                        <td>Vengadores</td>
-	                        <td>Libre</td>
-	                        <td>10€</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10</td>
-	                        <td>Vengadores</td>
-	                        <td>Libre</td>
-	                        <td>10€</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10</td>
-	                        <td>Vengadores</td>
-	                        <td>Libre</td>
-	                        <td>10€</td>
-	                    </tr>
+	                    
+	                        <c:forEach items="${entradas}" var="item">
+	                        	<tr>
+			                       <td>${item.getIdEntrada() }</td>
+			                       <td>${item.getIdUsuario() }</td>
+			                       <td>${item.getIdSala() }</td>
+			                       <td>${item.getIdPelicula() }</td>
+			                       <td>${item.getPrecio() }</td>
+			                       <td>${item.getNumeroAsiento() }</td>
+			                       <td>${item.getHorario() }</td>
+			                    </tr>
+			                </c:forEach>
+	                    
 	                </tbody>
 	            </table>
 	           </div>
@@ -53,31 +50,23 @@
         <div class="col-sm-4">
         	<jsp:include page="../includes/showMessage.jsp" />
  
-            <h3>Formulario creaci�n entrada</h3>
+            <h3>Formulario creación entrada</h3>
             <form role="form" method="post" action="entradas">
-            
+            	<input type="hidden" name="user" value="NULL">
               <div class="form-group">
                 <label for"exampleInputEmail1">Sala id</label>
-                <select name=sala_id class="form-control">
-	                <option value="1">1</option>
-	                <option value="2">2</option>
-	                <option value="3">3</option>
-	                <option value="4">4</option>
+                <select name="sala_id" class="form-control">
+	                <c:forEach items="${salas}" var="item">
+	                	<option value="${item.getIdSala()}">${item.getIdSala() }</option>
+	                </c:forEach>
                 </select>
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">User Id</label>
-                <select name="user_id" class="form-control">
-	                <option value="1">1</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for"exampleInputEmail1">Pel�cula id</label>
+                <label for"exampleInputEmail1">Película id</label>
                 <select name="pelicula_id" class="form-control">
-	                <option value="3">3</option>
-	                <option value="4">4</option>
-	                <option value="5">5</option>
-	                <option value="6">6</option>
+	                <c:forEach items="${peliculas}" var="item">
+	                	<option value="${item.getIdPelicula()}">${item.getNomPelicula() }</option>
+	                </c:forEach>
                 </select>
               </div>
               <div class="form-group">
@@ -85,8 +74,8 @@
                 <input name="precio" type="text" class="form-control" id="precio" placeholder=Precio">
               </div>
               <div class="form-group">
-                <label for"exampleInputEmail1">N�mero Asiento</label>
-                <input name="numeroAsiento" type="text" class="form-control" id="numeroAsiento" placeholder="Número Asiento">
+                <label for"exampleInputEmail1">Número Asiento</label>
+                <input name="numeroAsiento" type="text" class="form-control" id="numeroAsiento" placeholder="NÃºmero Asiento">
               </div>
               <div class="form-group">
                 <label for"exampleInputEmail1">Horario</label>

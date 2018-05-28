@@ -9,6 +9,7 @@ import java.util.Set;
 
 import com.cinesis.dao.EntradaDao;
 //import java.util.Date;
+import com.cinesis.dao.PeliculaDao;
 
 
 public class Entrada {
@@ -66,6 +67,7 @@ public class Entrada {
 	}
 
 	public Entrada mostrarEntrada(Integer idEntrada) {
+
 		 EntradaDao eD= new EntradaDao();
 		 List<String> lEntrada = new ArrayList<String>();
 		 lEntrada = eD.findById(idEntrada);
@@ -79,6 +81,7 @@ public class Entrada {
 	}
 	
 	public List<Object> mostrarTotalEntradas(){
+		
 		 EntradaDao eD= new EntradaDao();
 		 
 		 List<List<String>> list = new ArrayList<List<String>>();
@@ -91,7 +94,7 @@ public class Entrada {
 			
 			for (int i = 0; i < list.size(); i++)
 			{
-				
+
 				l2 = it.next();
 				Iterator<String> it2 = l2.iterator();
 				
@@ -102,11 +105,10 @@ public class Entrada {
 				 
 				listEntrada.add(entradaAux); 
 			}
-		
+			
 		 return listEntrada;
 	}
-	
-	
+
 	
 	
 	public void modificarEntrada() {

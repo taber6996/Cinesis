@@ -45,11 +45,11 @@ public class CRUDEntradasServlet extends Servlet  {
 		List<Sala> salas = setAllSalas(request);
 		List<Pelicula> peliculas = setAllPeliculas(request);
 		List<Entrada> entradas = setAllEntradas(request);
-		
+
 		request.setAttribute("salas", salas);
 		request.setAttribute("peliculas", peliculas);
 		request.setAttribute("entradas", entradas);
-
+System.out.println(entradas);
 		getServletContext().getRequestDispatcher("/privado/entradas.jsp").forward(request, response);
 				
 	}
@@ -75,10 +75,10 @@ public class CRUDEntradasServlet extends Servlet  {
 			
 			listaEntrada.add(request.getParameter("horario"));
 			
-			System.out.println(listaEntrada);
+			
 			
 			ControllerParser parser = new ControllerParser();	
-			
+	
 			ControllerInter contr =	 parser.parse(listaEntrada);
 
 			contr.insert(listaEntrada);
@@ -89,7 +89,7 @@ public class CRUDEntradasServlet extends Servlet  {
 	        List<Sala> salas = setAllSalas(request);
 			List<Pelicula> peliculas = setAllPeliculas(request);
 			List<Entrada> entradas = setAllEntradas(request);
-			
+
 			request.setAttribute("salas", salas);
 			request.setAttribute("peliculas", peliculas);
 			request.setAttribute("entradas", entradas);
