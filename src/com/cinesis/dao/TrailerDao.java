@@ -13,6 +13,9 @@ import com.cinesis.servicios.Conexion;
 
 public class TrailerDao extends AbstractSession {
 	
+	private Observador OBSERVABLE;
+	private Observable s;
+	
 	public void saveTrailer(Trailer trailer){
 		try { 
   		  Conexion cnx = new Conexion();
@@ -28,6 +31,12 @@ public class TrailerDao extends AbstractSession {
   			  System.out.println("nop" + e);
   			  
   		  }
+		   OBSERVABLE = new Observador();
+   		    s = new Observable();
+   		    
+   		   synchronized (OBSERVABLE){
+   			   OBSERVABLE.insert(s, this);		   
+   		   }
 	}
 	
 	public void deleteTrailerById(Integer trailer_id){
@@ -78,6 +87,12 @@ public class TrailerDao extends AbstractSession {
      } catch (Exception e) {
      	System.out.println("Error en la obtencion del codigo: ");
      }
+		   OBSERVABLE = new Observador();
+   		    s = new Observable();
+   		    
+   		   synchronized (OBSERVABLE){
+   			   OBSERVABLE.update(s, this);		   
+   		   }
     /* try {
      	//rs.close();
      	//pStatement.close();

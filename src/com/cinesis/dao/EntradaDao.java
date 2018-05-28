@@ -16,6 +16,9 @@ import com.cinesis.servicios.Conexion;
 
 public class EntradaDao {
 	
+	private Observador OBSERVABLE;
+	private Observable s;
+	
 	public void saveEntrada(Entrada entrada){
 		try { 
 	   		  Conexion cnx = new Conexion();
@@ -32,6 +35,13 @@ public class EntradaDao {
 	   			  System.out.println("nop" + e);
 	   			  
 	   		  }
+		OBSERVABLE = new Observador();
+	   		    s = new Observable();
+	   		    
+	   		   synchronized (OBSERVABLE){
+	   			   OBSERVABLE.insert(s, this);   
+	   		   }
+	   		   
 	}
 	
 	public void deleteEntradaById(Integer entrada_id){
@@ -70,6 +80,13 @@ public class EntradaDao {
 	   			  System.out.println("nop" + e);
 	   			  
 	   		  }
+		OBSERVABLE = new Observador();
+	   		    s = new Observable();
+	   		    
+	   		   synchronized (OBSERVABLE){
+	   			   OBSERVABLE.update(s, this);		   
+	   		   }
+	   		   
 	}
 	
 	public void compraEntrada(Entrada entrada){
@@ -88,6 +105,7 @@ public class EntradaDao {
 	   			  System.out.println("nop" + e);
 	   			  
 	   		  }
+		
 	}
 	
 	

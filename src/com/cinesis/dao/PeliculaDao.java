@@ -9,7 +9,8 @@ import com.cinesis.servicios.Conexion;
 
 public class PeliculaDao extends AbstractSession{
 
-
+	private Observador OBSERVABLE;
+	private Observable s;
 	
     public void createPelicula(Pelicula peli){
     	  try { 
@@ -28,6 +29,12 @@ public class PeliculaDao extends AbstractSession{
     			  System.out.println("nop" + e);
     			  
     		  }
+	       OBSERVABLE = new Observador();
+   		    s = new Observable();
+   		    
+   		   synchronized (OBSERVABLE){
+   			   OBSERVABLE.insert(s, this);		   
+   		   }
     } 
 
 	
@@ -70,6 +77,12 @@ public class PeliculaDao extends AbstractSession{
   			  System.out.println("nop" + e);
   			  
   		  }
+		   OBSERVABLE = new Observador();
+   		    s = new Observable();
+   		    
+   		   synchronized (OBSERVABLE){
+   			   OBSERVABLE.update(s, this);		   
+   		   }
 		
 	}
 	
