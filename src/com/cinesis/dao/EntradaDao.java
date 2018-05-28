@@ -21,7 +21,7 @@ public class EntradaDao {
 	   		  Conexion cnx = new Conexion();
 	   		   Connection conn = cnx.obtener();
 	   		  // Statement stmt = conn.createStatement();
-	   		   String query = "INSERT INTO entrada(sala_id,user_id,pelicula_id,precio,numeroAsiento,horario)  Values('"+entrada.getIdSala()+"','"+entrada.getIdUsuario()+"','"+entrada.getIdPelicula()+"','"+entrada.getPrecio()+"','"+entrada.getNumeroAsiento()+"','"+entrada.getHorario()+"')";
+	   		   String query = "INSERT INTO entrada(sala_id,user_id,pelicula_id,precio,numeroAsiento,horario)  Values('"+entrada.getIdSala()+"', NULL,'"+entrada.getIdPelicula()+"','"+entrada.getPrecio()+"','"+entrada.getNumeroAsiento()+"','"+entrada.getHorario()+"')";
 	   			   		   
 	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
 	   		   boolean b = preparedStmt.execute();
@@ -70,8 +70,24 @@ public class EntradaDao {
 	   			  System.out.println("nop" + e);
 	   			  
 	   		  }
-			
+	}
+	
+	public void compraEntrada(Entrada entrada){
 		
+		 try { 
+	   		  Conexion cnx = new Conexion();
+	   		   Connection conn = cnx.obtener();
+	   		  // Statement stmt = conn.createStatement();
+	   		   String query = "UPDATE entrada E SET E.user_id =' "+ entrada.getIdUsuario() +"' WHERE `entrada`.`id` = " + entrada.getIdEntrada() + ";";
+	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+	   		   boolean b = preparedStmt.execute();
+	   		   System.out.println(b);
+	   		   //stmt.close();
+	   		   //conn.close();
+	   		  }catch(ClassNotFoundException | SQLException e) {
+	   			  System.out.println("nop" + e);
+	   			  
+	   		  }
 	}
 	
 	
@@ -97,6 +113,37 @@ public class EntradaDao {
 		
 		 
 	}
+	
+	
+	
+	
+	public List<List<String>> findByIdPelicula(Integer pelicula_id){
+		
+		ResultSet rs = null;
+		
+		List<List<String>> list = new ArrayList<List<String>>();
+		try { 
+  		  Conexion cnx = new Conexion();
+  		   Connection conn = cnx.obtener();
+  		 
+  		   String query = "SELECT * From entrada Where E.pelicula_id = '"+pelicula_id+"'";
+  		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+  		   rs = preparedStmt.executeQuery();
+  		   while(rs.next())
+  		   {
+  			 list.add(setDatosQuery(rs));
+  		
+  		   }
+  		
+  		  }catch(ClassNotFoundException | SQLException e) {
+  			  System.out.println("nop" + e);
+  		  }
+
+		return list;
+		
+		 
+	}
+	
 	
 	public List<List<String>> findAllEntradas(){
 		ResultSet rs = null;

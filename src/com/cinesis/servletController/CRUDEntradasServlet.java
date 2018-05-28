@@ -49,7 +49,8 @@ public class CRUDEntradasServlet extends Servlet  {
 		request.setAttribute("salas", salas);
 		request.setAttribute("peliculas", peliculas);
 		request.setAttribute("entradas", entradas);
-System.out.println(entradas);
+
+
 		getServletContext().getRequestDispatcher("/privado/entradas.jsp").forward(request, response);
 				
 	}
@@ -64,8 +65,6 @@ System.out.println(entradas);
 			listaEntrada.add("ContEntrada");
 			// nombre
 			listaEntrada.add(request.getParameter("sala_id"));
-			// Slug
-			listaEntrada.add(request.getParameter("user_id"));
 			// Duración
 			listaEntrada.add(request.getParameter("pelicula_id"));
 			
@@ -75,13 +74,11 @@ System.out.println(entradas);
 			
 			listaEntrada.add(request.getParameter("horario"));
 			
-			
-			
 			ControllerParser parser = new ControllerParser();	
 	
 			ControllerInter contr =	 parser.parse(listaEntrada);
 
-			contr.insert(listaEntrada);
+			contr.crearEntrada(listaEntrada);
 			
 			// Devolvemos a la vista Entrada
 	        request.setAttribute("error", "Entrada creada");
@@ -93,12 +90,10 @@ System.out.println(entradas);
 			request.setAttribute("salas", salas);
 			request.setAttribute("peliculas", peliculas);
 			request.setAttribute("entradas", entradas);
+			
+			System.out.println("retorna");
 		
 			getServletContext().getRequestDispatcher("/privado/entradas.jsp").forward(request, response);
-			
-		
-	        getServletContext().getRequestDispatcher("/privado/entrada.jsp").forward(request, response);
-	        
 	}
 	
 	

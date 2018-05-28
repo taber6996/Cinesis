@@ -5,7 +5,7 @@
       <hr class="featurette-divider">
       <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
-          <h2>${pelicula.getNomPelicula() } <a href="comprar_entradas.jsp" type="button" class="btn btn-primary pull-right">Comprar entradas</a></h2>
+          <h2>${pelicula.getNomPelicula() } <a href="comprar-entrada?pelicula_id=${pelicula.getIdPelicula() }" type="button" class="btn btn-primary pull-right">Comprar entradas</a></h2>
           
           <img src="${pelicula.getUrlImagenPrincipal() }" width="100%"/>
 

@@ -53,18 +53,32 @@ public class Entrada {
 
 	}
 
-	public void compraEntrada(Integer idSala, Integer idUsuario,Integer idPelicula, Integer precio, Integer numeroAsiento,
+	public void compraEntrada(Integer idEntrada, Integer idSala, Integer idUsuario,Integer idPelicula, Integer precio, Integer numeroAsiento,
 			String horario) {
 		
 		//System.out.println("  idsala: "+ idSala +"   id usuario:  "+idUsuario + "   idpeli: "+ idPelicula+ "   precio: "+ precio+"   numeroAsiento:  "+ numeroAsiento + "     horario:" + horario);
 		
-		Entrada E = new Entrada(null, idSala, idUsuario,  idPelicula,  precio ,  numeroAsiento,
-				 horario);
+		Entrada E = new Entrada(idEntrada, null, idUsuario, null,  null,  null , null);
+		
+		EntradaDao eD = new EntradaDao();
+		eD.updateEntrada(E);
+	
+	}
+	
+	
+	public void crearEntrada(Integer idSala,Integer idPelicula, Integer precio, Integer numeroAsiento,
+			String horario) {
+		
+		//System.out.println("  idsala: "+ idSala +"   id usuario:  "+idUsuario + "   idpeli: "+ idPelicula+ "   precio: "+ precio+"   numeroAsiento:  "+ numeroAsiento + "     horario:" + horario);
+		
+		Entrada E = new Entrada(null, idSala, null,  idPelicula,  precio ,  numeroAsiento, horario);
 		
 		EntradaDao eD = new EntradaDao();
 		eD.saveEntrada(E);
 	
 	}
+	
+	
 
 	public Entrada mostrarEntrada(Integer idEntrada) {
 
@@ -78,6 +92,36 @@ public class Entrada {
 					Integer.parseInt(it.next()),it.next());
 		 
 		return e;
+	}
+	
+	
+	public List<Object> mostrarEntradaByPelicula(Integer idPelicula) {
+
+		EntradaDao eD= new EntradaDao();
+		 
+		 List<List<String>> list = new ArrayList<List<String>>();
+			List<String> l2 =  new ArrayList<String>();
+			List<Object> listEntrada = new ArrayList<Object>();
+			
+			list = eD.findByIdPelicula(idPelicula);
+			
+			Iterator<List<String>> it = list.iterator();
+			
+			for (int i = 0; i < list.size(); i++)
+			{
+
+				l2 = it.next();
+				Iterator<String> it2 = l2.iterator();
+				
+				Entrada entradaAux = new Entrada(Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),
+						Integer.parseInt(it2.next()), Integer.parseInt(it2.next()),Integer.parseInt(it2.next()),
+						Integer.parseInt(it2.next()),it2.next());
+				 
+				 
+				listEntrada.add(entradaAux); 
+			}
+			
+		 return listEntrada;
 	}
 	
 	public List<Object> mostrarTotalEntradas(){
