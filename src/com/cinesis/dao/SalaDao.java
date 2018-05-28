@@ -17,7 +17,8 @@ import com.cinesis.servicios.Conexion;
 
 public class SalaDao extends AbstractSession{
 	
-	
+		private Observador OBSERVABLE;
+	private Observable s;
 
 	public void saveSala(Sala sala){
 		
@@ -37,6 +38,13 @@ public class SalaDao extends AbstractSession{
    			  System.out.println("nop" + e);
    			  
    		  }
+		OBSERVABLE = new Observador();
+	   		    s = new Observable();
+	   		    
+	   		   synchronized (OBSERVABLE){
+	   			   OBSERVABLE.insert(s, this);		   
+	   		   }
+	   		   
 		
 		
 	}
@@ -87,6 +95,13 @@ public class SalaDao extends AbstractSession{
 	   			  System.out.println("nop" + e);
 	   			  
 	   		  }
+		OBSERVABLE = new Observador();
+	   		    s = new Observable();
+	   		    
+	   		   synchronized (OBSERVABLE){
+	   			   OBSERVABLE.update(s, this);		   
+	   		   }
+	   		   
 			}
 	        
 	        
