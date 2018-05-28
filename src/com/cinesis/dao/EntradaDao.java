@@ -78,7 +78,7 @@ public class EntradaDao {
 	   		  Conexion cnx = new Conexion();
 	   		   Connection conn = cnx.obtener();
 	   		  // Statement stmt = conn.createStatement();
-	   		   String query = "UPDATE entrada E SET E.user_id =' "+ entrada.getIdUsuario() +"' WHERE `entrada`.`id` = " + entrada.getIdEntrada() + ";";
+	   		   String query = "UPDATE entrada E SET E.user_id =' "+ entrada.getIdUsuario() +"' WHERE `E`.`id` = " + entrada.getIdEntrada() + ";";
 	   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
 	   		   boolean b = preparedStmt.execute();
 	   		   System.out.println(b);
@@ -101,7 +101,7 @@ public class EntradaDao {
   		   String query = "SELECT * From entrada E Where E.id = '"+entrada_id+"'";
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
-  		 rs.next();
+  		   rs.next();
   		 List<String> E = setDatosQuery(rs);
   		   return E;
   		   
@@ -126,7 +126,8 @@ public class EntradaDao {
   		  Conexion cnx = new Conexion();
   		   Connection conn = cnx.obtener();
   		 
-  		   String query = "SELECT * From entrada Where E.pelicula_id = '"+pelicula_id+"'";
+  		   String query = "SELECT * From entrada Where `user_id` IS NULL AND `pelicula_id` = '"+pelicula_id+"'";
+
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
   		   rs = preparedStmt.executeQuery();
   		   while(rs.next())

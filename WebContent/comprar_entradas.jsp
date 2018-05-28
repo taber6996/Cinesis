@@ -16,12 +16,16 @@
 				<div class="row">
 					<div class="col-sm-12">
             <div class="pantalla">PANTALLA</div>
-            <select name="entrada_id">
-            	<c:forEach items="${entradas}" var="item">
-	                <option name="">Precio: ${item.getPrecio() } - Horario: ${item.getHorario() } - Asiento: ${item.getNumeroAsiento() }</option>
-				</c:forEach>
-            	
-            </select>
+            <jsp:include page="includes/showMessage.jsp" />
+            <form role="form" method="post" action="comprar-entrada" style="margin-bottom:20px;">
+            	<input type="hidden" name="pelicula_id" value="${pelicula.getIdPelicula() }">
+	            <select name="entrada_id">
+	            	<c:forEach items="${entradas}" var="item">
+		                <option value="${item.getIdEntrada() }">Precio: ${item.getPrecio() } - Horario: ${item.getHorario() } - Asiento: ${item.getNumeroAsiento() }</option>
+					</c:forEach>	
+	            </select>
+            	<button type="submit" class="btn btn-primary">Comprar entrada</button>
+			</form>
             <div class="table-responsive"></div>
             <table class="table table-bordered">
                 <thead> 
