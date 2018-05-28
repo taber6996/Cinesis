@@ -30,11 +30,11 @@ public class Observador implements Observer {
 			EntradaDao e = new EntradaDao();
 			Entrada ent =  (Entrada) e.findById(p.getIdPelicula());
 			e.updateEntrada(ent);
-			
+
 			
 			TrailerDao t = new TrailerDao();
 			Trailer trl = (Trailer) t.findById(p.getIdPelicula());
-			t.modificarTrailer(trl);
+			t.updateTrailer(trl);
 		}
 		else if(arg1 instanceof SalaDao)
 		{
