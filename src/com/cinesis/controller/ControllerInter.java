@@ -3,6 +3,8 @@ package com.cinesis.controller;
 import java.lang.reflect.Array;
 import java.util.List;
 
+import com.cinesis.model.Entrada;
+
 public class  ControllerInter {
 	
 	//private List<String> lista;
@@ -20,8 +22,6 @@ public class  ControllerInter {
 	
 	public Object read(Integer id){
 		return null;
-		
-		
 		
 	}
 	
@@ -53,9 +53,17 @@ public class  ControllerInter {
 		// TODO Auto-generated method stub
 		return null;
 	}
+		
+		
+	public void crearEntrada(List<String> lista){
+		
+	}
 	
 	
+	public List<Object> readByPelicula(Integer id) {
 
+		return null;
+	}
 
 	
 	

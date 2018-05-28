@@ -9,13 +9,19 @@
     <hr class="featurette-divider">
 		<div class="row">
 			<div class="col-sm-3" style="margin-top-40px;">
-				<h4>Título de la película</h4>
-				<img src="static/assets/img/avenge.jpg" width="100%"/>
+				<h4>${pelicula.getNomPelicula() }</h4>
+				<img src="${pelicula.getUrlImagenPrincipal() }" width="100%"/>
 			</div>
 			<div class="col-sm-8 col-sm-offset-1" style="margin-top-40px;">
 				<div class="row">
 					<div class="col-sm-12">
             <div class="pantalla">PANTALLA</div>
+            <select name="entrada_id">
+            	<c:forEach items="${entradas}" var="item">
+	                <option name="">Precio: ${item.getPrecio() } - Horario: ${item.getHorario() } - Asiento: ${item.getNumeroAsiento() }</option>
+				</c:forEach>
+            	
+            </select>
             <div class="table-responsive"></div>
             <table class="table table-bordered">
                 <thead> 
@@ -28,15 +34,6 @@
                     <th>6</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td><i class="fas fa-wheelchair"></i></td>
-                        <td><i class="fas fa-wheelchair"></i></td>
-                        <td><i class="fas fa-wheelchair"></i></td>
-                        <td><i class="fas fa-wheelchair"></i></td>
-                        <td><i class="fas fa-wheelchair"></i></td>
-                        <td><i class="fas fa-wheelchair"></i></td>
-                    </tr>
                     <tr>
                         <th>2</th>
                         <td><a href="?comprada=false"><i class="fas fa-times"></i></a></td>

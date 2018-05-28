@@ -19,7 +19,16 @@ public class ControllerEntrada extends ControllerInter {
 		Iterator<String> it = lista.iterator();
 		it.next();
 		Entrada E = new Entrada();
-		E.compraEntrada(Integer.parseInt(it.next()),Integer.parseInt(it.next()),
+		E.compraEntrada(Integer.parseInt(it.next()), null, Integer.parseInt(it.next()), null, null, null, null);
+		
+	}
+	
+	
+	public void crearEntrada(List<String> lista) {
+		Iterator<String> it = lista.iterator();
+		it.next();
+		Entrada E = new Entrada();
+		E.crearEntrada(Integer.parseInt(it.next()),
 				Integer.parseInt(it.next()), Integer.parseInt(it.next()),Integer.parseInt(it.next()),it.next());
 	
 	}
@@ -48,7 +57,13 @@ public class ControllerEntrada extends ControllerInter {
 		Entrada E = new Entrada(id, null, null, null, null, null, null);
 		
 		return E.mostrarEntrada(id);
-	}	
+	}
+	
+	public List<Object> readByPelicula(Integer id) {
+		Entrada E = new Entrada(null, null, null, id, null, null, null);
+		
+		return E.mostrarEntradaByPelicula(id);
+	}
 	
 	@Override
 	public List<Object> readAll(){
