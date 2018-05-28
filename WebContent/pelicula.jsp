@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-12" style="margin-top:40px;">
           <p>${pelicula.getSinopsis() }</p>
-          <a href="index.jsp" type="button" class="btn btn-primary pull-right">Volver</a>
+          <a href="index" type="button" class="btn btn-primary pull-right">Volver</a>
         </div>
       </div>
 

@@ -3,8 +3,10 @@ package com.cinesis.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import com.cinesis.model.Pelicula;
+import com.cinesis.observer.Observador;
 import com.cinesis.servicios.Conexion;
 
 public class PeliculaDao extends AbstractSession{
