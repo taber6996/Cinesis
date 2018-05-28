@@ -56,12 +56,11 @@ public class Entrada {
 	public void compraEntrada(Integer idEntrada, Integer idSala, Integer idUsuario,Integer idPelicula, Integer precio, Integer numeroAsiento,
 			String horario) {
 		
-		//System.out.println("  idsala: "+ idSala +"   id usuario:  "+idUsuario + "   idpeli: "+ idPelicula+ "   precio: "+ precio+"   numeroAsiento:  "+ numeroAsiento + "     horario:" + horario);
+		//System.out.println("  idEntrada: "+ idEntrada +"   id usuario:  "+idUsuario + "   idpeli: "+ idPelicula+ "   precio: "+ precio+"   numeroAsiento:  "+ numeroAsiento + "     horario:" + horario);
 		
-		Entrada E = new Entrada(idEntrada, null, idUsuario, null,  null,  null , null);
-		
+		Entrada E = new Entrada(idEntrada, null, idUsuario, null, null, null , null);
 		EntradaDao eD = new EntradaDao();
-		eD.updateEntrada(E);
+		eD.compraEntrada(E);
 	
 	}
 	
